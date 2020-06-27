@@ -29,6 +29,7 @@ const routes: Routes = [
   {
     path: 'auth',
   },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
 ];
 
 @NgModule({
