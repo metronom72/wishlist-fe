@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,12 @@ export class HeaderComponent implements OnInit {
 
   public isSearchOpened: boolean = false;
 
+  public activeMenuItem: number | null = null;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public categoriesService :CategoriesService
   ) {}
 
   onOpenMenu = () => {
@@ -33,8 +37,13 @@ export class HeaderComponent implements OnInit {
   onClose = () => {
     this.isOpened = false;
     this.isSearchOpened = false;
+    this.activeMenuItem = null;
     this.renderer.removeClass(document.body, 'modal-opened');
   };
+
+  onActivateMenu = (id: number) => {
+    this.activeMenuItem = id
+  }
 
   ngOnInit(): void {
     this.breakpointObserver

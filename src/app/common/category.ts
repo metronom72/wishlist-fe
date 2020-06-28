@@ -1,6 +1,6 @@
 export interface ICategory {
-  id: string;
+  id: number;
+  parentId: number | null
   title: string;
   order: number;
-  subcategories: ICategory[];
 }

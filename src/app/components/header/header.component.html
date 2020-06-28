@@ -57,10 +57,22 @@
     </div>
   </div>
 </header>
-<nav *ngIf="!isMobile">
-  desktop categories
+<nav class="subheader" *ngIf="!isMobile">
+  <ul
+  fxLayout="row"
+  fxLayoutAlign="space-around center"
+  class="menu-items"
+  >
+    <li
+    fxLayout="row"
+    fxLayoutAlign="center center" class="menu-item" *ngFor="let category of categoriesService.rootCategories">
+      <a>
+        {{category.title}}
+      </a>
+    </li>
+  </ul>
   <div>
-    desktop subcategories
+    <!-- desktop subcategories -->
   </div>
 </nav>
 <div *ngIf="isMobile && isSearchOpened">

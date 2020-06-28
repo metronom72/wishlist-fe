@@ -8,5 +8,9 @@ import categories from './categories.json';
 export class CategoriesService {
   public categories: ICategory[] = categories;
 
+  public get rootCategories() {
+    return this.categories.filter((category: ICategory) => !category.parentId)
+  }
+
   constructor() {}
 }

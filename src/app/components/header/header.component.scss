@@ -47,3 +47,19 @@
     max-width: 140px;
   }
 }
+.subheader {
+  background-color: #2B2B2B;
+  color: white;
+}
+.menu-items {
+  font-size: 13px;
+  text-transform: uppercase;
+  height: 38px;
+}
+.menu-item {
+  height: 100%;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
