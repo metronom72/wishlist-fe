@@ -1,0 +1,25 @@
+@mixin buttonWithIcon ($iconWrapperColor: $color-light-gray, $iconBodyColor: $color-dark, $textColor: $color-light-gray){
+  display: flex;
+  height: 44px;
+  width: 188px;
+  cursor: pointer;
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 44px;
+    background-color: $iconWrapperColor;
+  }
+
+  .button-body {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: $iconBodyColor;
+    font-size: 0.87rem;
+    color: $textColor;
+  }
+}

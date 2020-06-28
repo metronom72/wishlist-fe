@@ -1,0 +1,41 @@
+<section class="product-wrapper">
+  <div class="product-body">
+    <div class="slider-wrapper">
+      <app-slider></app-slider>
+    </div>
+    <div class="content">
+      <section>
+        <h3 class="content__header">JUNGHANG</h3>
+        <p class="content__short-description">Max Bill Chronoscope 40mm Stainless Steel and Leather Watch</p>
+        <hr class="product-line">
+        <p class="content__description-header">DESCRIPTION</p>
+        <p class="content__description-text">{{ product.description }}</p>
+      </section>
+      <section>
+        <h2 class="price-actual">{{ product.priceActual }} ₽</h2>
+        <h3 class="price-old">{{ product.priceOld }} ₽</h3>
+      </section>
+      <section class="button-block">
+        <div class="button-with-icon">
+          <div class="icon-wrapper">
+            <img src="../../assets/icons/Bag.svg" class="icon"> 
+          </div>
+          <div class="button-body">В КОРЗИНУ</div>
+        </div>
+        <div class="button-with-icon-gray">
+          <div class="icon-wrapper">
+            <img src="../../assets/icons/Star.svg" class="icon"> 
+          </div>
+          <div class="button-body">В ВИШ ЛИСТ</div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="product__footer">
+    <section class="product__footer-options">
+      <div class="product__footer-option">PRODUCT CODE</div>
+      <div class="product__footer-option">VIEW MORE</div>
+      <div class="product__footer-option">CONTACT US</div>
+    </section>
+  </div>
+</section>

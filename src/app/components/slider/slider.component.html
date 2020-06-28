@@ -5,9 +5,11 @@
     </div>
     <div class="previews">
       <img src="../../assets/icons/Next.svg" class="previous" (click)="selectCurrent(false)"> 
-      <li *ngFor="let image of images"  class="preview">
-        <img [src]="image" />
-      </li>
+      <section class="preview-wrapper">
+        <li *ngFor="let image of images"  class="preview">
+          <img [src]="image" />
+        </li>
+      </section>
       <img src="../../assets/icons/Next.svg" class="next" (click)="selectCurrent(true)"> 
     </div>
   </div>
