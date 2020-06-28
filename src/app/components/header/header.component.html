@@ -65,6 +65,7 @@
       fxLayout="row"
       fxLayoutAlign="center center"
       class="menu-item"
+      [class.active-menu-item]="activeMenuItem === category.id"
       *ngFor="let category of categoriesService.rootCategories"
       (mouseenter)="onHoverCategory(category.id)"
     >

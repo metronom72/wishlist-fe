@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
   };
 
   onHoverCategory = (id: number | null) => {
-    console.log(id);
+    this.activeMenuItem = id;
     this.subcategories = this.categoriesService.findSubcategories(id);
   };
 
