@@ -9,8 +9,15 @@ export class CategoriesService {
   public categories: ICategory[] = categories;
 
   public get rootCategories() {
-    return this.categories.filter((category: ICategory) => !category.parentId)
+    return this.categories.filter((category: ICategory) => !category.parentId);
   }
+
+  public findSubcategories = (id: number | null) =>
+    id
+      ? this.categories.filter(
+          (category: ICategory) => category.parentId === id
+        )
+      : [];
 
   constructor() {}
 }

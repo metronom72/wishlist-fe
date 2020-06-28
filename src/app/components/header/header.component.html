@@ -7,14 +7,16 @@
   <div fxLayout="row" fxLayoutAlign="flex-start center">
     <div>
       <div
-        *ngIf="isMobile && !(isOpened && isSearchOpened)"
+        *ngIf="isMobile && !(isOpened || isSearchOpened)"
         class="icon mobile-burger"
+        (click)="onOpenMenu()"
       >
         <i><img src="assets/burger.svg" /></i>
       </div>
       <div
         *ngIf="isMobile && (isOpened || isSearchOpened)"
         class="icon mobile-burger"
+        (click)="onClose()"
       >
         <i><img src="assets/times.svg" /></i>
       </div>
@@ -57,22 +59,37 @@
     </div>
   </div>
 </header>
-<nav class="subheader" *ngIf="!isMobile">
-  <ul
-  fxLayout="row"
-  fxLayoutAlign="space-around center"
-  class="menu-items"
-  >
+<nav class="subheader" *ngIf="!isMobile" (mouseleave)="onHoverCategory(null)">
+  <ul fxLayout="row" fxLayoutAlign="space-around center" class="menu-items">
     <li
-    fxLayout="row"
-    fxLayoutAlign="center center" class="menu-item" *ngFor="let category of categoriesService.rootCategories">
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      class="menu-item"
+      *ngFor="let category of categoriesService.rootCategories"
+      (mouseenter)="onHoverCategory(category.id)"
+    >
       <a>
-        {{category.title}}
+        {{ category.title }}
       </a>
     </li>
   </ul>
-  <div>
-    <!-- desktop subcategories -->
+  <div *ngIf="subcategories.length > 0">
+    <ul
+      fxLayout="column"
+      fxLayoutAlign="flex-start flex-start"
+      class="submenu-items"
+    >
+      <li
+        fxLayout="row"
+        fxLayoutAlign="flex-start flex-start"
+        class="submenu-item"
+        *ngFor="let category of subcategories"
+      >
+        <a>
+          {{ category.title }}
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
 <div *ngIf="isMobile && isSearchOpened">
@@ -86,6 +103,4 @@
     mobile subcategories
   </div>
 </nav>
-<div *ngIf="isMobile && (isOpened || isSearchOpened)">
-  mobile overlay
-</div>
+<div class="overlay" *ngIf="isMobile && (isOpened || isSearchOpened)"></div>
