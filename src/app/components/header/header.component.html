@@ -1,0 +1,34 @@
+<div>
+  <div>
+    <div>
+      <div *ngIf="isMobile && (isOpened || isSearchOpened)"><i><img src="" /></i>mobile burger</div>
+      <div *ngIf="isMobile && !(isOpened && isSearchOpened)"><i><img src="" /></i>mobile times</div>
+    </div>
+    <div><img src="" />logo</div>
+  </div>
+  <div>
+    <div *ngIf="!isMobile"><input /><i><img src="" /></i>desktop search</div>
+    <div *ngIf="isMobile"><i><img src="" /></i>mobile search icon</div>
+    <div><i><img src="" /></i>account icon</div>
+    <div><i><img src="" /></i>wishlist icon</div>
+    <div><i><img src="" /></i>card icon</div>
+  </div>
+</div>
+<div *ngIf="!isMobile">
+  desktop categories
+  <div>
+    desktop subcategories
+  </div>
+</div>
+<div *ngIf="isMobile && isSearchOpened">
+  <div><input /><i><img src="" /></i>mobile search</div>
+</div>
+<div *ngIf="isMobile && isOpened">
+  mobile categories
+  <div>
+    mobile subcategories
+  </div>
+</div>
+<div *ngIf="isMobile && (isOpened || isSearchOpened)">
+  mobile overlay
+</div>

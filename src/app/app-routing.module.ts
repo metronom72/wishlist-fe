@@ -3,31 +3,31 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'products',
+    path: 'products', component: () => ''
   },
   {
-    path: 'products/pages/:id',
+    path: 'products/pages/:id', component: () => ''
   },
   {
-    path: 'products/:id',
+    path: 'products/:id', component: () => ''
   },
   {
-    path: 'card',
+    path: 'card', component: () => ''
   },
   {
-    path: 'wishlist',
+    path: 'wishlist', component: () => ''
   },
   {
-    path: 'orders',
+    path: 'orders', component: () => ''
   },
   {
-    path: 'orders/:id',
+    path: 'orders/:id', component: () => ''
   },
   {
-    path: 'me',
+    path: 'me', component: () => ''
   },
   {
-    path: 'auth',
+    path: 'auth', component: () => ''
   },
   { path: '', redirectTo: 'products', pathMatch: 'full' },
 ];
