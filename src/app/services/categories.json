@@ -1,0 +1,356 @@
+[
+  {
+    "title": "New Arrivals",
+    "order": 1,
+    "id": 1,
+    "parentId": ""
+  },
+  {
+    "title": "Brands",
+    "order": 2,
+    "id": 2,
+    "parentId": ""
+  },
+  {
+    "title": "Men's",
+    "order": 3,
+    "id": 3,
+    "parentId": ""
+  },
+  {
+    "title": "Women's",
+    "order": 4,
+    "id": 4,
+    "parentId": ""
+  },
+  {
+    "title": "Accessories",
+    "order": 5,
+    "id": 5,
+    "parentId": ""
+  },
+  {
+    "title": "Baselworld",
+    "order": 6,
+    "id": 6,
+    "parentId": ""
+  },
+  {
+    "title": "This Week",
+    "order": 1,
+    "id": 7,
+    "parentId": 1
+  },
+  {
+    "title": "Last Week",
+    "order": 2,
+    "id": 8,
+    "parentId": 1
+  },
+  {
+    "title": "Back In Stock",
+    "order": 3,
+    "id": 9,
+    "parentId": 1
+  },
+  {
+    "title": "Exclusives",
+    "order": 4,
+    "id": 10,
+    "parentId": 1
+  },
+  {
+    "title": "This Season’s Trends",
+    "order": 5,
+    "id": 11,
+    "parentId": 1
+  },
+  {
+    "title": "ALL LUXURY WATCHES",
+    "order": 1,
+    "id": 12,
+    "parentId": 2
+  },
+  {
+    "title": "LUXURY WATCH GUIDE",
+    "order": 2,
+    "id": 13,
+    "parentId": 2
+  },
+  {
+    "title": "Roger Dubuis",
+    "order": 3,
+    "id": 14,
+    "parentId": 2
+  },
+  {
+    "title": "Vacheron Constantin",
+    "order": 4,
+    "id": 15,
+    "parentId": 2
+  },
+  {
+    "title": "Jaeger-LeCoultre",
+    "order": 5,
+    "id": 16,
+    "parentId": 2
+  },
+  {
+    "title": "IWC Schaffhausen",
+    "order": 6,
+    "id": 17,
+    "parentId": 2
+  },
+  {
+    "title": "Zenith",
+    "order": 7,
+    "id": 18,
+    "parentId": 2
+  },
+  {
+    "title": "Maurice de Mauriac",
+    "order": 8,
+    "id": 19,
+    "parentId": 2
+  },
+  {
+    "title": "Ressence",
+    "order": 9,
+    "id": 20,
+    "parentId": 2
+  },
+  {
+    "title": "Bremont",
+    "order": 10,
+    "id": 21,
+    "parentId": 2
+  },
+  {
+    "title": "Officine Panerai",
+    "order": 11,
+    "id": 22,
+    "parentId": 2
+  },
+  {
+    "title": "Breitling",
+    "order": 12,
+    "id": 23,
+    "parentId": 2
+  },
+  {
+    "title": "Montblanc",
+    "order": 13,
+    "id": 24,
+    "parentId": 2
+  },
+  {
+    "title": "Cartier",
+    "order": 14,
+    "id": 25,
+    "parentId": 2
+  },
+  {
+    "title": "TAG Heuer",
+    "order": 15,
+    "id": 26,
+    "parentId": 2
+  },
+  {
+    "title": "Piaget",
+    "order": 16,
+    "id": 27,
+    "parentId": 2
+  },
+  {
+    "title": "Oris",
+    "order": 17,
+    "id": 28,
+    "parentId": 2
+  },
+  {
+    "title": "Bell & Ross",
+    "order": 18,
+    "id": 29,
+    "parentId": 2
+  },
+  {
+    "title": "NOMOS Glashütte",
+    "order": 19,
+    "id": 30,
+    "parentId": 2
+  },
+  {
+    "title": "Junghans",
+    "order": 20,
+    "id": 31,
+    "parentId": 2
+  },
+  {
+    "title": "Limited Editions",
+    "order": 1,
+    "id": 32,
+    "parentId": 3
+  },
+  {
+    "title": "Aviation Watches",
+    "order": 2,
+    "id": 33,
+    "parentId": 3
+  },
+  {
+    "title": "Chronograph Watches",
+    "order": 3,
+    "id": 34,
+    "parentId": 3
+  },
+  {
+    "title": "Diving Watches",
+    "order": 4,
+    "id": 35,
+    "parentId": 3
+  },
+  {
+    "title": "Dress Watches",
+    "order": 5,
+    "id": 36,
+    "parentId": 3
+  },
+  {
+    "title": "Smart Watches",
+    "order": 6,
+    "id": 37,
+    "parentId": 3
+  },
+  {
+    "title": "Sports Watches",
+    "order": 7,
+    "id": 38,
+    "parentId": 3
+  },
+  {
+    "title": "Limited Editions",
+    "order": 1,
+    "id": 39,
+    "parentId": 4
+  },
+  {
+    "title": "Diamond Watches",
+    "order": 2,
+    "id": 40,
+    "parentId": 4
+  },
+  {
+    "title": "Gold & Rose Gold Watches",
+    "order": 3,
+    "id": 41,
+    "parentId": 4
+  },
+  {
+    "title": "Tourbillon Watches",
+    "order": 4,
+    "id": 42,
+    "parentId": 4
+  },
+  {
+    "title": "Dress Watches",
+    "order": 5,
+    "id": 43,
+    "parentId": 4
+  },
+  {
+    "title": "Smart Watches",
+    "order": 6,
+    "id": 44,
+    "parentId": 4
+  },
+  {
+    "title": "Sports Watches",
+    "order": 7,
+    "id": 45,
+    "parentId": 4
+  },
+  {
+    "title": "Straps",
+    "order": 1,
+    "id": 46,
+    "parentId": 5
+  },
+  {
+    "title": "Portable Cases",
+    "order": 2,
+    "id": 47,
+    "parentId": 5
+  },
+  {
+    "title": "Watch Winders",
+    "order": 3,
+    "id": 48,
+    "parentId": 5
+  },
+  {
+    "title": "Buckles & Deployments",
+    "order": 4,
+    "id": 49,
+    "parentId": 5
+  },
+  {
+    "title": "Cases, Rolls and Pouches",
+    "order": 5,
+    "id": 50,
+    "parentId": 5
+  },
+  {
+    "title": "Tools",
+    "order": 6,
+    "id": 51,
+    "parentId": 5
+  },
+  {
+    "title": "The Show",
+    "order": 1,
+    "id": 52,
+    "parentId": 6
+  },
+  {
+    "title": "Exhibitors",
+    "order": 2,
+    "id": 53,
+    "parentId": 6
+  },
+  {
+    "title": "Showstoppers",
+    "order": 3,
+    "id": 54,
+    "parentId": 6
+  },
+  {
+    "title": "Baselworld Daily News",
+    "order": 4,
+    "id": 55,
+    "parentId": 6
+  },
+  {
+    "title": "Social Hub",
+    "order": 5,
+    "id": 56,
+    "parentId": 6
+  },
+  {
+    "title": "Stars at Baselworld",
+    "order": 6,
+    "id": 57,
+    "parentId": 6
+  },
+  {
+    "title": "Videos",
+    "order": 7,
+    "id": 58,
+    "parentId": 6
+  },
+  {
+    "title": "Interviews",
+    "order": 8,
+    "id": 59,
+    "parentId": 6
+  }
+]
