@@ -1,0 +1,39 @@
+@import '../../assets/scss/main.scss';
+
+.product-wrapper {
+  display: flex;
+
+  .price-actual {
+    text-decoration: line-through;
+  }
+
+  .button-with-icon {
+    display: flex;
+    height: 44px;
+    width: 188px;
+    cursor: pointer;
+
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      width: 44px;
+      background-color: $color-light-gray;
+    }
+
+    .button-body {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-dark;
+      font-size: 0.87rem;
+      color: $color-light-gray;
+    }
+  }
+}
+
+.short-description {
+  @include promoText;
+}

@@ -1,34 +1,39 @@
+import { SliderComponent } from './../components/slider/slider.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductComponent } from '../components/product/product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'products', component: () => ''
+    path: 'products',
+    component: ProductListComponent,
   },
+  // {
+  //   path: 'products/pages/:id',
+  // },
   {
-    path: 'products/pages/:id', component: () => ''
+    path: 'products/:id',
+    component: ProductComponent,
   },
-  {
-    path: 'products/:id', component: () => ''
-  },
-  {
-    path: 'card', component: () => ''
-  },
-  {
-    path: 'wishlist', component: () => ''
-  },
-  {
-    path: 'orders', component: () => ''
-  },
-  {
-    path: 'orders/:id', component: () => ''
-  },
-  {
-    path: 'me', component: () => ''
-  },
-  {
-    path: 'auth', component: () => ''
-  },
+  // {
+  //   path: 'card',
+  // },
+  // {
+  //   path: 'wishlist',
+  // },
+  // {
+  //   path: 'orders',
+  // },
+  // {
+  //   path: 'orders/:id',
+  // },
+  // {
+  //   path: 'me',
+  // },
+  // {
+  //   path: 'auth',
+  // },
   { path: '', redirectTo: 'products', pathMatch: 'full' },
 ];
 

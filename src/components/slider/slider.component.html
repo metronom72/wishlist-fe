@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="slider">
+    <div class="current">
+      <img [src]="images[current]" />
+    </div>
+    <div class="previews">
+      <img src="../../assets/icons/Next.svg" class="previous" (click)="selectCurrent(false)"> 
+      <li *ngFor="let image of images"  class="preview">
+        <img [src]="image" />
+      </li>
+      <img src="../../assets/icons/Next.svg" class="next" (click)="selectCurrent(true)"> 
+    </div>
+  </div>
+</div>
