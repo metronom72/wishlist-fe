@@ -128,7 +128,8 @@ table {
   border-spacing: 0;
 }
 
-html, body {
-  width: 960px;
+html,
+body {
+  max-width: 960px;
   margin: 0 auto;
 }

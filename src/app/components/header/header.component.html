@@ -1,10 +1,21 @@
-<header fxLayout="row" fxLayoutAlign="space-between center" class="header">
-  <div>
+<header
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="header"
+  [class.mobile-header]="isMobile"
+>
+  <div fxLayout="row" fxLayoutAlign="flex-start center">
     <div>
-      <div *ngIf="isMobile && !(isOpened && isSearchOpened)" class="icon">
+      <div
+        *ngIf="isMobile && !(isOpened && isSearchOpened)"
+        class="icon mobile-burger"
+      >
         <i><img src="assets/burger.svg" /></i>
       </div>
-      <div *ngIf="isMobile && (isOpened || isSearchOpened)" class="icon">
+      <div
+        *ngIf="isMobile && (isOpened || isSearchOpened)"
+        class="icon mobile-burger"
+      >
         <i><img src="assets/times.svg" /></i>
       </div>
     </div>
@@ -14,12 +25,17 @@
       </a>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-between center" class="header-actions" [class.mobile-actions]="isMobile">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="header-actions"
+    [class.mobile-actions]="isMobile"
+  >
     <div *ngIf="!isMobile" class="search-wrapper">
       <div class="icon search-icon">
         <i><img src="assets/zoom.svg" /></i>
       </div>
-      <input class="search-input" />
+      <input class="search-input" placeholder="Search" />
     </div>
     <div *ngIf="isMobile" class="icon">
       <i><img src="assets/zoom.svg" /></i>
