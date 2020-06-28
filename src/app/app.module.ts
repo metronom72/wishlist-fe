@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from '../components/product/product.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { SliderComponent } from '../components/slider/slider.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { SliderComponent } from '../components/slider/slider.component';
     SliderComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, FlexLayoutModule],
   providers: [],
   bootstrap: [AppComponent],
 })

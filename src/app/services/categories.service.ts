@@ -3,10 +3,10 @@ import { ICategory } from '../common/category';
 import categories from './categories.json';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoriesService {
   public categories: ICategory[] = categories;
 
-  constructor() { }
+  constructor() {}
 }

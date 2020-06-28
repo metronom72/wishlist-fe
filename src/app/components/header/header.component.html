@@ -1,17 +1,31 @@
-<div>
+<div fxLayout="row" fxLayoutAlign="space-between">
   <div>
     <div>
-      <div *ngIf="isMobile && (isOpened || isSearchOpened)"><i><img src="" /></i>mobile burger</div>
-      <div *ngIf="isMobile && !(isOpened && isSearchOpened)"><i><img src="" /></i>mobile times</div>
+      <div *ngIf="isMobile && !(isOpened && isSearchOpened)">
+        <i><img src="assets/burger.svg" /></i>
+      </div>
+      <div *ngIf="isMobile && (isOpened || isSearchOpened)">
+        <i><img src="assets/times.svg" /></i>
+      </div>
     </div>
-    <div><img src="" />logo</div>
+    <div><img src="assets/logo.png" /></div>
   </div>
   <div>
-    <div *ngIf="!isMobile"><input /><i><img src="" /></i>desktop search</div>
-    <div *ngIf="isMobile"><i><img src="" /></i>mobile search icon</div>
-    <div><i><img src="" /></i>account icon</div>
-    <div><i><img src="" /></i>wishlist icon</div>
-    <div><i><img src="" /></i>card icon</div>
+    <div *ngIf="!isMobile">
+      <input /><i><img src="assets/zoom.svg" /></i>
+    </div>
+    <div *ngIf="isMobile">
+      <i><img src="assets/zoom.svg" /></i>
+    </div>
+    <div>
+      <i><img src="assets/person.svg" /></i>
+    </div>
+    <div>
+      <i><img src="assets/star.svg" /></i>
+    </div>
+    <div>
+      <i><img src="assets/card.svg" /></i>
+    </div>
   </div>
 </div>
 <div *ngIf="!isMobile">
@@ -21,7 +35,9 @@
   </div>
 </div>
 <div *ngIf="isMobile && isSearchOpened">
-  <div><input /><i><img src="" /></i>mobile search</div>
+  <div>
+    <input /><i><img src="assets/zoom.svg" /></i>
+  </div>
 </div>
 <div *ngIf="isMobile && isOpened">
   mobile categories
