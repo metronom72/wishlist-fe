@@ -3,37 +3,37 @@
     "title": "New Arrivals",
     "order": 1,
     "id": 1,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "Brands",
     "order": 2,
     "id": 2,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "Men's",
     "order": 3,
     "id": 3,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "Women's",
     "order": 4,
     "id": 4,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "Accessories",
     "order": 5,
     "id": 5,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "Baselworld",
     "order": 6,
     "id": 6,
-    "parentId": ""
+    "parentId": null
   },
   {
     "title": "This Week",

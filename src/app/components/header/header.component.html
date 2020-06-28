@@ -1,34 +1,107 @@
-<div>
-  <div>
+<header
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="header"
+  [class.mobile-header]="isMobile"
+>
+  <div fxLayout="row" fxLayoutAlign="flex-start center">
     <div>
-      <div *ngIf="isMobile && (isOpened || isSearchOpened)"><i><img src="" /></i>mobile burger</div>
-      <div *ngIf="isMobile && !(isOpened && isSearchOpened)"><i><img src="" /></i>mobile times</div>
+      <div
+        *ngIf="isMobile && !(isOpened || isSearchOpened)"
+        class="icon mobile-burger"
+        (click)="onOpenMenu()"
+      >
+        <i><img src="assets/burger.svg" /></i>
+      </div>
+      <div
+        *ngIf="isMobile && (isOpened || isSearchOpened)"
+        class="icon mobile-burger"
+        (click)="onClose()"
+      >
+        <i><img src="assets/times.svg" /></i>
+      </div>
     </div>
-    <div><img src="" />logo</div>
+    <div class="logo">
+      <a>
+        <img src="assets/logo.png" />
+      </a>
+    </div>
   </div>
-  <div>
-    <div *ngIf="!isMobile"><input /><i><img src="" /></i>desktop search</div>
-    <div *ngIf="isMobile"><i><img src="" /></i>mobile search icon</div>
-    <div><i><img src="" /></i>account icon</div>
-    <div><i><img src="" /></i>wishlist icon</div>
-    <div><i><img src="" /></i>card icon</div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="header-actions"
+    [class.mobile-actions]="isMobile"
+  >
+    <div *ngIf="!isMobile" class="search-wrapper">
+      <div class="icon search-icon">
+        <i><img src="assets/zoom.svg" /></i>
+      </div>
+      <input class="search-input" placeholder="Search" />
+    </div>
+    <div *ngIf="isMobile" class="icon">
+      <i><img src="assets/zoom.svg" /></i>
+    </div>
+    <div class="icon">
+      <a>
+        <i><img src="assets/person.svg" /></i>
+      </a>
+    </div>
+    <div class="icon">
+      <a>
+        <i><img src="assets/star.svg" /></i>
+      </a>
+    </div>
+    <div class="icon">
+      <a>
+        <i><img src="assets/card.svg" /></i>
+      </a>
+    </div>
   </div>
-</div>
-<div *ngIf="!isMobile">
-  desktop categories
-  <div>
-    desktop subcategories
+</header>
+<nav class="subheader" *ngIf="!isMobile" (mouseleave)="onHoverCategory(null)">
+  <ul fxLayout="row" fxLayoutAlign="space-around center" class="menu-items">
+    <li
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      class="menu-item"
+      [class.active-menu-item]="activeMenuItem === category.id"
+      *ngFor="let category of categoriesService.rootCategories"
+      (mouseenter)="onHoverCategory(category.id)"
+    >
+      <a>
+        {{ category.title }}
+      </a>
+    </li>
+  </ul>
+  <div *ngIf="subcategories.length > 0">
+    <ul
+      fxLayout="column"
+      fxLayoutAlign="flex-start flex-start"
+      class="submenu-items"
+    >
+      <li
+        fxLayout="row"
+        fxLayoutAlign="flex-start flex-start"
+        class="submenu-item"
+        *ngFor="let category of subcategories"
+      >
+        <a>
+          {{ category.title }}
+        </a>
+      </li>
+    </ul>
   </div>
-</div>
+</nav>
 <div *ngIf="isMobile && isSearchOpened">
-  <div><input /><i><img src="" /></i>mobile search</div>
+  <div>
+    <input /><i><img src="assets/zoom.svg" /></i>
+  </div>
 </div>
-<div *ngIf="isMobile && isOpened">
+<nav *ngIf="isMobile && isOpened">
   mobile categories
   <div>
     mobile subcategories
   </div>
-</div>
-<div *ngIf="isMobile && (isOpened || isSearchOpened)">
-  mobile overlay
-</div>
+</nav>
+<div class="overlay" *ngIf="isMobile && (isOpened || isSearchOpened)"></div>
