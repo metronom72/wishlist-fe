@@ -1,3 +1,4 @@
+import { CartComponent } from './pages/cart/cart.component';
 import { SliderComponent } from '../app/components/slider/slider.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductComponent } from '../app/components/product/product.component';
@@ -16,9 +17,10 @@ const routes: Routes = [
     path: 'products/:id',
     component: ProductComponent,
   },
-  // {
-  //   path: 'card',
-  // },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
   // {
   //   path: 'wishlist',
   // },

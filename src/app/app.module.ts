@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from '../app/components/product/product.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { SliderComponent } from '../app/components/slider/slider.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { SliderComponent } from '../app/components/slider/slider.component';
     ProductListComponent,
     SliderComponent,
     HeaderComponent,
+    CartComponent,
+    ProductInCartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, LayoutModule, FlexLayoutModule],
   providers: [],

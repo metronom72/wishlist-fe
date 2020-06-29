@@ -1,0 +1,35 @@
+@import '../../../assets/scss/main.scss';
+
+.product-in-cart__wrapper {
+  display: flex;
+  border-bottom-left-radius: 1px solid $color-gray;
+
+  .product-in-cart__upper-row {
+    display: flex;
+  }
+
+  .product-in-cart__select-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color-dark;
+  }
+
+  .product-in-cart__image-wrapper {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-dark;
+
+    img {
+      display: block;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .product-in-cart__quantity {
+    display: flex;
+  }
+}

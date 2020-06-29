@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { IProduct } from './../../common/product';
 import { Component, OnInit } from '@angular/core';
 import { ProductListService } from 'src/app/services/product-list.service';
@@ -14,6 +15,7 @@ export class ProductComponent implements OnInit {
     public productListService: ProductListService,
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
+    public cartService: CartService,
   ) {}
 
   public isMobile: boolean = false;

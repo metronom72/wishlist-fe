@@ -21,5 +21,9 @@
     background-color: $iconBodyColor;
     font-size: 0.87rem;
     color: $textColor;
+    
+    &:hover {
+      background-color: rgba($iconBodyColor, 0.7);
+    }
   }
 }

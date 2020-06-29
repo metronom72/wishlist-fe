@@ -1,0 +1,20 @@
+<div  class="product-in-cart__wrapper">
+  <div class="product-in-cart__upper-row">
+    <div class="product-in-cart__select-box"></div>
+    <div class="product-in-cart__image-wrapper">
+      <img [src]="product.photos[0]">
+    </div>
+    <div class="product-in-cart__description-wrapper">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.subTitle }}</p>
+    </div>
+    <div class="product-in-cart__quantity">
+      <div class="product-in-cart__quantity-decrease">-</div>
+        {{ cartService.getProductCount(product.id) }}
+      <div class="product-in-cart__quantity-increase">+</div>
+    </div>
+    <div class="product-in-cart__total-price">
+      {{ cartService.getProductCount(product.id) * product.price }} ₽
+    </div>
+  </div>
+</div>
