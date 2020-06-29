@@ -1,19 +1,35 @@
+import { IProduct } from './../../common/product';
 import { Component, OnInit } from '@angular/core';
+import { ProductListService } from 'src/app/services/product-list.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  product = {
-    description:
-      'Mr Max Bill was a true creative genius, carving out a career as a painter, architect, sculptor and designer. As well as leaving behind an expansive body of work, he was also an avid collector of watches, and this Junghans chronoscope timepiece is dedicated to his memory. Immaculately housed in a domed Plexiglass case and finished with a handsome leather strap, it’s a highly technical piece in a stylish package.',
-    priceOld: 4000,
-    priceActual: 3000,
-  };
-  constructor() {}
+  constructor(
+    public productListService: ProductListService,
+    private route: ActivatedRoute,
+    private breakpointObserver: BreakpointObserver,
+  ) {}
 
-  ngOnInit(): void {}
+  public isMobile: boolean = false;
+
+  public product: IProduct 
+
+  ngOnInit(): void {
+    this.product = this.productListService.getProduct(+this.route.snapshot.params['id']);
+    this.breakpointObserver
+    .observe(['(max-width: 960px)'])
+    .subscribe((state: BreakpointState) => {
+      if (state.matches) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+    });
+  }
 }

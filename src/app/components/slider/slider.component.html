@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div class="slider">
     <div class="current">
-      <img [src]="images[current]" />
+      <img [src]="photos[current]" />
     </div>
     <div class="previews">
       <img src="../../assets/icons/Next.svg" class="previous" (click)="selectCurrent(false)"> 
       <section class="preview-wrapper">
-        <li *ngFor="let image of images"  class="preview">
+        <li *ngFor="let image of photos"  class="preview">
           <img [src]="image" />
         </li>
       </section>

@@ -11,6 +11,8 @@ export class SliderComponent implements OnInit {
     'https://a.radikal.ru/a19/1909/ac/67bddd0eb156.jpg',
   ];
 
+  @Input() photos: string[];
+  
   @Input()
   initialCurrent = 0;
 

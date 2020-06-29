@@ -1,18 +1,18 @@
 <section class="product-wrapper">
-  <div class="product-body">
-    <div class="slider-wrapper">
-      <app-slider></app-slider>
+  <div class="product-body" [class.mobile-product-body]="isMobile">
+    <div class="slider-wrapper" [class.mobile-slider-wrapper]="isMobile">
+      <app-slider [photos] = "product.photos"></app-slider>
     </div>
     <div class="content">
       <section>
-        <h3 class="content__header">JUNGHANG</h3>
-        <p class="content__short-description">Max Bill Chronoscope 40mm Stainless Steel and Leather Watch</p>
+        <h3 class="content__header">{{ product.title }}</h3>
+        <p class="content__short-description">{{ product.subTitle }}</p>
         <hr class="product-line">
         <p class="content__description-header">DESCRIPTION</p>
         <p class="content__description-text">{{ product.description }}</p>
       </section>
       <section>
-        <h2 class="price-actual">{{ product.priceActual }} ₽</h2>
+        <h2 class="price-actual">{{ product.price }} ₽</h2>
         <h3 class="price-old">{{ product.priceOld }} ₽</h3>
       </section>
       <section class="button-block">

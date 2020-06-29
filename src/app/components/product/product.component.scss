@@ -4,11 +4,19 @@
 
   .product-body {
     display: flex;
+
+    &.mobile-product-body {
+      flex-direction: column;
+    }
   }
 
   .slider-wrapper {
     width: 50%;
     height: 500px;
+
+    &.mobile-slider-wrapper {
+      width: 100%;
+    }
   }
 
   .content {
@@ -75,7 +83,8 @@
       .product__footer-option {
         display: flex;
         justify-content: center;
-        align-items: center;;
+        align-items: center;
+        width: 33%;
         border-right: 1px solid $color-gray;
 
         &:last-child {
