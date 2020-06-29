@@ -38,11 +38,13 @@
   }
 
   .previous {
+    margin: 10px;
     transform: scale(-1, 1);
     cursor: pointer;
   }
 
   .next {
+    margin: 10px;
     cursor: pointer;
   }
 }

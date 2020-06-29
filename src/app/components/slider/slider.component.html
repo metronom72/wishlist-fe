@@ -4,13 +4,13 @@
       <img [src]="photos[current]" />
     </div>
     <div class="previews">
-      <img src="../../assets/icons/Next.svg" class="previous" (click)="selectCurrent(false)"> 
+      <img src="../../assets/icons/Next.svg" class="previous" (click)="changeCurrent(false)"> 
       <section class="preview-wrapper">
-        <li *ngFor="let image of photos"  class="preview">
+        <li *ngFor="let image of photos" class="preview" (click)="selectCurrent(photos.indexOf(image))">
           <img [src]="image" />
         </li>
       </section>
-      <img src="../../assets/icons/Next.svg" class="next" (click)="selectCurrent(true)"> 
+      <img src="../../assets/icons/Next.svg" class="next" (click)="changeCurrent(true)"> 
     </div>
   </div>
 </div>

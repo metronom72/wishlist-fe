@@ -19,6 +19,15 @@
     }
   }
 
+  .upper-header {
+    display: none;
+
+    &.mobile-upper-header {
+      display: block;
+      margin: 0 20px 20px
+    }
+  }
+
   .content {
     margin-left: 40px;
     width: calc(50% - 40px);
@@ -26,8 +35,17 @@
     flex-direction: column;
     justify-content: space-between;
 
+    &.mobile-content {
+      width: 95%;
+      margin: 20px auto;
+    }
+
     .content__header {
       margin-bottom: 8px;
+
+      &.mobile-content__header {
+        display: none;
+      }
     }
 
     .content__short-description {
@@ -40,6 +58,9 @@
 
     .content__description-text {
 
+      &.mobile-content__description-text {
+        margin-bottom: 10px;
+      }
     }
 
     .price-actual {
@@ -58,6 +79,10 @@
   .button-block {
     display: flex;
     margin-bottom: 30px;
+
+    &.mobile-button-block {
+      margin: 20px 0 0 0;
+    }
   }
 
   .button-with-icon {
@@ -75,16 +100,25 @@
     height: 70px;
     border-bottom: 1px solid $color-gray;
 
+    &.mobile-product__footer {
+      display: none;
+    }
+
     .product__footer-options {
       display: flex;
       justify-content: space-between;
       width: calc(50% - 40px);
 
+      &.mobile-product__footer-options {
+        width: 100%;
+      }
+
       .product__footer-option {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 33%;
+        width: 50%;
+        border-top: 1px solid $color-gray;
         border-right: 1px solid $color-gray;
 
         &:last-child {

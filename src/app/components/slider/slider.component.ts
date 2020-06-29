@@ -18,7 +18,11 @@ export class SliderComponent implements OnInit {
 
   current = this.initialCurrent;
 
-  selectCurrent = (sliderToggle: boolean) => {
+  selectCurrent = (id: number) => {
+    this.current = id;
+  }
+
+  changeCurrent = (sliderToggle: boolean) => {
     if (this.current < this.images.length - 1 && this.current > 0) {
       this.current = sliderToggle ? ++this.current : --this.current;
     } else if (this.current === this.images.length - 1) {
