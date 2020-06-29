@@ -1,36 +1,36 @@
 [
   {
-    "title": "New Arrivals",
+    "title": "NEW ARRIVALS",
     "order": 1,
     "id": 1,
     "parentId": null
   },
   {
-    "title": "Brands",
+    "title": "BRANDS",
     "order": 2,
     "id": 2,
     "parentId": null
   },
   {
-    "title": "Men's",
+    "title": "MEN'S",
     "order": 3,
     "id": 3,
     "parentId": null
   },
   {
-    "title": "Women's",
+    "title": "WOMEN'S",
     "order": 4,
     "id": 4,
     "parentId": null
   },
   {
-    "title": "Accessories",
+    "title": "ACCESSORIES",
     "order": 5,
     "id": 5,
     "parentId": null
   },
   {
-    "title": "Baselworld",
+    "title": "BASELWORLD",
     "order": 6,
     "id": 6,
     "parentId": null

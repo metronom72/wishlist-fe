@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
 
   public subcategories: ICategory[] = [];
 
+  public openedCategories = [];
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private renderer: Renderer2,
@@ -41,6 +43,7 @@ export class HeaderComponent implements OnInit {
     this.isOpened = false;
     this.isSearchOpened = false;
     this.activeMenuItem = null;
+    this.openedCategories = [];
     this.renderer.removeClass(document.body, 'modal-opened');
   };
 
@@ -53,15 +56,25 @@ export class HeaderComponent implements OnInit {
     this.activeMenuItem = id;
   };
 
+  onClickSubcategoriesMobile = (id) => {
+    if (this.openedCategories.includes(id)) {
+      this.openedCategories = [...this.openedCategories.filter(categoryId => categoryId !== id)]
+    } else {
+      this.openedCategories.push(id)
+    }
+  }
+
   ngOnInit(): void {
     this.breakpointObserver
       .observe(['(max-width: 960px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.isMobile = true;
+          this.openedCategories = [];
           this.onClose();
         } else {
           this.isMobile = false;
+          this.openedCategories = [];
           this.onClose();
         }
       });

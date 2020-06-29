@@ -99,11 +99,32 @@
       <input /><i><img src="assets/zoom.svg" /></i>
     </div>
   </div>
-  <nav *ngIf="isMobile && isOpened">
-    mobile categories
-    <div>
-      mobile subcategories
-    </div>
-  </nav>
+  <div *ngIf="isMobile && isOpened" class="mobile-menu-wrapper">
+    <nav class="mobile-menu">
+      <ul
+        class="menu-items mobile"
+      >
+        <li
+          *ngFor="let category of categoriesService.rootCategories"
+          (click)="onClickSubcategoriesMobile(category.id)"
+          class="menu-item mobile"
+        >
+          <a>
+            {{category.title}}
+          </a>
+          <ul *ngIf="this.openedCategories.includes(category.id)" class="submenu-items mobile">
+            <li
+              *ngFor="let subcategory of categoriesService.findSubcategories(category.id)"
+              class="submenu-item mobile"
+            >
+              <a>
+                {{subcategory.title}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <div class="overlay" *ngIf="isMobile && (isOpened || isSearchOpened)"></div>
 </section>
