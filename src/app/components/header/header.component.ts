@@ -58,11 +58,13 @@ export class HeaderComponent implements OnInit {
 
   onClickSubcategoriesMobile = (id) => {
     if (this.openedCategories.includes(id)) {
-      this.openedCategories = [...this.openedCategories.filter(categoryId => categoryId !== id)]
+      this.openedCategories = [
+        ...this.openedCategories.filter((categoryId) => categoryId !== id),
+      ];
     } else {
-      this.openedCategories.push(id)
+      this.openedCategories.push(id);
     }
-  }
+  };
 
   ngOnInit(): void {
     this.breakpointObserver

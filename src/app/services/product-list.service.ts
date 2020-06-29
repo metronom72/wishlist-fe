@@ -9,7 +9,10 @@ import products from './products.json';
 export class ProductListService {
   public productList: IProduct[] = products;
 
-  public getProduct = (id: number | null):IProduct | null => id ? this.productList.filter((product: IProduct) => product.id === id)[0] : null
-  
+  public getProduct = (id: number | null): IProduct | null =>
+    id
+      ? this.productList.filter((product: IProduct) => product.id === id)[0]
+      : null;
+
   constructor() {}
 }

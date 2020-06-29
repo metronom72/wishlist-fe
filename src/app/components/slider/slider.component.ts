@@ -12,7 +12,7 @@ export class SliderComponent implements OnInit {
   ];
 
   @Input() photos: string[];
-  
+
   @Input()
   initialCurrent = 0;
 
@@ -20,7 +20,7 @@ export class SliderComponent implements OnInit {
 
   selectCurrent = (id: number) => {
     this.current = id;
-  }
+  };
 
   changeCurrent = (sliderToggle: boolean) => {
     if (this.current < this.images.length - 1 && this.current > 0) {

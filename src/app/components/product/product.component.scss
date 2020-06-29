@@ -1,7 +1,6 @@
-@import '../../../assets/scss/main.scss';
+@import "../../../assets/scss/main.scss";
 
 .product-wrapper {
-
   .product-body {
     display: flex;
 
@@ -24,7 +23,7 @@
 
     &.mobile-upper-header {
       display: block;
-      margin: 0 20px 20px
+      margin: 0 20px 20px;
     }
   }
 
@@ -57,7 +56,6 @@
     }
 
     .content__description-text {
-
       &.mobile-content__description-text {
         margin-bottom: 10px;
       }
@@ -91,7 +89,10 @@
 
   .button-with-icon-gray {
     margin-left: 29px;
-    @include buttonWithIcon ($iconBodyColor: $color-gray, $textColor: $color-dark)
+    @include buttonWithIcon(
+      $iconBodyColor: $color-gray,
+      $textColor: $color-dark
+    );
   }
 
   .product__footer {

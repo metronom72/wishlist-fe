@@ -1,4 +1,8 @@
-@mixin buttonWithIcon ($iconWrapperColor: $color-light-gray, $iconBodyColor: $color-dark, $textColor: $color-light-gray){
+@mixin buttonWithIcon(
+  $iconWrapperColor: $color-light-gray,
+  $iconBodyColor: $color-dark,
+  $textColor: $color-light-gray
+) {
   display: flex;
   height: 44px;
   width: 188px;
@@ -21,7 +25,7 @@
     background-color: $iconBodyColor;
     font-size: 0.87rem;
     color: $textColor;
-    
+
     &:hover {
       background-color: rgba($iconBodyColor, 0.7);
     }

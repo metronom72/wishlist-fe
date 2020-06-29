@@ -15,23 +15,25 @@ export class ProductComponent implements OnInit {
     public productListService: ProductListService,
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
-    public cartService: CartService,
+    public cartService: CartService
   ) {}
 
   public isMobile: boolean = false;
 
-  public product: IProduct 
+  public product: IProduct;
 
   ngOnInit(): void {
-    this.product = this.productListService.getProduct(+this.route.snapshot.params['id']);
+    this.product = this.productListService.getProduct(
+      +this.route.snapshot.params['id']
+    );
     this.breakpointObserver
-    .observe(['(max-width: 960px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    });
+      .observe(['(max-width: 960px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
   }
 }

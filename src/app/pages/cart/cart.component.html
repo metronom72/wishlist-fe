@@ -1,11 +1,11 @@
 <section>
   <h2 class="cart__header">SHOPPING</h2>
-  <hr>
+  <hr />
   <div class="cart__products-list">
     <div *ngIf="!cart[0]; else elseBlock">КОРЗИНА ПУСТА</div>
     <ng-template #elseBlock>
       <li *ngFor="let product of sortCart">
-      <app-product-in-cart [product] = "product"></app-product-in-cart>
+        <app-product-in-cart [product]="product"></app-product-in-cart>
       </li>
     </ng-template>
   </div>

@@ -101,24 +101,29 @@
   </div>
   <div *ngIf="isMobile && isOpened" class="mobile-menu-wrapper">
     <nav class="mobile-menu">
-      <ul
-        class="menu-items mobile"
-      >
+      <ul class="menu-items mobile">
         <li
           *ngFor="let category of categoriesService.rootCategories"
           (click)="onClickSubcategoriesMobile(category.id)"
           class="menu-item mobile"
         >
           <a>
-            {{category.title}}
+            {{ category.title }}
           </a>
-          <ul *ngIf="this.openedCategories.includes(category.id)" class="submenu-items mobile">
+          <ul
+            *ngIf="this.openedCategories.includes(category.id)"
+            class="submenu-items mobile"
+          >
             <li
-              *ngFor="let subcategory of categoriesService.findSubcategories(category.id)"
+              *ngFor="
+                let subcategory of categoriesService.findSubcategories(
+                  category.id
+                )
+              "
               class="submenu-item mobile"
             >
               <a>
-                {{subcategory.title}}
+                {{ subcategory.title }}
               </a>
             </li>
           </ul>

@@ -1,31 +1,43 @@
 <section class="product-wrapper">
   <div class="product-body" [class.mobile-product-body]="isMobile">
-    <h3 class="upper-header" [class.mobile-upper-header]="isMobile">{{ product.title }}</h3>
+    <h3 class="upper-header" [class.mobile-upper-header]="isMobile">
+      {{ product.title }}
+    </h3>
     <div class="slider-wrapper" [class.mobile-slider-wrapper]="isMobile">
-      <app-slider [photos] = "product.photos"></app-slider>
+      <app-slider [photos]="product.photos"></app-slider>
     </div>
     <div class="content" [class.mobile-content]="isMobile">
       <section>
-        <h3 class="content__header" [class.mobile-content__header]="isMobile">{{ product.title }}</h3>
+        <h3 class="content__header" [class.mobile-content__header]="isMobile">
+          {{ product.title }}
+        </h3>
         <p class="content__short-description">{{ product.subTitle }}</p>
-        <hr class="product-line">
+        <hr class="product-line" />
         <p class="content__description-header">DESCRIPTION</p>
-        <p class="content__description-text"[class.mobile-content__description-text]="isMobile">{{ product.description }}</p>
+        <p
+          class="content__description-text"
+          [class.mobile-content__description-text]="isMobile"
+        >
+          {{ product.description }}
+        </p>
       </section>
       <section>
         <h2 class="price-actual">{{ product.price }} ₽</h2>
         <h3 class="price-old">{{ product.priceOld }} ₽</h3>
       </section>
       <section class="button-block" [class.mobile-button-block]="isMobile">
-        <div class="button-with-icon" (click)="cartService.addProductToCart(product)">
+        <div
+          class="button-with-icon"
+          (click)="cartService.addProductToCart(product)"
+        >
           <div class="icon-wrapper">
-            <img src="../../assets/icons/Bag.svg" class="icon"> 
+            <img src="../../assets/icons/Bag.svg" class="icon" />
           </div>
           <div class="button-body">В КОРЗИНУ</div>
         </div>
         <div class="button-with-icon-gray">
           <div class="icon-wrapper">
-            <img src="../../assets/icons/Star.svg" class="icon"> 
+            <img src="../../assets/icons/Star.svg" class="icon" />
           </div>
           <div class="button-body">В ВИШ ЛИСТ</div>
         </div>
@@ -33,7 +45,10 @@
     </div>
   </div>
   <div class="product__footer" [class.mobile-product__footer]="isMobile">
-    <section class="product__footer-options" [class.mobile-product__footer-options]="isMobile">
+    <section
+      class="product__footer-options"
+      [class.mobile-product__footer-options]="isMobile"
+    >
       <div class="product__footer-option">PRODUCT CODE</div>
       <div class="product__footer-option"></div>
     </section>

@@ -1,4 +1,4 @@
-@import '../../../assets/scss/main.scss';
+@import "../../../assets/scss/main.scss";
 
 .wrapper {
 }
@@ -59,7 +59,7 @@
   box-shadow: none;
   overflow: hidden;
   background-color: $color-dark;
-  
+
   &:hover {
     cursor: pointer;
     box-shadow: 0px 0px 2px 1px #ca9b22;
