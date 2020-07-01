@@ -1,3 +1,63 @@
-.cart__header {
-  text-align: center;
+@import 'src/assets/scss/main';
+
+.cart {
+
+  &__header {
+    text-align: center;
+    padding-bottom: 21px;
+    font-weight: 500;
+    border-bottom: 1px solid $color-gray;
+    
+  }
+  &__title-row {
+    display: flex;
+    border-bottom: 1px solid $color-gray;
+    padding-bottom: 5px;
+  }
+
+  &__title-row-cart {
+    width: 20%;
+    text-align: center;
+  }
+
+  &__title-row-description {
+    width: 38%;
+    text-align: center;
+  }
+
+  &__title-row-quntity {
+    width: 24%;
+    text-align: center;
+  }
+
+  &__title-row-price {
+    width: 18%;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 14px 0;
+  }
+
+  &__total-price {
+    display: flex;
+    justify-content: flex-end;
+    
+    &-inner {
+      display: flex;
+      align-items: center;    
+      justify-content: space-between;
+      padding-right: 60px;
+      width: 320px;
+      height: 51px;
+      border-bottom: 1px solid $color-gray;
+    }
+  }
 }
+
+.button-with-icon {
+  @include buttonWithIcon;
+} 

@@ -10,6 +10,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductInCartComponent implements OnInit {
   @Input() product: IProduct;
 
+  public isItemChosen: boolean = true;
+
   constructor(public cartService: CartService) {}
 
   ngOnInit(): void {}

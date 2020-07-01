@@ -3,6 +3,10 @@
   font-weight: 400;
 }
 
+@mixin textSmall {
+  font-size: 0.87rem;
+}
+
 h2 {
   font-size: 1.87rem;
   line-height: 1.3;

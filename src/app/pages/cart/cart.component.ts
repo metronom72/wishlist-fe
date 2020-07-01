@@ -22,5 +22,6 @@ export class CartComponent implements OnInit {
       return arr;
     }, []);
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

@@ -1,35 +1,102 @@
 @import "../../../assets/scss/main.scss";
 
-.product-in-cart__wrapper {
-  display: flex;
-  border-bottom-left-radius: 1px solid $color-gray;
+.product-in-cart {
 
-  .product-in-cart__upper-row {
+  &__wrapper {
     display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-gray;
   }
 
-  .product-in-cart__select-box {
-    width: 20px;
-    height: 20px;
-    border: 1px solid $color-dark;
+  &__upper-row {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
   }
 
-  .product-in-cart__image-wrapper {
-    height: 70px;
-    width: 70px;
+  &__cart {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: $color-dark;
+    justify-content: center;
+    width: 20%;
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
 
-    img {
-      display: block;
-      max-height: 100%;
-      max-width: 100%;
+    .product-in-cart__select-box {
+      @include flexCenter;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $color-dark;
+    }
+
+    .product-in-cart__image-wrapper {
+      height: 70px;
+      width: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-dark;
+
+      img {
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+      }
     }
   }
 
-  .product-in-cart__quantity {
+  &__description-wrapper {
     display: flex;
+    flex-direction: column;
+    width: 38%;
+    margin-top: 15px;
+
+    p {
+      @include textSmall;
+    }
+
+    .product-in-cart__description-wrapper-title {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__quantity {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 24%;
+
+    &-increase,
+    &-decrease {
+      cursor: pointer;
+    }
+  }
+
+  &__price {
+    width: 18%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding-right: 20px;
+    font-weight: 500;
+    @include textSmall;
+  }
+
+  &__low-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    @include flexCenter;
+    height: 22px;
+    margin: 0 12px 14px 0;
+    padding: 0 7px;
+    border: 1.5px solid $color-dark;
+    border-top: 1px solid $color-dark;
+    @include textSmall;
+    cursor: pointer;
   }
 }

@@ -1,12 +1,44 @@
 <section>
-  <h2 class="cart__header">SHOPPING</h2>
-  <hr />
+  <h3 class="cart__header">SHOPPING</h3>
   <div class="cart__products-list">
     <div *ngIf="!cart[0]; else elseBlock">КОРЗИНА ПУСТА</div>
     <ng-template #elseBlock>
-      <li *ngFor="let product of sortCart">
+      <div class="cart__button-wrapper">
+        <div
+          class="button-with-icon"
+          
+        >
+          <div class="icon-wrapper">
+            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          </div>
+          <div class="button-body">BUY NOW</div>
+        </div>
+      </div>
+      <div class="cart__title-row">
+        <div class="cart__title-row-cart">CART</div>
+        <div class="cart__title-row-description">DESCRIPTION</div>
+        <div class="cart__title-row-quntity">QUANTITY</div>
+        <div class="cart__title-row-price">UNIT PRICE</div>
+      </div>
+      <div *ngFor="let product of sortCart">
         <app-product-in-cart [product]="product"></app-product-in-cart>
-      </li>
+      </div>
+      <div class="cart__total-price">
+        <div class="cart__total-price-inner">
+          TOTAL <h3>₽ {{ cartService.getTotalPrice }}</h3>
+        </div>
+      </div>
+      <div class="cart__button-wrapper">
+        <div
+          class="button-with-icon"
+          
+        >
+          <div class="icon-wrapper">
+            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          </div>
+          <div class="button-body">BUY NOW</div>
+        </div>
+      </div>
     </ng-template>
   </div>
 </section>

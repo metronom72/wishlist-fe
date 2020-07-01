@@ -1,20 +1,32 @@
 <div class="product-in-cart__wrapper">
   <div class="product-in-cart__upper-row">
-    <div class="product-in-cart__select-box"></div>
-    <div class="product-in-cart__image-wrapper">
-      <img [src]="product.photos[0]" />
+    <div class="product-in-cart__cart">
+      <div class="product-in-cart__select-box" (click)="isItemChosen = !isItemChosen">
+        <img *ngIf="isItemChosen" src="../../../assets/icons/Yes.svg" class="icon" />
+      </div>
+      <div class="product-in-cart__image-wrapper">
+        <img [src]="product.photos[0]" />
+      </div>
     </div>
     <div class="product-in-cart__description-wrapper">
-      <h3>{{ product.title }}</h3>
+      <p class="product-in-cart__description-wrapper-title">{{ product.title }}</p>
       <p>{{ product.subTitle }}</p>
     </div>
     <div class="product-in-cart__quantity">
-      <div class="product-in-cart__quantity-decrease">-</div>
+      <div class="product-in-cart__quantity-decrease" (click)="cartService.removProductFromCart(product.id)">
+        <img src="../../assets/icons/Minus.svg" class="icon" />
+      </div>
       {{ cartService.getProductCount(product.id) }}
-      <div class="product-in-cart__quantity-increase">+</div>
+      <div class="product-in-cart__quantity-increase">
+        <img src="../../assets/icons/Plus.svg" class="icon" (click)="cartService.addProductToCart(product)"/>
+      </div>
     </div>
-    <div class="product-in-cart__total-price">
+    <div class="product-in-cart__price">
       {{ cartService.getProductCount(product.id) * product.price }} ₽
     </div>
+  </div>
+  <div class="product-in-cart__low-row">
+    <div class="product-in-cart__button">MOVE TO WISHLIST</div>
+    <div class="product-in-cart__button">REMOVE THIS ITEM</div>
   </div>
 </div>
