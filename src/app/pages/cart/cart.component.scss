@@ -7,12 +7,21 @@
     padding-bottom: 21px;
     font-weight: 500;
     border-bottom: 1px solid $color-gray;
+
+    &.mobile-cart__header {
+      text-align: left;
+      padding-left: 15px;
+    }
     
   }
   &__title-row {
     display: flex;
     border-bottom: 1px solid $color-gray;
     padding-bottom: 5px;
+    
+    &.mobile-cart__title-row {
+      display: none;
+    }
   }
 
   &__title-row-cart {
@@ -45,6 +54,16 @@
   &__total-price {
     display: flex;
     justify-content: flex-end;
+
+    &.mobile-cart__total-price {
+      position: fixed;
+      bottom: 44px;
+      width: 100%;
+      background-color: $color-light;
+      justify-content: flex-start;
+      padding-left: 40px;
+      box-shadow: 0px -1px 10px -6px rgba($color-dark ,0.5), -20px -1px 10px -6px rgba($color-dark ,0.5), 20px -1px 10px -6px rgba($color-dark ,0.5);;
+    }
     
     &-inner {
       display: flex;
@@ -54,10 +73,37 @@
       width: 320px;
       height: 51px;
       border-bottom: 1px solid $color-gray;
+
+      &.cart__total-price-inner {
+        width: 200px;
+      }
+    }
+  }
+
+  &__button-wrapper {
+    &.mobile-cart__button-wrapper {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
     }
   }
 }
 
+
+
 .button-with-icon {
   @include buttonWithIcon;
+
+  &.mobile-upper-button-with-icon {
+    display: none;
+  }
+
+  &.mobile-low-button-with-icon {
+    width: 100%;
+  }
+
+  &.mobile-low-icon-wrapper {
+    width: 100%;
+  }
 } 
