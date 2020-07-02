@@ -1,0 +1,18 @@
+@import '../../../assets/scss/main.scss';
+
+.indicators {
+  &__line {
+    height: 1px;
+    width: 100%;
+    background-color: $color-gray;
+  }
+
+  &__circle {
+    width: 10px;
+    height: 10px;
+    background-color: $color-light;
+    border: 1px solid $color-gray;
+    border-radius: 5px;
+
+  }
+}
