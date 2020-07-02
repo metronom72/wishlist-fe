@@ -1,0 +1,70 @@
+@import '../../../assets/scss/main.scss';
+
+.auth__header {
+  text-align: center;
+}
+
+.forms-wrapper {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 25px 40px;
+
+  &:first-child {
+    border-right: 1px solid $color-gray;
+  }
+
+  &-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-gray;
+  }
+
+  &-info {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  &-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+
+    input {
+      border: 1px solid $color-gray;
+      padding: 9px 11px;
+      margin-bottom: 20px;
+    }
+
+    &-error {
+      position: absolute;
+      top: 38px;
+      font-size: 0.8rem;
+      color: $color-wrong;
+    }
+  }
+
+  &-reset {
+    margin-top: 10px;
+  }
+
+  &-button {
+    width: 144px;
+    height: 44px;
+    margin: 20px auto;
+    background-color: $color-dark;
+    border: none;
+    color: $color-light;
+    cursor: pointer;
+  }
+}
+
+.terms {
+  text-align: center;
+}
