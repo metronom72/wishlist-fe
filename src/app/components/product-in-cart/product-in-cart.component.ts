@@ -17,19 +17,18 @@ export class ProductInCartComponent implements OnInit {
 
   constructor(
     public cartService: CartService,
-    public breakpointObserver: BreakpointObserver,
-    
-    ) {}
+    public breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit(): void {
     this.breakpointObserver
-    .observe(['(max-width: 560px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    });
+      .observe(['(max-width: 560px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
   }
 }

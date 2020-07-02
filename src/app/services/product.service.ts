@@ -1,32 +1,29 @@
 import { IProduct } from 'src/app/common/product';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-  
-  public product: Subject<IProduct> = new Subject()
-  public errors: Subject<any> = new Subject<any>(); 
+  public product: Subject<IProduct> = new Subject();
+  public errors: Subject<any> = new Subject<any>();
 
   fetchProduct(id) {
-    this.http.get(`http://localhost:3000//api/v1/products/${id}`)
-    .subscribe(
+    this.http.get(`http://localhost:3000//api/v1/products/${id}`).subscribe(
       (values: any) => {
-        const {attributes, ...data} = values.data
+        const { attributes, ...data } = values.data;
         this.product.next({
-          ...data, ...attributes
+          ...data,
+          ...attributes,
         });
       },
-      (errors: {errors: object[]}) => {
+      (errors: { errors: object[] }) => {
         this.errors.next(errors.errors);
       }
     );

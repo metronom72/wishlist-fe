@@ -12,6 +12,7 @@ import { SliderComponent } from '../app/components/slider/slider.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,15 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     CartComponent,
     ProductInCartComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule, FlexLayoutModule, HttpClientModule,],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LayoutModule,
+    FlexLayoutModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -23,12 +23,22 @@
       <div *ngFor="let product of sortCart">
         <app-product-in-cart [product]="product"></app-product-in-cart>
       </div>
-      <div class="cart__total-price" [class.mobile-cart__total-price]="isMobile">
-        <div class="cart__total-price-inner" [class.mobile-cart__total-price-inner]="isMobile">
-          TOTAL <h3>₽ {{ cartService.getTotalPrice }}</h3>
+      <div
+        class="cart__total-price"
+        [class.mobile-cart__total-price]="isMobile"
+      >
+        <div
+          class="cart__total-price-inner"
+          [class.mobile-cart__total-price-inner]="isMobile"
+        >
+          TOTAL
+          <h3>₽ {{ cartService.getTotalPrice }}</h3>
         </div>
       </div>
-      <div class="cart__button-wrapper" [class.mobile-cart__button-wrapper]="isMobile">
+      <div
+        class="cart__button-wrapper"
+        [class.mobile-cart__button-wrapper]="isMobile"
+      >
         <div
           class="button-with-icon"
           [class.mobile-low-button-with-icon]="isMobile"

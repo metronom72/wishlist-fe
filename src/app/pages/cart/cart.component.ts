@@ -9,9 +9,9 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 })
 export class CartComponent implements OnInit {
   constructor(
-      public cartService: CartService,
-      public breakpointObserver: BreakpointObserver,
-    ) {}
+    public cartService: CartService,
+    public breakpointObserver: BreakpointObserver
+  ) {}
 
   public cart = this.cartService.cart;
   isMobile: boolean = false;
@@ -29,13 +29,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver
-    .observe(['(max-width: 560px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    });
+      .observe(['(max-width: 560px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
   }
 }

@@ -9,12 +9,9 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 export class AppComponent {
   title = 'wishlist-fe';
 
-  isMobile: boolean = false
+  isMobile: boolean = false;
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-  ) {}
-
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObserver

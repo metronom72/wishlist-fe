@@ -17,13 +17,12 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     public cartService: CartService,
-    public productService: ProductService,
+    public productService: ProductService
   ) {}
 
   public isMobile: boolean = false;
 
   public product: IProduct;
-
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -36,6 +35,8 @@ export class ProductComponent implements OnInit {
         }
       });
     this.productService.fetchProduct(+this.route.snapshot.params['id']);
-    this.productService.product.subscribe({next: (product) => this.product = product})
+    this.productService.product.subscribe({
+      next: (product) => (this.product = product),
+    });
   }
 }
