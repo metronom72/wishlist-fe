@@ -29,7 +29,7 @@ import { StageIndicatorComponent } from './components/stage-indicator/stage-indi
     StageIndicatorComponent,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
     LayoutModule,
     FlexLayoutModule,

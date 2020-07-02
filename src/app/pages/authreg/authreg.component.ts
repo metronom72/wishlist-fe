@@ -4,23 +4,19 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-authreg',
   templateUrl: './authreg.component.html',
-  styleUrls: ['./authreg.component.scss']
+  styleUrls: ['./authreg.component.scss'],
 })
 export class AuthregComponent implements OnInit {
+  constructor() {}
 
-  constructor(
+  isMobile: boolean = false;
 
-  ) { }
-
-  isMobile: boolean = false
-  
-  form: FormGroup
+  form: FormGroup;
   submit() {
-    console.log('form submit', this.form)
+    console.log('form submit', this.form);
   }
 
   ngOnInit(): void {
-    this.form = new FormGroup({})
+    this.form = new FormGroup({});
   }
-
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ISocial } from 'src/app/common/social';
 import { ILink } from 'src/app/common/link';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-footer',
@@ -40,7 +41,19 @@ export class FooterComponent implements OnInit {
     { link: '', label: 'ADVERTISING' },
   ];
 
-  constructor() {}
+  public isMobile: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(max-width: 960px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
+  }
 }

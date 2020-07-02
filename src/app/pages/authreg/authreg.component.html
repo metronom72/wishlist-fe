@@ -3,32 +3,46 @@
   <app-stage-indicator></app-stage-indicator>
   <div class="forms-wrapper">
     <form class="form" [formGroup]="form" (ngSubmit)="submit()">
-    <h3 class="form-header">EXISTING CUSTOMER</h3>
-    <p class="form-info">Make purchases faster using previously saved details. Track previous orders and easily request returns from the website.</p>
+      <h3 class="form-header">EXISTING CUSTOMER</h3>
+      <p class="form-info">
+        Make purchases faster using previously saved details. Track previous
+        orders and easily request returns from the website.
+      </p>
       <div class="form-field">
-        <input placeholder="Email">
+        <input placeholder="Email" />
         <p class="form-field-error">The email field is incorrect</p>
       </div>
       <div class="form-field">
-        <input placeholder="Password">
-        <p class="form-field-error">Password should be at least 6 symbols. Now it only {{5}}</p>
+        <input placeholder="Password" />
+        <p class="form-field-error">
+          Password should be at least 6 symbols. Now it only {{ 5 }}
+        </p>
       </div>
       <a routerLink="/reset" class="form-reset">FORGOT PASSWORD</a>
       <button class="form-button" type="submit">SIGN IN</button>
     </form>
     <form class="form" [formGroup]="form">
       <h3 class="form-header">NEW CUSTOMER</h3>
-      <p class="form-info">You’ll need an account to purchase watches, track and review orders, and manage your personal details.</p>
-        <div class="form-field">
-          <input placeholder="Email">
-          <p class="form-field-error">The email field is incorrect</p>
-        </div>
-        <div class="form-field">
-          <input placeholder="Password">
-          <p class="form-field-error">Password should be at least 6 symbols. Now it only {{5}}</p>
-        </div>
-        <button class="form-button" type="submit">REGISTER</button>
-        <p class="terms">By registering you agree to our <a routerLink="/terms">Terms and Conditions</a> and <a routerLink="/Conditions">Privacy Policy</a></p>
+      <p class="form-info">
+        You’ll need an account to purchase watches, track and review orders, and
+        manage your personal details.
+      </p>
+      <div class="form-field">
+        <input placeholder="Email" />
+        <p class="form-field-error">The email field is incorrect</p>
+      </div>
+      <div class="form-field">
+        <input placeholder="Password" />
+        <p class="form-field-error">
+          Password should be at least 6 symbols. Now it only {{ 5 }}
+        </p>
+      </div>
+      <button class="form-button" type="submit">REGISTER</button>
+      <p class="terms">
+        By registering you agree to our
+        <a routerLink="/terms">Terms and Conditions</a> and
+        <a routerLink="/Conditions">Privacy Policy</a>
+      </p>
     </form>
   </div>
 </section>
