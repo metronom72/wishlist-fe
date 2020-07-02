@@ -1,3 +1,4 @@
+import { AuthregComponent } from './pages/authreg/authreg.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { SliderComponent } from '../app/components/slider/slider.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
@@ -33,9 +34,10 @@ const routes: Routes = [
   // {
   //   path: 'me',
   // },
-  // {
-  //   path: 'auth',
-  // },
+  {
+    path: 'auth',
+    component: AuthregComponent,
+  },
   { path: '', redirectTo: 'products', pathMatch: 'full' },
 ];
 

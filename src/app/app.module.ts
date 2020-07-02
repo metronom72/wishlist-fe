@@ -12,7 +12,9 @@ import { SliderComponent } from '../app/components/slider/slider.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from './components/footer/footer.component';
+import { AuthregComponent } from './pages/authreg/authreg.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StageIndicatorComponent } from './components/stage-indicator/stage-indicator.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,17 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     CartComponent,
     ProductInCartComponent,
-    FooterComponent,
+    AuthregComponent,
+    StageIndicatorComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     LayoutModule,
     FlexLayoutModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
