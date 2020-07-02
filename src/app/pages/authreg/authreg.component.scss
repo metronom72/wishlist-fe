@@ -40,6 +40,14 @@
       border: 1px solid $color-gray;
       padding: 9px 11px;
       margin-bottom: 20px;
+
+      &.ng-invalid.ng-touched {
+        border: 1px solid $color-wrong;
+      }
+    
+      &.ng-valid.ng-touched {
+        border: 1px solid green;
+      }
     }
 
     &-error {
@@ -62,6 +70,11 @@
     border: none;
     color: $color-light;
     cursor: pointer;
+
+    &--disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
   }
 }
 
