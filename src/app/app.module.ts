@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthregComponent } from './pages/authreg/authreg.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StageIndicatorComponent } from './components/stage-indicator/stage-indicator.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StageIndicatorComponent } from './components/stage-indicator/stage-indi
     ProductListComponent,
     SliderComponent,
     HeaderComponent,
+    FooterComponent,
     CartComponent,
     ProductInCartComponent,
     AuthregComponent,
