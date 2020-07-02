@@ -1,4 +1,4 @@
-@import '../../../assets/scss/main.scss';
+@import "../../../assets/scss/main.scss";
 
 .auth__header {
   text-align: center;
@@ -45,7 +45,7 @@
       &.ng-invalid.ng-touched {
         border: 1px solid $color-wrong;
       }
-    
+
       &.ng-valid.ng-touched {
         border: 1px solid green;
       }
@@ -73,7 +73,7 @@
     cursor: pointer;
 
     &--disabled {
-      opacity: .5;
+      opacity: 0.5;
       cursor: not-allowed;
     }
   }

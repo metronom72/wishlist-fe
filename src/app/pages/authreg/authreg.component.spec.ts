@@ -8,9 +8,8 @@ describe('AuthregComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthregComponent ]
-    })
-    .compileComponents();
+      declarations: [AuthregComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

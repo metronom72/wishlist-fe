@@ -3,78 +3,113 @@
   <app-stage-indicator></app-stage-indicator>
   <div class="forms-wrapper">
     <form class="form" [formGroup]="formAuth" (ngSubmit)="submitAuth()">
-    <h3 class="form-header">EXISTING CUSTOMER</h3>
-    <p class="form-info">Make purchases faster using previously saved details. Track previous orders and easily request returns from the website.</p>
+      <h3 class="form-header">EXISTING CUSTOMER</h3>
+      <p class="form-info">
+        Make purchases faster using previously saved details. Track previous
+        orders and easily request returns from the website.
+      </p>
       <div class="form-field">
-        <input placeholder="Email" formControlName="email">
+        <input placeholder="Email" formControlName="email" />
         <div
-        *ngIf="formAuth.get('email').invalid && formAuth.get('email').touched"
-        class="form-field-error"
-      >
-        <small *ngIf="formAuth.get('email').errors.required">
-          Поле email не может быть пустым
-        </small>
+          *ngIf="formAuth.get('email').invalid && formAuth.get('email').touched"
+          class="form-field-error"
+        >
+          <small *ngIf="formAuth.get('email').errors.required">
+            Поле email не может быть пустым
+          </small>
 
-        <small *ngIf="formAuth.get('email').errors.email">
-          Введите корректный email
-        </small>
-      </div>
+          <small *ngIf="formAuth.get('email').errors.email">
+            Введите корректный email
+          </small>
+        </div>
       </div>
       <div class="form-field">
-        <input placeholder="Password" formControlName="password">
+        <input placeholder="Password" formControlName="password" />
         <div
-        *ngIf="formAuth.get('password').invalid && formAuth.get('password').touched"
-        class="form-field-error"
-      >
-        <small *ngIf="formAuth.get('password').errors.required">
-          Пароль не может быть пустым
-        </small>
+          *ngIf="
+            formAuth.get('password').invalid && formAuth.get('password').touched
+          "
+          class="form-field-error"
+        >
+          <small *ngIf="formAuth.get('password').errors.required">
+            Пароль не может быть пустым
+          </small>
 
-        <small *ngIf="formAuth.get('password').errors.minlength">
-          Длинна должна быть не менее {{formAuth.get('password').errors.minlength.requiredLength}}.
-          Сейчас количество символов {{formAuth.get('password').errors.minlength.actualLength}}
-        </small>
-      </div>
+          <small *ngIf="formAuth.get('password').errors.minlength">
+            Длинна должна быть не менее
+            {{ formAuth.get("password").errors.minlength.requiredLength }}.
+            Сейчас количество символов
+            {{ formAuth.get("password").errors.minlength.actualLength }}
+          </small>
+        </div>
       </div>
       <a routerLink="/reset" class="form-reset">FORGOT PASSWORD</a>
-      <button class="form-button" [class.form-button--disabled]="formAuth.invalid" type="submit" [disabled]="formAuth.invalid">SIGN IN</button>
+      <button
+        class="form-button"
+        [class.form-button--disabled]="formAuth.invalid"
+        type="submit"
+        [disabled]="formAuth.invalid"
+      >
+        SIGN IN
+      </button>
     </form>
     <form class="form" [formGroup]="formRegistr" (ngSubmit)="submitRegistr()">
       <h3 class="form-header">NEW CUSTOMER</h3>
-      <p class="form-info">You’ll need an account to purchase watches, track and review orders, and manage your personal details.</p>
-        <div class="form-field">
-          <input placeholder="Email" formControlName="email">
-          <div
-          *ngIf="formRegistr.get('email').invalid && formRegistr.get('email').touched"
+      <p class="form-info">
+        You’ll need an account to purchase watches, track and review orders, and
+        manage your personal details.
+      </p>
+      <div class="form-field">
+        <input placeholder="Email" formControlName="email" />
+        <div
+          *ngIf="
+            formRegistr.get('email').invalid && formRegistr.get('email').touched
+          "
           class="form-field-error"
         >
           <small *ngIf="formRegistr.get('email').errors.required">
             The Email can't be empty
           </small>
-  
+
           <small *ngIf="formRegistr.get('email').errors.email">
             The email field is incorrect
           </small>
         </div>
-        </div>
-        <div class="form-field">
-          <input placeholder="Password" formControlName="password">
-          <div
-          *ngIf="formRegistr.get('password').invalid && formRegistr.get('password').touched"
+      </div>
+      <div class="form-field">
+        <input placeholder="Password" formControlName="password" />
+        <div
+          *ngIf="
+            formRegistr.get('password').invalid &&
+            formRegistr.get('password').touched
+          "
           class="form-field-error"
         >
           <small *ngIf="formRegistr.get('password').errors.required">
             Password can't be empty
           </small>
-  
+
           <small *ngIf="formRegistr.get('password').errors.minlength">
-            Password should be at least {{formRegistr.get('password').errors.minlength.requiredLength}}.
-            Now it is only {{formRegistr.get('password').errors.minlength.actualLength}}
+            Password should be at least
+            {{ formRegistr.get("password").errors.minlength.requiredLength }}.
+            Now it is only
+            {{ formRegistr.get("password").errors.minlength.actualLength }}
           </small>
         </div>
-        </div>
-        <button class="form-button" [class.form-button--disabled]="formRegistr.invalid" type="submit" [disabled]="formRegistr.invalid">REGISTER</button>
-        <p class="terms">By registering you agree to our <a href="https://poloniex.com/" target="_blank">Terms and Conditions</a> and <a href="https://poloniex.com/" target="_blank">Privacy Policy</a></p>
+      </div>
+      <button
+        class="form-button"
+        [class.form-button--disabled]="formRegistr.invalid"
+        type="submit"
+        [disabled]="formRegistr.invalid"
+      >
+        REGISTER
+      </button>
+      <p class="terms">
+        By registering you agree to our
+        <a href="https://poloniex.com/" target="_blank">Terms and Conditions</a>
+        and <a href="https://poloniex.com/" target="_blank">Privacy Policy</a>
+      </p>
     </form>
   </div>
 </section>

@@ -8,9 +8,8 @@ describe('StageIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StageIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [StageIndicatorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
