@@ -1,6 +1,16 @@
-<input
-  [placeholder]="placeholder"
-  [value]="value"
-  (change)="change($event.target.value)"
-  class="text-field"
-/>
+<div>
+  <input
+    [placeholder]="placeholder"
+    [value]="value"
+    [type]="type"
+    (change)="change($event.target.value)"
+    class="text-field"
+    class.invalid="!isValid"
+  />
+  <div *ngIf="!isValid && error" class="error-message">
+    {{ error }}
+  </div>
+  <div *ngIf="helper" class="helper-message">
+    {{ helper }}
+  </div>
+</div>

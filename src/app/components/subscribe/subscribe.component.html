@@ -1,8 +1,13 @@
-<form>
+<form [formGroup]="subscribtionForm" (ngSubmit)="onSubmit()">
   <app-textfield
-    value="some value"
-    class="fooooo"
     placeholder="awesome placeholder"
     (onChange)="onChange($event)"
+    [isValid]="isValid()"
+    error="Invalid email address"
+  ></app-textfield>
+  <app-textfield
+    class="subscribe-btn"
+    type="submit"
+    value="Subscribe"
   ></app-textfield>
 </form>

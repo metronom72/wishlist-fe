@@ -9,4 +9,26 @@
   &:hover {
     cursor: pointer;
   }
+  &.invalid {
+    border-color: red;
+  }
+}
+
+.helper-message {
+  font-size: 8px;
+  color: #505050;
+  padding: 5px 0;
+}
+
+.error-message {
+  font-size: 8px;
+  color: red;
+  padding: 5px 0;
+}
+
+:host-context(.subscribe-btn) input {
+  margin-top: 10px;
+  color: black;
+  border: 1px solid black;
+  width: unset;
 }

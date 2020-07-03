@@ -7,10 +7,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TextfieldComponent implements OnInit {
   @Input()
+  public type: string = 'text';
+
+  @Input()
   public placeholder: string = '';
 
   @Input()
   public value: string = '';
+
+  @Input()
+  public isValid: boolean = true;
+
+  @Input()
+  public error: string | null = null;
+
+  @Input()
+  public helper: string | null = null;
 
   @Output()
   public onChange: EventEmitter<string> = new EventEmitter();
