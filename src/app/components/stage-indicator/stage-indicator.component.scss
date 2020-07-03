@@ -1,10 +1,30 @@
-@import '../../../assets/scss/main.scss';
+@import "../../../assets/scss/main.scss";
 
 .indicators {
   &__line {
+    display: flex;
     height: 1px;
     width: 100%;
     background-color: $color-gray;
+    margin-top: 49px;
+    margin-bottom: 20px;
+    padding: 0 7%;
+  }
+
+  &__header {
+    position: absolute;
+    top: -25px;
+
+    &.mobile-indicators__header {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 25%;
+    @include flexCenter;
+    position: relative;
   }
 
   &__circle {
@@ -14,5 +34,8 @@
     border: 1px solid $color-gray;
     border-radius: 5px;
 
+    &--active {
+      background-color: $color-dark;
+    }
   }
 }

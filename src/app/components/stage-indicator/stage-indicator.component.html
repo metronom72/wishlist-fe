@@ -1,5 +1,14 @@
 <div class="indicators__line">
-  <!-- <div *ngFor="let circle in 5" class="indicators__circle" [class.indicators__circle--active]="isActive"> -->
-
+  <div *ngFor="let indicator of indicatorsState" class="indicators__wrapper">
+    <div
+      class="indicators__header"
+      [class.mobile-indicators__header]="isMobile"
+    >
+      {{ indicator.name }}
+    </div>
+    <div
+      class="indicators__circle"
+      [class.indicators__circle--active]="indicator.state === currentRoute"
+    ></div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 <section>
   <h3 class="auth__header" [class.mobile-cart__header]="isMobile">SHOPPING</h3>
+
+  <app-page-title [title]="{ title: 'SIGN IN' }"></app-page-title>
   <app-stage-indicator></app-stage-indicator>
   <div class="forms-wrapper">
     <form class="form" [formGroup]="formAuth" (ngSubmit)="submitAuth()">

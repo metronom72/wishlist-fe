@@ -16,6 +16,7 @@ import { AuthregComponent } from './pages/authreg/authreg.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StageIndicatorComponent } from './components/stage-indicator/stage-indicator.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageTitleComponent } from './components/page-title/page-title.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductInCartComponent,
     AuthregComponent,
     StageIndicatorComponent,
+    PageTitleComponent,
   ],
   imports: [
     BrowserModule,
