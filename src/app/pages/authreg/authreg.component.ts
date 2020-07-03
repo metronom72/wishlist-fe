@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-authreg',
@@ -7,10 +8,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./authreg.component.scss'],
 })
 export class AuthregComponent implements OnInit {
-  constructor() {}
+  constructor(public breakpointObserver: BreakpointObserver) {}
 
   isMobile: boolean = false;
-
+  isAuthForm: boolean = true;
+  isRegistrForm: boolean = true;
+  isAuthSuccess: boolean = false;
+  isAuthError: boolean = false;
+  isRegistrSuccess: boolean = false;
+  isRegistrError: boolean = false;
   formAuth: FormGroup;
   formRegistr: FormGroup;
 
@@ -20,6 +26,8 @@ export class AuthregComponent implements OnInit {
       const formData = { ...this.formAuth.value };
 
       console.log('Form Data:', formData);
+      this.isAuthSuccess = true;
+      // this.formAuth = '';
     }
   }
 
@@ -29,10 +37,29 @@ export class AuthregComponent implements OnInit {
       const formData = { ...this.formRegistr.value };
 
       console.log('Form Data:', formData);
+      this.isRegistrError = true;
     }
   }
 
+  changeActiveForm(auth: boolean, registr: boolean) {
+    this.isAuthForm = auth;
+    this.isRegistrForm = registr;
+  }
+
   ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(max-width: 760px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+          this.isRegistrForm = false;
+          this.isAuthForm = true;
+        } else {
+          this.isMobile = false;
+          this.isRegistrForm = true;
+          this.isAuthForm = true;
+        }
+      });
     this.formAuth = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl(null, [

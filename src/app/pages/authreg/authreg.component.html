@@ -1,12 +1,32 @@
 <section>
-  <h3 class="auth__header" [class.mobile-cart__header]="isMobile">SHOPPING</h3>
-
   <app-page-title [title]="{ title: 'SIGN IN' }"></app-page-title>
   <app-stage-indicator></app-stage-indicator>
+  <div *ngIf="isMobile" class="form-selector">
+    <h3
+      class="form-selector-item"
+      [class.form-selector-item--blur]="!isAuthForm"
+      (click)="changeActiveForm(true, false)"
+    >
+      EXISTING CUSTOMER
+    </h3>
+    <h3
+      class="form-selector-item"
+      [class.form-selector-item--blur]="!isRegistrForm"
+      (click)="changeActiveForm(false, true)"
+    >
+      NEW CUSTOMER
+    </h3>
+  </div>
   <div class="forms-wrapper">
-    <form class="form" [formGroup]="formAuth" (ngSubmit)="submitAuth()">
-      <h3 class="form-header">EXISTING CUSTOMER</h3>
-      <p class="form-info">
+    <form
+      *ngIf="isAuthForm"
+      class="form"
+      [class.form--mobile]="isMobile"
+      [formGroup]="formAuth"
+      (ngSubmit)="submitAuth()"
+    >
+      <h3 *ngIf="!isMobile" class="form-header">EXISTING CUSTOMER</h3>
+      <p class="form-info" [class.form-info--mobile]="isMobile">
         Make purchases faster using previously saved details. Track previous
         orders and easily request returns from the website.
       </p>
@@ -46,6 +66,10 @@
         </div>
       </div>
       <a routerLink="/reset" class="form-reset">FORGOT PASSWORD</a>
+      <p class="form-result--success" *ngIf="isAuthSuccess">SUCCESS</p>
+      <p class="form-result-error" *ngIf="isAuthError">
+        SOMETHING WRONG. TRY LATER
+      </p>
       <button
         class="form-button"
         [class.form-button--disabled]="formAuth.invalid"
@@ -55,9 +79,15 @@
         SIGN IN
       </button>
     </form>
-    <form class="form" [formGroup]="formRegistr" (ngSubmit)="submitRegistr()">
-      <h3 class="form-header">NEW CUSTOMER</h3>
-      <p class="form-info">
+    <form
+      *ngIf="isRegistrForm"
+      class="form"
+      [class.form--mobile]="isMobile"
+      [formGroup]="formRegistr"
+      (ngSubmit)="submitRegistr()"
+    >
+      <h3 *ngIf="!isMobile" class="form-header">NEW CUSTOMER</h3>
+      <p class="form-info" [class.form-info--mobile]="isMobile">
         You’ll need an account to purchase watches, track and review orders, and
         manage your personal details.
       </p>
@@ -99,6 +129,10 @@
           </small>
         </div>
       </div>
+      <p class="form-result-success" *ngIf="isRegistrSuccess">SUCCESS</p>
+      <p class="form-result--error" *ngIf="isRegistrError">
+        SOMETHING WRONG. TRY LATER
+      </p>
       <button
         class="form-button"
         [class.form-button--disabled]="formRegistr.invalid"

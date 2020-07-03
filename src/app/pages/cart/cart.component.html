@@ -1,5 +1,5 @@
 <section>
-  <h3 class="cart__header" [class.mobile-cart__header]="isMobile">SHOPPING</h3>
+  <app-page-title [title]="{ title: 'SHOPING' }"></app-page-title>
   <div class="cart__products-list">
     <div *ngIf="!cart[0]; else elseBlock">КОРЗИНА ПУСТА</div>
     <ng-template #elseBlock>
