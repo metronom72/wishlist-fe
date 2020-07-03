@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StageIndicatorComponent } from './components/stage-indicator/stage-indicator.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
+import { TextfieldComponent } from './components/textfield/textfield.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PageTitleComponent } from './components/page-title/page-title.component
     AuthregComponent,
     StageIndicatorComponent,
     PageTitleComponent,
+    TextfieldComponent,
+    SubscribeComponent,
   ],
   imports: [
     BrowserModule,

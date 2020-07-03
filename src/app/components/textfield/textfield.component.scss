@@ -1,0 +1,12 @@
+.text-field {
+  width: 200px;
+  padding: 9px;
+  font-size: 12px;
+  color: black;
+  border-radius: 1px;
+  border: 1px solid #cccccc;
+  display: block;
+  &:hover {
+    cursor: pointer;
+  }
+}
