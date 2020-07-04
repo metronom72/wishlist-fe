@@ -1,0 +1,63 @@
+{
+  "title": "",
+  "description": "",
+  "preview": "/assets/wishlist_avatar_preview.jpg",
+  "origin": "/assets/wishlist_avatar.jpg",
+  "address": {
+    "country": "Russia",
+    "state": "Saint-Petersburg",
+    "city": "Saint-Petersburg",
+    "street": "Moskovskiy Avenue",
+    "house": "13",
+    "apartment": "334",
+    "zipCode": "196000",
+    "rawAddress": "Russian Federation, Saint Petersburg, Saint Petersburg, Moskovsky Avenue 13, 131",
+    "comment": ""
+  },
+  "products": [
+    {
+      "category": 1,
+      "id": 1,
+      "name": "Junghans MAX BILL Hand Wound Black Dial Numerals",
+      "subHeader": "Junghans MAX BILL Hand Wound Black Dial Numerals 027/3702.00",
+      "description": "",
+      "prices": [1000, 2000],
+      "photos": [
+        "https://shop.bauhaus-movement.com/media/image/982/junghans-max-bill-chronoscope.jpg"
+      ]
+    },
+    {
+      "category": 1,
+      "id": 2,
+      "name": "Junghans Form C Chronoscope Quartz Matt Silver Watch",
+      "subHeader": "Junghans Form C Chronoscope Quartz Matt Silver Watch | Black Calfskin 041/4771.00",
+      "description": "",
+      "prices": [1000, 2000],
+      "photos": [
+        "https://dpbfm6h358sh7.cloudfront.net/images/16115183/1166098017.jpg"
+      ]
+    },
+    {
+      "category": 1,
+      "id": 3,
+      "name": "Junghans Max Bill",
+      "subHeader": "Junghans Max Bill Max Bill Hand-Winding Watch 027/3700.00",
+      "description": "",
+      "prices": [1000, 2000],
+      "photos": [
+        "https://images-na.ssl-images-amazon.com/images/I/81TyKwCh3RL._AC_UY550_.jpg"
+      ]
+    },
+    {
+      "category": 1,
+      "id": 1,
+      "name": "Junghans Men's Max Bill",
+      "subHeader": "Junghans Men's Max Bill Stainless Steel Quartz Watch with Leather Calfskin Strap, Beige, 20 (Model: 041/4562.04)",
+      "description": "",
+      "prices": [1000, 2000],
+      "photos": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRJTmUtqbQfci3GZZesRqXaJ3bHH27MHVuKfA&usqp=CAU"
+      ]
+    }
+  ]
+}
