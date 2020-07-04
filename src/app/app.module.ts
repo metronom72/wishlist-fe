@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { TextfieldComponent } from './components/textfield/textfield.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
     PageTitleComponent,
     TextfieldComponent,
     SubscribeComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

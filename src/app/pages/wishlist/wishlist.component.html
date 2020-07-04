@@ -1,0 +1,98 @@
+<div class="wishlist-wrapper">
+  <div class="wishlist-column wishlist-column-left">
+    <header class="wishlist-information" fxLayout="row">
+      <div
+        class="wishlist-owner-preview"
+        fxLayout="row"
+        fxLayoutAlign="flex-start center"
+      >
+        <img [src]="wishlistService.wishlist.preview" />
+      </div>
+      <div class="wishlist-owner-motivation">
+        <div class="wishlist-owner-header">
+          {{ wishlistService.wishlist.title }}
+        </div>
+        <div class="wishlist-owner-description">
+          {{ wishlistService.wishlist.description }}
+          <a>less...</a>
+        </div>
+      </div>
+    </header>
+    <section class="wishlist-table">
+      <header>
+        <div>
+          ПОЗИЦИЯ
+        </div>
+        <div>
+          КОЛИЧЕСТВО
+        </div>
+        <div>
+          ЦЕНА ЗА ЕД.
+        </div>
+      </header>
+      <ul>
+        <li *ngFor="let product of wishlistService.wishlist.products">
+          <div>
+            <div>
+              checkbox
+            </div>
+            <div>
+              <img [src]="product.photos[0]" />
+            </div>
+            <div>
+              <div>
+                {{ product.name }}
+              </div>
+              <div>
+                {{ product.subheader }}
+              </div>
+            </div>
+          </div>
+          <div>
+            2
+          </div>
+          <div>{{ product.prices[0] }}&nbsp;₽</div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <div class="wishlist-column wishlist-column-right">
+    <section>
+      <form>
+        <div>
+          <div>
+            ОПЛАТА
+          </div>
+          <div>
+            Способы оплаты. Должно быть несколько radio
+          </div>
+        </div>
+        <div>
+          <span>TOTAL</span>
+          <span>
+            2,750 ₽
+          </span>
+        </div>
+        <div>
+          АДРЕС ДОСТАВКИ
+        </div>
+        <div>
+          Mr. David Olson
+          <br />
+          4220 Raintree Boulevard
+          <br />
+          Montezuma
+          <br />
+          Indiana
+          <br />
+          47862
+          <br />
+          USA
+        </div>
+        <div>
+          <input type="submit" value="ОПЛАТИТЬ" />
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
