@@ -1,0 +1,40 @@
+.wishlist-wrapper {
+  width: 100%;
+}
+
+.wishlist-column-left {
+  width: 630px;
+}
+
+.wishlist-owner-preview {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.wishlist-owner-motivation {
+  padding: 0 10px 10px 10px;
+}
+
+.wishlist-owner-header {
+  font-size: 24px;
+}
+
+.wishlist-owner-description {
+  font-size: 13px;
+  font-family: "Roboto Light";
+}
+
+.wishlist-column-right {
+  display: none;
+}
+
+.wishlist-table {
+  display: none;
+}

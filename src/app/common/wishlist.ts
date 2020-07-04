@@ -1,5 +1,6 @@
 import { IProduct } from './product';
 import { IAddress } from './address';
+import { IPayment } from './payment';
 
 export interface IWishlist {
   title: string;
@@ -7,5 +8,8 @@ export interface IWishlist {
   origin: string;
   preview: string;
   address: IAddress;
+  showAddress: boolean;
   products: IProduct[];
+  checked: boolean[];
+  payments: IPayment[];
 }
