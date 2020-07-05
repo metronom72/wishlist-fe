@@ -10,6 +10,6 @@ export interface IWishlist {
   address: IAddress;
   showAddress: boolean;
   products: IProduct[];
-  checked: boolean[];
   payments: IPayment[];
+  contacts: string[];
 }
