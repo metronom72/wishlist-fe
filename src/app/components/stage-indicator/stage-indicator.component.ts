@@ -19,9 +19,9 @@ export class StageIndicatorComponent implements OnInit {
 
   indicatorsState: Array<IIndicator> = [
     { id: 1, state: 'auth', name: 'SIGN IN' },
-    { id: 2, state: 'adress', name: 'SHIPPING' },
-    { id: 3, state: 'orders', name: 'BILLING' },
-    { id: 4, state: 'false', name: 'SUCCESSFUL' },
+    { id: 2, state: 'shipping', name: 'SHIPPING' },
+    { id: 3, state: 'billing', name: 'BILLING' },
+    { id: 4, state: 'order', name: 'SUCCESSFUL' },
   ];
 
   currentRoute: string = '';

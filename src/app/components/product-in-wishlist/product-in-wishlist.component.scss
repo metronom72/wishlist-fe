@@ -1,0 +1,138 @@
+@import "../../../assets/scss/main.scss";
+
+.product-in-cart {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-gray;
+  }
+
+  &__upper-row {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+
+    &.mobile-product-in-cart__upper-row {
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+    }
+  }
+
+  &__first-line {
+    display: flex;
+    width: 58%;
+
+    &.mobile-product-in-cart__first-line {
+      width: 100%;
+    }
+  }
+
+  &__second-line {
+    display: flex;
+    width: 42%;
+
+    &.mobile-product-in-cart__second-line {
+      width: 60%;
+      justify-content: flex-end;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34%;
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .product-in-cart__select-box {
+      @include flexCenter;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $color-dark;
+    }
+
+    .product-in-cart__image-wrapper {
+      height: 70px;
+      width: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-dark;
+
+      img {
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__description-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    margin-top: 15px;
+
+    p {
+      @include textSmall;
+    }
+
+    .product-in-cart__description-wrapper-title {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__quantity {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 57%;
+
+    &.mobile-product-in-cart__quantity {
+      margin-top: 0;
+    }
+
+    &-increase,
+    &-decrease {
+      cursor: pointer;
+    }
+
+    &-count {
+      margin: 0 10px;
+    }
+  }
+
+  &__price {
+    width: 43%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding-right: 20px;
+    font-weight: 500;
+    @include textSmall;
+
+    &.mobile-product-in-cart__price {
+      margin-top: 0;
+    }
+  }
+
+  &__low-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    @include flexCenter;
+    height: 22px;
+    margin: 0 12px 14px 0;
+    padding: 0 7px;
+    border: 1.5px solid $color-dark;
+    border-top: 1px solid $color-dark;
+    @include textSmall;
+    cursor: pointer;
+  }
+}

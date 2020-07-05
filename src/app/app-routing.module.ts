@@ -1,3 +1,6 @@
+import { BillingComponent } from './pages/billing/billing.component';
+import { ShippingComponent } from './pages/shipping/shipping.component';
+import { WishlistClientComponent } from './pages/wishlist-client/wishlist-client.component';
 import { AuthregComponent } from './pages/authreg/authreg.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { SliderComponent } from '../app/components/slider/slider.component';
@@ -22,9 +25,18 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
   },
-  // {
-  //   path: 'wishlist',
-  // },
+  {
+    path: 'wishlist',
+    component: WishlistClientComponent,
+  },
+  {
+    path: 'shipping',
+    component: ShippingComponent,
+  },
+  {
+    path: 'billing',
+    component: BillingComponent,
+  },
   // {
   //   path: 'orders',
   // },

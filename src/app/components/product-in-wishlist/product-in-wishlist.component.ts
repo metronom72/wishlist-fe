@@ -4,13 +4,12 @@ import { IProduct } from 'src/app/common/product';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-product-in-cart',
-  templateUrl: './product-in-cart.component.html',
-  styleUrls: ['./product-in-cart.component.scss'],
+  selector: 'app-product-in-wishlist',
+  templateUrl: './product-in-wishlist.component.html',
+  styleUrls: ['./product-in-wishlist.component.scss'],
 })
-export class ProductInCartComponent implements OnInit {
+export class ProductInWishlistComponent implements OnInit {
   @Input() product: IProduct;
-  @Input() userCart: boolean = false;
 
   public isMobile: boolean = false;
 
@@ -23,7 +22,7 @@ export class ProductInCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(max-width: 860px)'])
+      .observe(['(max-width: 960px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.isMobile = true;

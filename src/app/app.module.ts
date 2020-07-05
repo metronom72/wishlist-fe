@@ -19,6 +19,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { TextfieldComponent } from './components/textfield/textfield.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { WishlistClientComponent } from './pages/wishlist-client/wishlist-client.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { ProductInWishlistComponent } from './components/product-in-wishlist/product-in-wishlist.component';
+import { ShippingComponent } from './pages/shipping/shipping.component';
+import { BillingComponent } from './pages/billing/billing.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,12 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
     PageTitleComponent,
     TextfieldComponent,
     SubscribeComponent,
+    WishlistClientComponent,
+    UserCardComponent,
+    ProductInWishlistComponent,
+    ShippingComponent,
+    BillingComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

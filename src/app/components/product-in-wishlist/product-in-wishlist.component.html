@@ -1,0 +1,69 @@
+<div class="product-in-cart__wrapper">
+  <div
+    class="product-in-cart__upper-row"
+    [class.mobile-product-in-cart__upper-row]="isMobile"
+  >
+    <div
+      class="product-in-cart__first-line"
+      [class.mobile-product-in-cart__first-line]="isMobile"
+    >
+      <div class="product-in-cart__cart">
+        <div
+          class="product-in-cart__select-box"
+          (click)="isItemChosen = !isItemChosen"
+        >
+          <img
+            *ngIf="isItemChosen"
+            src="../../../assets/icons/Yes.svg"
+            class="icon"
+          />
+        </div>
+        <div class="product-in-cart__image-wrapper">
+          <img *ngIf="!!product.photos" [src]="product.photos[0]" />
+        </div>
+      </div>
+      <div class="product-in-cart__description-wrapper">
+        <p class="product-in-cart__description-wrapper-title">
+          {{ product.name }}
+        </p>
+        <p>{{ product.subHeader }}</p>
+      </div>
+    </div>
+    <div
+      class="product-in-cart__second-line"
+      [class.mobile-product-in-cart__second-line]="isMobile"
+    >
+      <div
+        class="product-in-cart__quantity"
+        [class.mobile-product-in-cart__quantity]="isMobile"
+      >
+        <div
+          class="product-in-cart__quantity-decrease"
+          (click)="cartService.removProductFromCart(product.id)"
+        >
+          <img src="../../assets/icons/Minus.svg" class="icon" />
+        </div>
+        <span class="product-in-cart__quantity-count">
+          {{ cartService.getProductCount(product.id) }}
+        </span>
+        <div class="product-in-cart__quantity-increase">
+          <img
+            src="../../assets/icons/Plus.svg"
+            class="icon"
+            (click)="cartService.addProductToCart(product)"
+          />
+        </div>
+      </div>
+      <div
+        class="product-in-cart__price"
+        [class.mobile-product-in-cart__price]="isMobile"
+      >
+        {{ cartService.getProductCount(product.id) * product.prices[0] }} ₽
+      </div>
+    </div>
+  </div>
+  <div class="product-in-cart__low-row">
+    <!-- <div class="product-in-cart__button">MOVE TO WISHLIST</div>
+    <div class="product-in-cart__button">REMOVE THIS ITEM</div> -->
+  </div>
+</div>

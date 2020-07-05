@@ -1,0 +1,40 @@
+<app-page-title>GIFT CARD</app-page-title>
+<section class="wishlist-client">
+  <div class="wishlist-client__user-block">
+    <app-user-card [userCard]="userCard"></app-user-card>
+    <div
+      class="wishlist-client__title-row"
+      [class.mobile-wishlist-client__title-row]="isMobile"
+    >
+      <div class="wishlist-client__title-row-cart">ПОЗИЦИЯ</div>
+      <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
+      <div class="wishlist-client__title-row-price">ЦЕНА ЗА ЕД.</div>
+    </div>
+    <div *ngFor="let product of sortCart">
+      <app-product-in-cart
+        [product]="product"
+        [userCart]="true"
+      ></app-product-in-cart>
+    </div>
+  </div>
+  <div class="wishlist-client__payment-wrapper">
+    <div *ngIf="buyer" class="payment">
+      <p class="payment-header">ОПЛАТА</p>
+      <div class="payment-type">
+        <input type="checkbox" />
+        <img src="../../../assets/icons/CreditCard.svg" />
+        <span>Visa Mastercard</span>
+      </div>
+      <div class="payment-type">
+        <input type="checkbox" />
+        <img src="../../../assets/icons/Paypal.svg" />
+        <span>Pay Pal</span>
+      </div>
+      <hr />
+      <h3 class="payment-tolal-price">
+        TOTAL: ₽ {{ cartService.getTotalPrice }}
+      </h3>
+    </div>
+  </div>
+  <div class="wishlist-client__adress-wrapper"></div>
+</section>
