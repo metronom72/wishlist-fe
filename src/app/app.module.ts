@@ -1,8 +1,13 @@
+import { WishlistClientComponent } from './pages/wishlist-client/wishlist-client.component';
+import { OrdersComponent } from './pages/orders/orders.component';
+import { BillingComponent } from './pages/billing/billing.component';
+import { ShippingComponent } from './pages/shipping/shipping.component';
+import { ProductInWishlistComponent } from './components/product-in-wishlist/product-in-wishlist.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,6 +42,12 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     TextfieldComponent,
     SubscribeComponent,
     WishlistComponent,
+    UserCardComponent,
+    ProductInWishlistComponent,
+    ShippingComponent,
+    BillingComponent,
+    OrdersComponent,
+    WishlistClientComponent,
   ],
   imports: [
     BrowserModule,

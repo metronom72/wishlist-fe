@@ -28,7 +28,15 @@ const routes: Routes = [
   },
   {
     path: 'wishlist',
-    component: WishlistComponent,
+    component: WishlistClientComponent,
+  },
+  {
+    path: 'shipping',
+    component: ShippingComponent,
+  },
+  {
+    path: 'billing',
+    component: BillingComponent,
   },
   // {
   //   path: 'orders',

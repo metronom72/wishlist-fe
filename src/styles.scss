@@ -130,8 +130,14 @@ table {
 
 html,
 body {
-  max-width: 960px;
-  margin: 0 auto;
+  .app-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .app-footer {
+    width: 100%;
+  }
 }
 
 .modal-opened {

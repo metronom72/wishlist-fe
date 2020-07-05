@@ -1,8 +1,9 @@
 .footer {
-  background-color: #e8e8e8;
   padding: 40px;
-  max-width: 960px;
+  width: 960px;
   &.mobile {
+    width: 100%;
+    flex-direction: column;
     > div {
       padding: 10px 0;
     }
