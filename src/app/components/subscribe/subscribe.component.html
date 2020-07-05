@@ -1,6 +1,6 @@
 <form [formGroup]="subscribtionForm" (ngSubmit)="onSubmit()">
   <app-textfield
-    placeholder="awesome placeholder"
+    placeholder="Enter email"
     (onChange)="onChange($event)"
     [isValid]="isValid()"
     error="Invalid email address"

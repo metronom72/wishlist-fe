@@ -8,6 +8,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductComponent } from '../app/components/product/product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -27,15 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'wishlist',
-    component: WishlistClientComponent,
-  },
-  {
-    path: 'shipping',
-    component: ShippingComponent,
-  },
-  {
-    path: 'billing',
-    component: BillingComponent,
+    component: WishlistComponent,
   },
   // {
   //   path: 'orders',
