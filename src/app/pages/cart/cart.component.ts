@@ -1,3 +1,4 @@
+import { ICart } from './../../common/cart';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
@@ -13,19 +14,8 @@ export class CartComponent implements OnInit {
     public breakpointObserver: BreakpointObserver
   ) {}
 
-  public cart = this.cartService.cart;
+  public cart: ICart | null = null;
   isMobile: boolean = false;
-
-  public sortCart = this.cartService.cart
-    .sort(function (a, b) {
-      return a.id < b.id ? -1 : 1;
-    })
-    .reduce(function (arr, el) {
-      if (!arr.length || arr[arr.length - 1].id != el.id) {
-        arr.push(el);
-      }
-      return arr;
-    }, []);
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -37,5 +27,11 @@ export class CartComponent implements OnInit {
           this.isMobile = false;
         }
       });
+
+    this.cartService.fetchCart();
+    this.cartService.cart.subscribe({
+      next: (cart) => (this.cart = cart),
+    });
+    console.log('this.cartService', this.cart);
   }
 }

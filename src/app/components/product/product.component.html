@@ -29,7 +29,7 @@
         <section class="button-block" [class.mobile-button-block]="isMobile">
           <div
             class="button-with-icon"
-            (click)="cartService.addProductToCart(product)"
+            (click)="cartService.addProductToCart(+product.id, 1)"
           >
             <div class="icon-wrapper">
               <img src="../../assets/icons/Bag.svg" class="icon" />

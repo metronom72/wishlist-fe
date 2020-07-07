@@ -6,4 +6,5 @@ export interface IProduct {
   prices: number[];
   description: string;
   photos: string[];
+  // checked: boolean[];
 }

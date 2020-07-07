@@ -1,0 +1,19 @@
+<app-loader *ngIf="isLoading; else elseBlock"></app-loader>
+<ng-template #elseBlock>
+  <div
+    class="quantity-decrease"
+    (click)="cartService.removProductFromCart(+id)"
+  >
+    <img src="../../assets/icons/Minus.svg" class="icon" />
+  </div>
+  <span class="quantity-count">
+    {{ count }}
+  </span>
+  <div class="quantity-increase">
+    <img
+      src="../../assets/icons/Plus.svg"
+      class="icon"
+      (click)="cartService.addProductToCart(+id, 1)"
+    />
+  </div>
+</ng-template>

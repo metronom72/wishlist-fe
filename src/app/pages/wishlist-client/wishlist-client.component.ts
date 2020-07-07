@@ -20,16 +20,16 @@ export class WishlistClientComponent implements OnInit {
 
   public cart = this.cartService.cart;
 
-  public sortCart = this.cartService.cart
-    .sort(function (a, b) {
-      return a.id < b.id ? -1 : 1;
-    })
-    .reduce(function (arr, el) {
-      if (!arr.length || arr[arr.length - 1].id != el.id) {
-        arr.push(el);
-      }
-      return arr;
-    }, []);
+  // public sortCart = this.cartService.cart
+  //   .sort(function (a, b) {
+  //     return a.id < b.id ? -1 : 1;
+  //   })
+  //   .reduce(function (arr, el) {
+  //     if (!arr.length || arr[arr.length - 1].id != el.id) {
+  //       arr.push(el);
+  //     }
+  //     return arr;
+  //   }, []);
 
   buyer: boolean = true;
 

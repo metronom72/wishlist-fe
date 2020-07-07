@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductInWishlistComponent } from './product-in-wishlist.component';
+import { CounterComponent } from './counter.component';
 
-describe('ProductInWishlistComponent', () => {
-  let component: ProductInWishlistComponent;
-  let fixture: ComponentFixture<ProductInWishlistComponent>;
+describe('CounterComponent', () => {
+  let component: CounterComponent;
+  let fixture: ComponentFixture<CounterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductInWishlistComponent],
+      declarations: [CounterComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductInWishlistComponent);
+    fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

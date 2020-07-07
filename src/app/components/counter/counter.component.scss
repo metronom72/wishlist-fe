@@ -1,0 +1,12 @@
+.quantity {
+  display: flex;
+
+  &-increase,
+  &-decrease {
+    cursor: pointer;
+  }
+
+  &-count {
+    margin: 0 10px;
+  }
+}

@@ -2,7 +2,6 @@ import { WishlistClientComponent } from './pages/wishlist-client/wishlist-client
 import { OrdersComponent } from './pages/orders/orders.component';
 import { BillingComponent } from './pages/billing/billing.component';
 import { ShippingComponent } from './pages/shipping/shipping.component';
-import { ProductInWishlistComponent } from './components/product-in-wishlist/product-in-wishlist.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +24,10 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { TextfieldComponent } from './components/textfield/textfield.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
+import { LoaderComponent } from './components/loader/loader.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +46,13 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     SubscribeComponent,
     WishlistComponent,
     UserCardComponent,
-    ProductInWishlistComponent,
     ShippingComponent,
     BillingComponent,
     OrdersComponent,
     WishlistClientComponent,
+    CounterComponent,
+    LoaderComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxLocalStorageModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

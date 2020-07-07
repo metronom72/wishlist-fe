@@ -10,12 +10,12 @@
       <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
       <div class="wishlist-client__title-row-price">ЦЕНА ЗА ЕД.</div>
     </div>
-    <div *ngFor="let product of sortCart">
+    <!-- <div *ngFor="let product of sortCart">
       <app-product-in-cart
         [product]="product"
         [userCart]="true"
       ></app-product-in-cart>
-    </div>
+    </div> -->
   </div>
   <div class="wishlist-client__payment-wrapper">
     <div *ngIf="buyer" class="payment">
@@ -32,7 +32,7 @@
       </div>
       <hr />
       <h3 class="payment-tolal-price">
-        TOTAL: ₽ {{ cartService.getTotalPrice }}
+        <!-- TOTAL: ₽ {{ cartService.cart.attributes.totalPrice }} -->
       </h3>
     </div>
   </div>
