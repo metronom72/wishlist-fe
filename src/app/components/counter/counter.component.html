@@ -1,4 +1,6 @@
-<app-loader *ngIf="isLoading; else elseBlock"></app-loader>
+<app-loader
+  *ngIf="isLoading && +id === loadingProduct; else elseBlock"
+></app-loader>
 <ng-template #elseBlock>
   <div
     class="quantity-decrease"

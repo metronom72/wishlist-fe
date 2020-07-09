@@ -1,3 +1,4 @@
+import { WishlistService } from 'src/app/services/wishlist.service';
 import { ProductService } from './../../services/product.service';
 import { CartService } from './../../services/cart.service';
 import { IProduct } from './../../common/product';
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     public cartService: CartService,
-    public productService: ProductService
+    public productService: ProductService,
+    public wishlistService: WishlistService
   ) {}
 
   public isMobile: boolean = false;

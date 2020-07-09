@@ -1,3 +1,4 @@
+import { OrdersComponent } from './pages/orders/orders.component';
 import { BillingComponent } from './pages/billing/billing.component';
 import { ShippingComponent } from './pages/shipping/shipping.component';
 import { WishlistClientComponent } from './pages/wishlist-client/wishlist-client.component';
@@ -38,9 +39,10 @@ const routes: Routes = [
     path: 'billing',
     component: BillingComponent,
   },
-  // {
-  //   path: 'orders',
-  // },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+  },
   // {
   //   path: 'orders/:id',
   // },

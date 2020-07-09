@@ -1,4 +1,4 @@
-import { CartService } from './../../services/cart.service';
+import { CartService, productLoader } from './../../services/cart.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -13,12 +13,15 @@ export class CounterComponent implements OnInit {
   constructor(public cartService: CartService) {}
 
   isLoading: boolean = false;
+  loadingProduct: number = null;
 
   ngOnInit(): void {
     this.cartService.loader.subscribe({
       next: (loader) => {
-        this.isLoading = loader;
+        this.isLoading = loader.isLoading;
+        this.loadingProduct = loader.productId;
       },
     });
+    console.log(this.id, 'TIS ID');
   }
 }

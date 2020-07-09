@@ -1,15 +1,22 @@
-import { IProduct } from './product';
-import { IAddress } from './address';
-import { IPayment } from './payment';
+interface IAttributes {
+  title: string | null;
+  description: string | null;
+  country: string | null;
+  city: string | null;
+  house: string | null;
+  apartment: string | null;
+  zipCode: string | null;
+  rawAddress: string | null;
+  addressComment: string | null;
+  showAddress: boolean;
+  status: string;
+  contacts: any;
+  wishlistProducts: any;
+  products: any;
+}
 
 export interface IWishlist {
-  title: string;
-  description: string;
-  origin: string;
-  preview: string;
-  address: IAddress;
-  showAddress: boolean;
-  products: IProduct[];
-  payments: IPayment[];
-  contacts: string[];
+  id: string;
+  type: string;
+  attributes: IAttributes;
 }

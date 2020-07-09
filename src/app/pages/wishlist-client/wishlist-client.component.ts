@@ -1,4 +1,6 @@
-import { CartService } from './../../services/cart.service';
+import { IWishlist } from './../../common/wishlist';
+import { ICart } from './../../common/cart';
+import { WishlistService } from './../../services/wishlist.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { IUserCard } from './../../common/userCard';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistClientComponent implements OnInit {
   constructor(
-    public cartService: CartService,
+    public wishlistService: WishlistService,
     public breakpointObserver: BreakpointObserver
   ) {}
 
@@ -18,18 +20,7 @@ export class WishlistClientComponent implements OnInit {
 
   isMobile: boolean = false;
 
-  public cart = this.cartService.cart;
-
-  // public sortCart = this.cartService.cart
-  //   .sort(function (a, b) {
-  //     return a.id < b.id ? -1 : 1;
-  //   })
-  //   .reduce(function (arr, el) {
-  //     if (!arr.length || arr[arr.length - 1].id != el.id) {
-  //       arr.push(el);
-  //     }
-  //     return arr;
-  //   }, []);
+  public wishlist: IWishlist | null = null;
 
   buyer: boolean = true;
 
@@ -54,5 +45,10 @@ export class WishlistClientComponent implements OnInit {
       One said: “I really hate doing that s***... but have to say you make it look fun!”
       While another joked: “And this is the reason why I can't open my phone on public.” less...`,
     };
+
+    this.wishlistService.fetchWishlist();
+    this.wishlistService.wishlist.subscribe({
+      next: (wishlist) => (this.wishlist = wishlist),
+    });
   }
 }

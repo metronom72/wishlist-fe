@@ -36,7 +36,10 @@
             </div>
             <div class="button-body">В КОРЗИНУ</div>
           </div>
-          <div class="button-with-icon-gray">
+          <div
+            class="button-with-icon-gray"
+            (click)="wishlistService.addProductToWishlist(+product.id, 1)"
+          >
             <div class="icon-wrapper">
               <img src="../../assets/icons/Star.svg" class="icon" />
             </div>

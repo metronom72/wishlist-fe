@@ -27,14 +27,20 @@ export class CartService {
 
   public cart: BehaviorSubject<ICart> = new BehaviorSubject(this.inittalCart);
   // public cart: ICart;
-  public loader: Subject<boolean> = new Subject();
+  public loader: Subject<productLoader> = new Subject();
 
   public errors: Subject<any> = new Subject();
 
   public addProductToCart = (id: number, count: number) => {
-    this.loader.next(true);
+    this.loader.next({
+      isLoading: true,
+      productId: id,
+    });
     setTimeout(() => {
-      this.loader.next(false);
+      this.loader.next({
+        isLoading: false,
+        productId: null,
+      });
     }, 1000);
     if (this.cart.getValue().id === '0') {
       this.getLocalStorageCart();
@@ -122,9 +128,15 @@ export class CartService {
   };
 
   public removProductFromCart = (id: number) => {
-    this.loader.next(true);
+    this.loader.next({
+      isLoading: true,
+      productId: id,
+    });
     setTimeout(() => {
-      this.loader.next(false);
+      this.loader.next({
+        isLoading: false,
+        productId: null,
+      });
     }, 1000);
     if (this.cart.getValue().id !== '0') {
       let arrayForSendObj = this.cart
@@ -208,4 +220,9 @@ export class CartService {
     } else {
     }
   }
+}
+
+export interface productLoader {
+  isLoading: boolean;
+  productId: number;
 }

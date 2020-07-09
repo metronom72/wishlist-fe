@@ -10,12 +10,15 @@
       <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
       <div class="wishlist-client__title-row-price">ЦЕНА ЗА ЕД.</div>
     </div>
-    <!-- <div *ngFor="let product of sortCart">
-      <app-product-in-cart
-        [product]="product"
-        [userCart]="true"
-      ></app-product-in-cart>
-    </div> -->
+    <h3 *ngIf="!wishlist; else productBlock">Your wishlist is Empty!</h3>
+    <ng-template #productBlock>
+      <div *ngFor="let product of wishlist.attributes.products.data">
+        <app-product-in-cart
+          [product]="product"
+          [productsArray]="wishlist.attributes.wishlistProducts.data"
+        ></app-product-in-cart>
+      </div>
+    </ng-template>
   </div>
   <div class="wishlist-client__payment-wrapper">
     <div *ngIf="buyer" class="payment">
