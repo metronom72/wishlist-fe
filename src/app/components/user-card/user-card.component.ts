@@ -11,5 +11,38 @@ export class UserCardComponent implements OnInit {
 
   @Input() userCard: IUserCard;
 
-  ngOnInit(): void {}
+  isEditing: boolean = false;
+  isMobile: boolean = false;
+  userName: string = '';
+  userDescription: string = '';
+  shortDexcription: boolean = false;
+
+  manageText(status) {
+    this.userDescription = status
+      ? this.userCard.description.split(' ').splice(0, 30).join(' ')
+      : this.userCard.description;
+    this.shortDexcription = status;
+  }
+
+  changeFields() {
+    this.isEditing = false;
+    this.userName = this.userCard.name;
+    this.userDescription = this.userCard.description;
+  }
+
+  changePhoto() {
+    console.log('CHANGE_PHOTO');
+  }
+
+  ngOnInit(): void {
+    this.userName = this.userCard.name;
+    this.userDescription = this.userCard.description;
+    if (this.userDescription.length > 10) {
+      this.shortDexcription = true;
+      this.userDescription = this.userCard.description
+        .split(' ')
+        .splice(0, 30)
+        .join(' ');
+    }
+  }
 }

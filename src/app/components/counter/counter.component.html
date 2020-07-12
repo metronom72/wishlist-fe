@@ -4,7 +4,11 @@
 <ng-template #elseBlock>
   <div
     class="quantity-decrease"
-    (click)="cartService.removProductFromCart(+id)"
+    (click)="
+      isWishlist
+        ? wishlistService.removProductFromWishlist(+id)
+        : cartService.removProductFromCart(+id)
+    "
   >
     <img src="../../assets/icons/Minus.svg" class="icon" />
   </div>
@@ -15,7 +19,11 @@
     <img
       src="../../assets/icons/Plus.svg"
       class="icon"
-      (click)="cartService.addProductToCart(+id, 1)"
+      (click)="
+        isWishlist
+          ? wishlistService.addProductToWishlist(+id, 1)
+          : cartService.addProductToCart(+id, 1)
+      "
     />
   </div>
 </ng-template>

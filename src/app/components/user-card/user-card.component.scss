@@ -19,6 +19,13 @@
       max-height: 100%;
       max-width: 100%;
     }
+
+    &:hover {
+      background-image: url("../../../assets/icons/iconmonstr-pencil-14.svg");
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      cursor: pointer;
+    }
   }
 
   &__info {
@@ -27,6 +34,44 @@
 
     &-header {
       font-weight: 400;
+    }
+
+    &-manage {
+      font-weight: 500px;
+      cursor: pointer;
+    }
+  }
+
+  &__edit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-input {
+      height: 40px;
+      font-size: 1rem;
+    }
+
+    &-textarea {
+      height: 400px;
+      font-size: 1rem;
+    }
+  }
+
+  .close-sign {
+    transform: rotate(45deg);
+  }
+
+  .button-with-icon {
+    margin: 20px 20px 20px auto;
+    @include buttonWithIcon;
+
+    &.mobile-upper-button-with-icon {
+      display: none;
+    }
+
+    &.mobile-low-button-with-icon {
+      width: 100%;
     }
   }
 }

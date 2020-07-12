@@ -26,8 +26,8 @@ export class CartService {
   };
 
   public cart: BehaviorSubject<ICart> = new BehaviorSubject(this.inittalCart);
-  // public cart: ICart;
   public loader: Subject<productLoader> = new Subject();
+  public cartId: number | string = null;
 
   public errors: Subject<any> = new Subject();
 
@@ -36,13 +36,8 @@ export class CartService {
       isLoading: true,
       productId: id,
     });
-    setTimeout(() => {
-      this.loader.next({
-        isLoading: false,
-        productId: null,
-      });
-    }, 1000);
-    if (this.cart.getValue().id === '0') {
+
+    if (!this.cartId) {
       this.getLocalStorageCart();
     }
 
@@ -77,51 +72,56 @@ export class CartService {
         });
       }
       this.http
-        .patch(
-          `http://localhost:3000//api/v1/cards/${this.cart.getValue().id}`,
-          sendObj
-        )
+        .patch(`http://localhost:3000//api/v1/cards/${this.cartId}`, sendObj)
         .subscribe(
           (values: any) => {
             this.cart.next({ ...values.data });
-            this.setLocalStorageCart(values.data);
+            this.setLocalStorageCart(values.data.id);
             console.log(
               'CART AFTER',
               this.cart.value.attributes.cardProducts.data
             );
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     } else {
       // create new cart on server
       this.fetchCart();
       this.http
-        .patch(
-          `http://localhost:3000//api/v1/cards/${this.cart.getValue().id}`,
-          {
-            card: {
-              card_products_attributes: [
-                {
-                  product_id: id,
-                  count: count,
-                },
-              ],
-            },
-          }
-        )
+        .patch(`http://localhost:3000//api/v1/cards/${this.cartId}`, {
+          card: {
+            card_products_attributes: [
+              {
+                product_id: id,
+                count: count,
+              },
+            ],
+          },
+        })
         .subscribe(
           (values: any) => {
             this.cart.next({ ...values.data });
-            this.setLocalStorageCart(values.data);
-            console.log(
-              'CART AFTER',
-              this.cart.value.attributes.cardProducts.data
-            );
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     }
@@ -132,13 +132,7 @@ export class CartService {
       isLoading: true,
       productId: id,
     });
-    setTimeout(() => {
-      this.loader.next({
-        isLoading: false,
-        productId: null,
-      });
-    }, 1000);
-    if (this.cart.getValue().id !== '0') {
+    if (this.cartId) {
       let arrayForSendObj = this.cart
         .getValue()
         .attributes.cardProducts.data.map((product) => {
@@ -171,37 +165,41 @@ export class CartService {
         },
       };
       this.http
-        .patch(
-          `http://localhost:3000//api/v1/cards/${this.cart.getValue().id}`,
-          sendObj
-        )
+        .patch(`http://localhost:3000//api/v1/cards/${this.cartId}`, sendObj)
         .subscribe(
           (values: any) => {
             this.cart.next({ ...values.data });
-            this.setLocalStorageCart(values.data);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     }
   };
 
   public getLocalStorageCart() {
-    const localCart = JSON.parse(this._storageService.get('cart'));
+    const localCartId = JSON.parse(this._storageService.get('cartId'));
 
-    if (localCart) {
-      this.cart.next({ ...localCart });
+    if (localCartId) {
+      this.cartId = localCartId;
     }
   }
 
-  public setLocalStorageCart(cart) {
-    this._storageService.set('cart', JSON.stringify(cart));
+  public setLocalStorageCart(cartId) {
+    this._storageService.set('cartId', JSON.stringify(cartId));
   }
 
   public fetchCart() {
     this.getLocalStorageCart();
-    if (this.cart.getValue().id === '0') {
+    if (!this.cartId) {
       this.http
         .post('http://localhost:3000//api/v1/cards/', {
           card: {
@@ -211,13 +209,40 @@ export class CartService {
         .subscribe(
           (values: any) => {
             this.cart = values.data;
-            this.setLocalStorageCart(this.cart);
+            this.cartId = values.data.id;
+            this.setLocalStorageCart(this.cartId);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     } else {
+      this.http
+        .get(`http://localhost:3000//api/v1/cards/${this.cartId}`)
+        .subscribe(
+          (values: any) => {
+            this.cart.next({ ...values.data });
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          },
+          (errors: { errors: object[] }) => {
+            this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          }
+        );
     }
   }
 }

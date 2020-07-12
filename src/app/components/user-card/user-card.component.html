@@ -1,13 +1,55 @@
 <section class="user-card">
-  <div class="user-card__image-wrapper">
+  <div class="user-card__image-wrapper" (click)="changePhoto()">
     <img src="{{ userCard.profilePhoto }}" />
   </div>
-  <div class="user-card__info">
-    <h2 class="user-card__info-header">
-      {{ userCard.name }}
-    </h2>
+  <div *ngIf="!isEditing; else closeIcon" class="user-card__info">
+    <div class="user-card__info-header">
+      <h2>
+        {{ userName }}
+      </h2>
+    </div>
     <p>
-      {{ userCard.description }}
+      {{ userDescription }}
     </p>
+    <span
+      *ngIf="shortDexcription; else maxText"
+      (click)="manageText(false)"
+      class="user-card__info-manage"
+      >more...</span
+    >
+    <ng-template #maxText>
+      <span (click)="manageText(true)" class="user-card__info-manage"
+        >less...</span
+      >
+    </ng-template>
+    <div>
+      <div
+        class="button-with-icon"
+        [class.mobile-low-button-with-icon]="isMobile"
+      >
+        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+        </div>
+        <div class="button-body" (click)="isEditing = true">EDIT</div>
+      </div>
+    </div>
   </div>
+  <ng-template #closeIcon>
+    <div class="user-card__edit">
+      <input [(ngModel)]="this.userCard.name" class="user-card__edit-input" />
+      <textarea
+        [(ngModel)]="this.userCard.description"
+        class="user-card__edit-textarea"
+      ></textarea>
+      <div
+        class="button-with-icon"
+        [class.mobile-low-button-with-icon]="isMobile"
+      >
+        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+        </div>
+        <div class="button-body" (click)="changeFields()">CHANGE</div>
+      </div>
+    </div>
+  </ng-template>
 </section>

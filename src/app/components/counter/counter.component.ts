@@ -1,5 +1,7 @@
+import { WishlistService } from './../../services/wishlist.service';
 import { CartService, productLoader } from './../../services/cart.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { ConditionalExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-counter',
@@ -9,8 +11,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CounterComponent implements OnInit {
   @Input() id: number;
   @Input() count: number;
+  @Input() isWishlist: boolean = false;
 
-  constructor(public cartService: CartService) {}
+  constructor(
+    public cartService: CartService,
+    public wishlistService: WishlistService
+  ) {}
 
   isLoading: boolean = false;
   loadingProduct: number = null;
@@ -23,5 +29,6 @@ export class CounterComponent implements OnInit {
       },
     });
     console.log(this.id, 'TIS ID');
+    console.log('IS_WHISHLIST', this.isWishlist);
   }
 }

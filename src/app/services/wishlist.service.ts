@@ -10,8 +10,6 @@ import { IWishlist } from '../common/wishlist';
   providedIn: 'root',
 })
 export class WishlistService {
-  // public wishlist: IWishlist = ExampleWishlist;
-
   constructor(
     private http: HttpClient,
     private _storageService: LocalStorageService
@@ -19,7 +17,7 @@ export class WishlistService {
 
   inittalWishlist = {
     id: '0',
-    type: 'card',
+    type: 'wishlist',
     attributes: {
       title: null,
       description: null,
@@ -44,23 +42,20 @@ export class WishlistService {
   public loader: Subject<productLoader> = new Subject();
 
   public errors: Subject<any> = new Subject();
+  wishlistId: number | string = null;
 
-  public addProductToWishlist = (id: number, count: number) => {
+  public addProductToWishlist = async (id: number, count: number) => {
     this.loader.next({
       isLoading: true,
       productId: id,
     });
-    setTimeout(() => {
-      this.loader.next({
-        isLoading: false,
-        productId: null,
-      });
-    }, 1000);
-    if (this.wishlist.getValue().id === '0') {
-      this.getLocalStorageWishlist();
-    }
 
+    if (!this.wishlistId) {
+      this.getLocalStorageWishlist();
+      await this.fetchWishlist();
+    }
     if (this.wishlist.getValue().id !== '0') {
+      debugger;
       let arrayForSendObj = this.wishlist
         .getValue()
         .attributes.wishlistProducts.data.map((product) => {
@@ -92,63 +87,68 @@ export class WishlistService {
       }
       this.http
         .patch(
-          `http://localhost:3000//api/v1/wishlists/${
-            this.wishlist.getValue().id
-          }`,
+          `http://localhost:3000//api/v1/wishlists/${this.wishlistId}`,
           sendObj
         )
         .subscribe(
           (values: any) => {
             this.wishlist.next({ ...values.data });
-            this.setLocalStorageWishlist(values.data);
+            this.setLocalStorageWishlist(values.data.id);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+            console.log('WISHLIST_AFTER', this.wishlist);
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     } else {
       // create new wishlist on server
       this.fetchWishlist();
       this.http
-        .patch(
-          `http://localhost:3000//api/v1/wishlists/${
-            this.wishlist.getValue().id
-          }`,
-          {
-            wishlist: {
-              wishlist_products_attributes: [
-                {
-                  product_id: id,
-                  count: count,
-                },
-              ],
-            },
-          }
-        )
+        .patch(`http://localhost:3000//api/v1/wishlists/${this.wishlistId}`, {
+          wishlist: {
+            wishlist_products_attributes: [
+              {
+                product_id: id,
+                count: count,
+              },
+            ],
+          },
+        })
         .subscribe(
           (values: any) => {
             this.wishlist.next({ ...values.data });
-            this.setLocalStorageWishlist(values.data);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     }
   };
 
   public removProductFromWishlist = (id: number) => {
+    debugger;
     this.loader.next({
       isLoading: true,
       productId: id,
     });
-    setTimeout(() => {
-      this.loader.next({
-        isLoading: false,
-        productId: null,
-      });
-    }, 1000);
-    if (this.wishlist.getValue().id !== '0') {
+    if (this.wishlistId) {
+      debugger;
       let arrayForSendObj = this.wishlist
         .getValue()
         .attributes.wishlistProducts.data.map((product) => {
@@ -175,7 +175,6 @@ export class WishlistService {
             };
           }
         });
-      //Check
       let sendObj = {
         wishlist: {
           wishlist_products_attributes: arrayForSendObj,
@@ -183,54 +182,86 @@ export class WishlistService {
       };
       this.http
         .patch(
-          `http://localhost:3000//api/v1/wishlists/${
-            this.wishlist.getValue().id
-          }`,
+          `http://localhost:3000//api/v1/wishlists/${this.wishlistId}`,
           sendObj
         )
         .subscribe(
           (values: any) => {
             this.wishlist.next({ ...values.data });
-            this.setLocalStorageWishlist(values.data);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     }
   };
 
   public getLocalStorageWishlist() {
-    const localWishlist = JSON.parse(this._storageService.get('wishlist'));
+    const localWishlistId = JSON.parse(this._storageService.get('wishlistId'));
 
-    if (localWishlist) {
-      this.wishlist.next({ ...localWishlist });
+    if (localWishlistId) {
+      this.wishlistId = localWishlistId;
     }
   }
 
-  public setLocalStorageWishlist(wishlist) {
-    this._storageService.set('wishlist', JSON.stringify(wishlist));
+  public setLocalStorageWishlist(wishlistId) {
+    this._storageService.set('wishlistId', JSON.stringify(wishlistId));
   }
 
   public fetchWishlist() {
     this.getLocalStorageWishlist();
-    if (this.wishlist.getValue().id === '0') {
+    if (!this.wishlistId) {
       this.http
-        .post('http://localhost:3000/api/v1/wishlists', {
-          card: {
-            card_products_attributes: [],
+        .post('http://localhost:3000//api/v1/wishlists/', {
+          wishlist: {
+            wishlist_products_attributes: [],
           },
         })
         .subscribe(
           (values: any) => {
             this.wishlist = values.data;
-            this.setLocalStorageWishlist(this.wishlist);
+            this.wishlistId = values.data.id;
+            this.setLocalStorageWishlist(this.wishlistId);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
           }
         );
     } else {
+      this.http
+        .get(`http://localhost:3000//api/v1/wishlists/${this.wishlistId}`)
+        .subscribe(
+          (values: any) => {
+            this.wishlist.next({ ...values.data });
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          },
+          (errors: { errors: object[] }) => {
+            this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          }
+        );
     }
   }
 }

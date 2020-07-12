@@ -8,11 +8,20 @@
   &__user-block {
     width: 65%;
     padding-right: 10px;
+
+    &--mobile {
+      width: 100%;
+    }
   }
 
   &__payment-wrapper {
     width: 35%;
+    padding: 20px;
     background-color: $color-dark;
+
+    &--mobile {
+      display: none;
+    }
   }
 
   &__title-row {
@@ -37,19 +46,149 @@
       text-align: center;
     }
   }
+
+  &__footer {
+    display: none;
+
+    &--mobile {
+      display: block;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    &__button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    &__total-price {
+      display: flex;
+      justify-content: flex-end;
+
+      &.mobile-cart__total-price {
+        width: 100%;
+        background-color: $color-light;
+        justify-content: flex-start;
+        padding-left: 40px;
+        box-shadow: 0px -1px 10px -6px rgba($color-dark, 0.5),
+          -20px -1px 10px -6px rgba($color-dark, 0.5),
+          20px -1px 10px -6px rgba($color-dark, 0.5);
+      }
+
+      &-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 60px;
+        width: 320px;
+        height: 51px;
+        border-bottom: 1px solid $color-gray;
+
+        &.cart__total-price-inner {
+          width: 400px;
+        }
+      }
+    }
+  }
+
+  &__button-wrapper {
+    &.mobile-cart__button-wrapper {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.button-with-icon {
+  @include buttonWithIcon;
+
+  &.mobile-upper-button-with-icon {
+    display: none;
+  }
+
+  &.mobile-low-button-with-icon {
+    width: 100%;
+  }
+
+  &.mobile-low-icon-wrapper {
+    width: 100%;
+  }
 }
 
 .payment {
+  text-align: right;
+
   &-header {
+    text-align: left;
+  }
+
+  &-header,
+  &-adress-header {
+    margin-bottom: 20px;
     color: $color-light;
+    font-weight: 300;
+  }
+
+  &-adress {
+    &-header {
+      margin-top: 35px;
+    }
+
+    &-span {
+      color: $color-light;
+    }
+  }
+
+  &-upper-block {
+    margin-bottom: 33px;
   }
 
   &-type {
     display: flex;
+    align-items: center;
     color: $color-light;
+    margin-bottom: 20px;
   }
 
   &-tolal-price {
     color: $color-light;
+    text-align: right;
+  }
+
+  &-icon {
+    width: 20px;
+    margin: 0 10px;
+  }
+
+  &-checkbox {
+    @include flexCenter;
+    background-color: $color-light;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &-select {
+      background-color: $color-dark;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  &-price-adress {
+    margin-top: 35px;
+  }
+
+  .button-payment {
+    @include flexCenter;
+    height: 44px;
+    width: 144px;
+    background-color: $color-gray;
+    margin: 30px 0 13px auto;
   }
 }

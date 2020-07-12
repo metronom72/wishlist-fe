@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { IWishlist } from './../../common/wishlist';
 import { ICart } from './../../common/cart';
 import { WishlistService } from './../../services/wishlist.service';
@@ -13,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class WishlistClientComponent implements OnInit {
   constructor(
     public wishlistService: WishlistService,
+    public cartService: CartService,
     public breakpointObserver: BreakpointObserver
   ) {}
 
@@ -21,12 +23,29 @@ export class WishlistClientComponent implements OnInit {
   isMobile: boolean = false;
 
   public wishlist: IWishlist | null = null;
+  cart: ICart | null = null;
+
+  mastercardStatus: boolean = false;
+  payPalStatus: boolean = false;
+  isWishlist: boolean = true;
 
   buyer: boolean = true;
 
+  adress = null;
+
+  fakeAdress = {
+    apartment: 'Lenina, 29',
+    city: 'Saint-Petersburg',
+    country: 'Russian Federation',
+  };
+
+  goPayment() {
+    console.log('payment');
+  }
+
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(max-width: 960px)'])
+      .observe(['(max-width: 760px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.isMobile = true;
@@ -47,8 +66,27 @@ export class WishlistClientComponent implements OnInit {
     };
 
     this.wishlistService.fetchWishlist();
+    this.cartService.fetchCart();
     this.wishlistService.wishlist.subscribe({
-      next: (wishlist) => (this.wishlist = wishlist),
+      next: (wishlist) => {
+        this.wishlist = wishlist;
+        if (
+          wishlist.attributes.apartment &&
+          wishlist.attributes.city &&
+          wishlist.attributes.country
+        ) {
+          this.adress = {
+            apartment: wishlist.attributes.apartment,
+            city: wishlist.attributes.city,
+            country: wishlist.attributes.country,
+          };
+        } else {
+          this.adress = this.fakeAdress;
+        }
+      },
+    });
+    this.cartService.cart.subscribe({
+      next: (cart) => (this.cart = cart),
     });
   }
 }

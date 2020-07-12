@@ -1,3 +1,4 @@
+import { WishlistService } from './../../services/wishlist.service';
 import { IProductShort } from './../../common/productShort';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CartService } from './../../services/cart.service';
@@ -13,13 +14,17 @@ export class ProductInCartComponent implements OnInit {
   @Input() product;
   @Input() productsArray;
   @Input() userCart: boolean = false;
+  @Input() isWishlist: boolean = false;
 
   public isMobile: boolean = false;
   public isItemChosen: boolean = true;
+  isTest = true;
+
   productInfo;
 
   constructor(
     public cartService: CartService,
+    public wishlistService: WishlistService,
     public breakpointObserver: BreakpointObserver
   ) {}
 
@@ -36,7 +41,6 @@ export class ProductInCartComponent implements OnInit {
     this.productInfo = this.productsArray.filter(
       (p) => p.attributes.productId === +this.product.id
     )[0];
-    console.log(this.product, this.productInfo, 'ИНФА ОПРОДУКТЕ');
+    console.log('PRODUCT_IN_CART_IS_WHISHLIST', this.isWishlist);
   }
 }
-//filter(p => +p.attributes.cardId === +product.id)

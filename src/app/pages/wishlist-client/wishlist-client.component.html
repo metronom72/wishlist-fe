@@ -1,10 +1,13 @@
 <app-page-title>GIFT CARD</app-page-title>
 <section class="wishlist-client">
-  <div class="wishlist-client__user-block">
+  <div
+    class="wishlist-client__user-block"
+    [class.wishlist-client__user-block--mobile]="isMobile"
+  >
     <app-user-card [userCard]="userCard"></app-user-card>
     <div
       class="wishlist-client__title-row"
-      [class.mobile-wishlist-client__title-row]="isMobile"
+      [class.wishlist-client__title-row--mobile]="isMobile"
     >
       <div class="wishlist-client__title-row-cart">ПОЗИЦИЯ</div>
       <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
@@ -14,30 +17,93 @@
     <ng-template #productBlock>
       <div *ngFor="let product of wishlist.attributes.products.data">
         <app-product-in-cart
+          [isWishlist]="isWishlist"
           [product]="product"
           [productsArray]="wishlist.attributes.wishlistProducts.data"
         ></app-product-in-cart>
       </div>
     </ng-template>
   </div>
-  <div class="wishlist-client__payment-wrapper">
+  <div
+    class="wishlist-client__payment-wrapper"
+    [class.wishlist-client__payment-wrapper--mobile]="isMobile"
+  >
     <div *ngIf="buyer" class="payment">
-      <p class="payment-header">ОПЛАТА</p>
-      <div class="payment-type">
-        <input type="checkbox" />
-        <img src="../../../assets/icons/CreditCard.svg" />
-        <span>Visa Mastercard</span>
-      </div>
-      <div class="payment-type">
-        <input type="checkbox" />
-        <img src="../../../assets/icons/Paypal.svg" />
-        <span>Pay Pal</span>
+      <div class="payment-upper-block">
+        <h3 class="payment-header">ОПЛАТА</h3>
+        <div class="payment-type">
+          <div
+            class="payment-checkbox"
+            (click)="mastercardStatus = !mastercardStatus"
+          >
+            <div *ngIf="mastercardStatus" class="payment-checkbox-select"></div>
+          </div>
+          <img
+            class="payment-icon"
+            src="../../../assets/icons/CreditCard.svg"
+          />
+          <span>Visa Mastercard</span>
+        </div>
+        <div class="payment-type">
+          <div
+            class="payment-checkbox"
+            (click)="mastercardStatus = !mastercardStatus"
+          >
+            <div
+              *ngIf="!mastercardStatus"
+              class="payment-checkbox-select"
+            ></div>
+          </div>
+          <img class="payment-icon" src="../../../assets/icons/Paypal.svg" />
+          <span>Pay Pal</span>
+        </div>
       </div>
       <hr />
-      <h3 class="payment-tolal-price">
-        <!-- TOTAL: ₽ {{ cartService.cart.attributes.totalPrice }} -->
-      </h3>
+      <div class="payment-price-adress">
+        <h4 class="payment-tolal-price">
+          TOTAL: ₽ {{ cart.attributes.totalPrice }}
+        </h4>
+        <div>
+          <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
+          <p class="payment-adress-span">{{ adress.country }}</p>
+          <p class="payment-adress-span">{{ adress.city }}</p>
+          <p class="payment-adress-span">{{ adress.apartment }}</p>
+        </div>
+      </div>
+      <div class="button-payment" (click)="goPayment()">ОПЛАТИТИЬ</div>
     </div>
   </div>
-  <div class="wishlist-client__adress-wrapper"></div>
+  <div
+    class="wishlist-client__footer"
+    [class.wishlist-client__footer--mobile]="isMobile"
+  >
+    <div
+      class="wishlist-client__footer__total-price"
+      [class.mobile-cart__total-price]="isMobile"
+    >
+      <div
+        class="wishlist-client__footer__total-price-inner"
+        [class.mobile-cart__total-price-inner]="isMobile"
+      >
+        TOTAL
+        <h3>₽ {{ cart.attributes.totalPrice }}</h3>
+      </div>
+    </div>
+    <div
+      class="wishlist-client__footer__button-wrapper"
+      [class.mobile-cart__button-wrapper]="isMobile"
+    >
+      <a routerLink="/shipping">
+        <div
+          class="button-with-icon"
+          [class.mobile-low-button-with-icon]="isMobile"
+        >
+          <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          </div>
+          <div class="button-body">ОПЛАТИТЬ</div>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>

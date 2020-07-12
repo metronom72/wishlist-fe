@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   ) {}
 
   public cart: ICart | null = null;
+  isWishlist: boolean = false;
   isMobile: boolean = false;
 
   ngOnInit(): void {
