@@ -93,16 +93,15 @@
       class="wishlist-client__footer__button-wrapper"
       [class.mobile-cart__button-wrapper]="isMobile"
     >
-      <a routerLink="/shipping">
-        <div
-          class="button-with-icon"
-          [class.mobile-low-button-with-icon]="isMobile"
-        >
-          <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
-            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
-          </div>
-          <div class="button-body">ОПЛАТИТЬ</div>
+      <a
+        routerLink="/shipping"
+        class="button-with-icon"
+        [class.mobile-low-button-with-icon]="isMobile"
+      >
+        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
         </div>
+        <div class="button-body">ОПЛАТИТЬ</div>
       </a>
     </div>
   </div>

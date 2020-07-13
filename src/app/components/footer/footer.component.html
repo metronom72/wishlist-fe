@@ -2,7 +2,7 @@
   fxLayout="row"
   fxLayoutAlign="space-between flex-start"
   class="footer"
-  [class.mobile]="isMobile"
+  [class.footer--mobile]="isMobile"
 >
   <div class="footer-address">
     <div class="footer-logo">
@@ -49,7 +49,7 @@
     <div class="footer-subscribe-form">
       <app-subscribe></app-subscribe>
     </div>
-    <div class="footer-socials">
+    <!-- <div class="footer-socials">
       <ul fxLayout="row" fxLayoutAlign="space-between flex-start">
         <li *ngFor="let social of socials">
           <a href="{{ social.link }}" target="_blank">
@@ -57,6 +57,6 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </footer>

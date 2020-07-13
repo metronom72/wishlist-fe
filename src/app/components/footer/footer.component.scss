@@ -2,9 +2,10 @@
   padding: 40px;
   width: 960px;
 
-  &.mobile {
+  &--mobile {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column !important;
+
     > div {
       padding: 10px 0;
     }
