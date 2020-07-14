@@ -1,5 +1,8 @@
 <app-loader
   *ngIf="isLoading && +id === loadingProduct; else elseBlock"
+  [loaderSize]="'20px'"
+  [loaderBorder]="'4px'"
+  class="quantity-loader"
 ></app-loader>
 <ng-template #elseBlock>
   <div

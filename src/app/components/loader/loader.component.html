@@ -1,1 +1,14 @@
-<div class="lds-hourglass"></div>
+<div
+  class="lds-ring"
+  [ngStyle]="{
+    width: loaderSize,
+    height: loaderSize
+  }"
+>
+  <div
+    *ngFor="let i of [0, 1, 2, 3]"
+    [ngStyle]="{
+      'border-width': loaderBorder
+    }"
+  ></div>
+</div>

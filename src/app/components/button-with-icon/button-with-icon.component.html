@@ -1,0 +1,26 @@
+<div class="button-with-icon" (click)="emitEvent()">
+  <div
+    class="button-with-icon-icon-wrapper"
+    [ngStyle]="{
+      'background-color': iconWrapperColor
+    }"
+  >
+    <img *ngIf="isInitState" src="{{ buttonIcon }}" class="icon" />
+    <app-loader
+      *ngIf="isLoading"
+      [loaderSize]="'20px'"
+      [loaderBorder]="'4px'"
+      class="button-with-icon-loader"
+    ></app-loader>
+    <h3 *ngIf="!isInitState && !isLoading">{{ buttonProductCount }}</h3>
+  </div>
+  <div
+    class="button-with-icon-body"
+    [ngStyle]="{
+      'background-color': iconBodyColor,
+      color: textColor
+    }"
+  >
+    {{ buttonText }}
+  </div>
+</div>

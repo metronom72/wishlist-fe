@@ -28,6 +28,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { NgxLocalStorageModule } from 'ngx-localstorage';
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderComponent } from './components/order/order.component';
+import { ButtonWithIconComponent } from './components/button-with-icon/button-with-icon.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { OrderComponent } from './components/order/order.component';
     CounterComponent,
     LoaderComponent,
     OrderComponent,
+    ButtonWithIconComponent,
   ],
   imports: [
     BrowserModule,
