@@ -28,6 +28,10 @@ export class ProductComponent implements OnInit {
 
   public product: IProduct;
 
+  public productCode() {
+    return (Array(10).join('0') + this.product.id).slice(-10);
+  }
+
   cart: ICart;
   cartLoader: boolean = false;
   cartCount: number;

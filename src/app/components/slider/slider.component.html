@@ -3,7 +3,7 @@
     <div class="current">
       <img *ngIf="!!photos" [src]="photos[current]" />
     </div>
-    <div class="previews">
+    <div *ngIf="!!photos" class="previews">
       <img
         src="../../assets/icons/Next.svg"
         class="previous"

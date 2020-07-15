@@ -24,7 +24,9 @@
         </section>
         <section>
           <h2 class="price-actual">{{ product.prices[0] }} ₽</h2>
-          <h3 class="price-old">{{ product.prices[1] }} ₽</h3>
+          <h3 *ngIf="product.prices[0] < product.prices[1]" class="price-old">
+            {{ product.prices[1] }} ₽
+          </h3>
         </section>
         <section class="button-block" [class.mobile-button-block]="isMobile">
           <app-button-with-icon
@@ -63,7 +65,9 @@
         class="product__footer-options"
         [class.mobile-product__footer-options]="isMobile"
       >
-        <div class="product__footer-option">PRODUCT CODE</div>
+        <div class="product__footer-option">
+          PRODUCT CODE<br />{{ productCode() }}
+        </div>
         <div class="product__footer-option"></div>
       </section>
     </div>
@@ -72,9 +76,3 @@
     loading...
   </ng-template>
 </section>
-
-<!-- (onEventEmit)="handleChange()"
-[buttonProductCount]="2"
-[buttonText]="'TEST'"
-[isInitState]="false"
-[isLoading]="false" -->

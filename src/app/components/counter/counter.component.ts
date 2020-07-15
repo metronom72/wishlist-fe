@@ -28,7 +28,5 @@ export class CounterComponent implements OnInit {
         this.loadingProduct = loader.productId;
       },
     });
-    console.log(this.id, 'TIS ID');
-    console.log('IS_WHISHLIST', this.isWishlist);
   }
 }

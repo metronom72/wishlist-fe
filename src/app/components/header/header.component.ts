@@ -123,7 +123,6 @@ export class HeaderComponent implements OnInit {
         if (count) {
           this.cartCount = count;
         }
-        console.log(this.cartCount, 'CART_COUNT');
       },
     });
   }

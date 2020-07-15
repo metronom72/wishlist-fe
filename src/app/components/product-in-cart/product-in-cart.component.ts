@@ -41,6 +41,5 @@ export class ProductInCartComponent implements OnInit {
     this.productInfo = this.productsArray.filter(
       (p) => p.attributes.productId === +this.product.id
     )[0];
-    console.log('PRODUCT_IN_CART_IS_WHISHLIST', this.isWishlist);
   }
 }

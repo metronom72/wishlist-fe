@@ -97,7 +97,6 @@ export class WishlistService {
               isLoading: false,
               productId: null,
             });
-            console.log('WISHLIST_AFTER', this.wishlist);
           },
           (errors: { errors: object[] }) => {
             this.errors.next(errors.errors);
