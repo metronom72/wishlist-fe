@@ -55,7 +55,6 @@ export class WishlistService {
       await this.fetchWishlist();
     }
     if (this.wishlist.getValue().id !== '0') {
-      debugger;
       let arrayForSendObj = this.wishlist
         .getValue()
         .attributes.wishlistProducts.data.map((product) => {
@@ -142,13 +141,11 @@ export class WishlistService {
   };
 
   public removProductFromWishlist = (id: number) => {
-    debugger;
     this.loader.next({
       isLoading: true,
       productId: id,
     });
     if (this.wishlistId) {
-      debugger;
       let arrayForSendObj = this.wishlist
         .getValue()
         .attributes.wishlistProducts.data.map((product) => {
