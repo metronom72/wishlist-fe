@@ -34,7 +34,7 @@
             [isInitState]="cartIsInitState"
             [isLoading]="cartLoader"
           ></app-button-with-icon>
-          <div
+          <!-- <div
             class="button-with-icon-gray"
             (click)="wishlistService.addProductToWishlist(+product.id, 1)"
           >
@@ -42,7 +42,15 @@
               <img src="../../assets/icons/Star.svg" class="icon" />
             </div>
             <div class="button-body">В ВИШ ЛИСТ</div>
-          </div>
+          </div> -->
+          <app-button-with-icon
+            class="button-with-icon-gray"
+            (onEventEmit)="addToWishlist()"
+            [buttonProductCount]="wishlistCount"
+            [buttonText]="'В ВИШ ЛИСТ'"
+            [isInitState]="wishlistIsInitState"
+            [isLoading]="wishlistLoader"
+          ></app-button-with-icon>
         </section>
       </div>
     </div>

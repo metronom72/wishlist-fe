@@ -47,6 +47,11 @@ export class ProductComponent implements OnInit {
     this.cartService.addProductToCart(+this.product.id, 1);
   }
 
+  addToWishlist() {
+    this.wishlistIsInitState = false;
+    this.wishlistService.addProductToWishlist(+this.product.id, 1);
+  }
+
   ngOnInit(): void {
     this.breakpointObserver
       .observe(['(max-width: 960px)'])
@@ -63,6 +68,30 @@ export class ProductComponent implements OnInit {
       next: (product) => (this.product = product),
     });
 
+    //wishlist fetch
+    this.wishlistService.fetchWishlist();
+    this.wishlistService.loader.subscribe({
+      next: (loader) => {
+        if (this.wishlistCount > 0) {
+          this.wishlistIsInitState = false;
+        }
+        this.wishlistLoader = loader.isLoading;
+        this.wishlistLoadingProduct = loader.productId;
+      },
+    });
+    this.wishlistService.wishlist.subscribe({
+      next: (wishlist) => {
+        this.wishlist = wishlist;
+        const count = wishlist.attributes.wishlistProducts.data.find(
+          (product) =>
+            product.attributes.productId === +this.route.snapshot.params['id']
+        );
+        if (count) {
+          this.wishlistCount = count.attributes.count;
+        }
+      },
+    });
+    //cart fetch
     this.cartService.fetchCart();
     this.cartService.loader.subscribe({
       next: (loader) => {

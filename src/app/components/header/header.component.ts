@@ -1,3 +1,7 @@
+import { ICart } from './../../common/cart';
+import { IWishlist } from './../../common/wishlist';
+import { WishlistService } from './../../services/wishlist.service';
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CategoriesService } from 'src/app/services/categories.service';
@@ -21,10 +25,20 @@ export class HeaderComponent implements OnInit {
 
   public openedCategories = [];
 
+  public wishlist: IWishlist;
+
+  public wishlistCount: number | string;
+
+  public cart: ICart;
+
+  public cartCount: number | string;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private renderer: Renderer2,
-    public categoriesService: CategoriesService
+    public categoriesService: CategoriesService,
+    public cartService: CartService,
+    public wishlistService: WishlistService
   ) {}
 
   onOpenMenu = () => {
@@ -80,5 +94,37 @@ export class HeaderComponent implements OnInit {
           this.onClose();
         }
       });
+
+    //wishlist fetch
+    this.wishlistService.fetchWishlist();
+    this.wishlistService.wishlist.subscribe({
+      next: (wishlist) => {
+        this.wishlist = wishlist;
+        const count = wishlist.attributes.wishlistProducts.data.reduce(
+          (accum, product) => product.attributes.count + accum,
+          0
+        );
+        if (count) {
+          this.wishlistCount = count;
+        }
+      },
+    });
+    //cart fetch
+    this.cartService.fetchCart();
+    this.cartService.cart.subscribe({
+      next: (cart) => {
+        this.cart = cart;
+        const count = cart.attributes.cardProducts.data.reduce(
+          (accum, product) => {
+            return product.attributes.count + accum;
+          },
+          0
+        );
+        if (count) {
+          this.cartCount = count;
+        }
+        console.log(this.cartCount, 'CART_COUNT');
+      },
+    });
   }
 }
