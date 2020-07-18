@@ -1,4 +1,4 @@
-<div class="product-in-cart__wrapper">
+<div class="product-in-cart">
   <div
     class="product-in-cart__upper-row"
     [class.mobile-product-in-cart__upper-row]="isMobile"
@@ -85,5 +85,11 @@
     >
       REMOVE THIS ITEM
     </div>
+  </div>
+  <div
+    *ngIf="!product.attributes.inStock"
+    class="product-in-cart__not-in-stock"
+  >
+    НЕТ В НАЛИЧИИ
   </div>
 </div>

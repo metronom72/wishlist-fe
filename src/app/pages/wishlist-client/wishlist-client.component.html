@@ -5,13 +5,22 @@
     [class.wishlist-client__user-block--mobile]="isMobile"
   >
     <app-user-card [userCard]="userCard"></app-user-card>
-    <div
+    <!-- <div
       class="wishlist-client__title-row"
       [class.wishlist-client__title-row--mobile]="isMobile"
     >
       <div class="wishlist-client__title-row-cart">ПОЗИЦИЯ</div>
       <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
       <div class="wishlist-client__title-row-price">ЦЕНА ЗА ЕД.</div>
+    </div> -->
+    <div
+      class="wishlist-client__title-row"
+      [class.mobile-cart__title-row]="isShortTitleRow"
+    >
+      <div class="wishlist-client__title-row-cart">CART</div>
+      <div class="wishlist-client__title-row-description">DESCRIPTION</div>
+      <div class="wishlist-client__title-row-quntity">QUANTITY</div>
+      <div class="wishlist-client__title-row-price">UNIT PRICE</div>
     </div>
     <h3 *ngIf="!wishlist; else productBlock">Your wishlist is Empty!</h3>
     <ng-template #productBlock>

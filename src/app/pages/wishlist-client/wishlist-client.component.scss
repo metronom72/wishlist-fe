@@ -26,25 +26,33 @@
 
   &__title-row {
     display: flex;
-    width: 100%;
-    font-weight: 500;
-    padding: 14px 0;
     border-bottom: 1px solid $color-gray;
+    padding-bottom: 5px;
 
-    &-cart {
-      width: 50%;
-      padding-left: 30px;
+    &.mobile-cart__title-row {
+      display: none;
     }
+  }
 
-    &-quntity {
-      width: 20%;
-      text-align: center;
-    }
+  &__title-row-cart {
+    width: 20%;
+    text-align: center;
+  }
 
-    &-price {
-      width: 30%;
-      text-align: center;
-    }
+  &__title-row-description {
+    width: 38%;
+    text-align: center;
+  }
+
+  &__title-row-quntity {
+    width: 24%;
+    text-align: center;
+  }
+
+  &__title-row-price {
+    width: 18%;
+    text-align: right;
+    padding-right: 20px;
   }
 
   &__footer {

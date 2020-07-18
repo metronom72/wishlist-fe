@@ -1,11 +1,10 @@
 @import "../../../assets/scss/main.scss";
 
 .product-in-cart {
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid $color-gray;
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $color-gray;
 
   &__upper-row {
     display: flex;
@@ -134,5 +133,19 @@
     border: 1.5px solid $color-dark;
     @include textSmall;
     cursor: pointer;
+  }
+
+  &__not-in-stock {
+    position: absolute;
+    @include flexCenter;
+    height: 22px;
+    margin: 0 12px 14px 0;
+    padding: 0 7px;
+    border: 1.5px solid $color-wrong;
+    color: $color-wrong;
+    @include textSmall;
+    cursor: pointer;
+    right: 0;
+    bottom: 20px;
   }
 }

@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(max-width: 560px)'])
+      .observe(['(max-width: 760px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.isMobile = true;

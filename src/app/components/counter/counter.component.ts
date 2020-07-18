@@ -28,5 +28,11 @@ export class CounterComponent implements OnInit {
         this.loadingProduct = loader.productId;
       },
     });
+    this.wishlistService.loader.subscribe({
+      next: (loader) => {
+        this.isLoading = loader.isLoading;
+        this.loadingProduct = loader.productId;
+      },
+    });
   }
 }

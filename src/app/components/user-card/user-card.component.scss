@@ -5,6 +5,7 @@
   display: flex;
   padding-bottom: 10px;
   border-bottom: 1px solid $color-gray;
+  margin-bottom: 5px;
 
   &__image-wrapper {
     position: relative;
@@ -76,8 +77,6 @@
 
     &-textarea {
       height: 180px;
-      font-size: 1rem;
-      padding: 10px;
       font-size: 1rem;
       font-family: Roboto;
       border: 1px solid $color-gray;

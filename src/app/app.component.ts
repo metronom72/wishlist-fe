@@ -14,14 +14,14 @@ export class AppComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    this.breakpointObserver
-      .observe(['(max-width: 560px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          this.isMobile = true;
-        } else {
-          this.isMobile = false;
-        }
-      });
+    this.breakpointObserver;
+    // .observe(['(max-width: 560px)'])
+    // .subscribe((state: BreakpointState) => {
+    //   if (state.matches) {
+    //     this.isMobile = true;
+    //   } else {
+    //     this.isMobile = false;
+    //   }
+    // });
   }
 }

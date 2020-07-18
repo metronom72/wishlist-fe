@@ -21,6 +21,7 @@ export class WishlistClientComponent implements OnInit {
   userCard: IUserCard;
 
   isMobile: boolean = false;
+  isShortTitleRow: boolean = false;
 
   public wishlist: IWishlist | null = null;
   cart: ICart | null = null;
@@ -45,12 +46,21 @@ export class WishlistClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(max-width: 760px)'])
+      .observe(['(max-width: 920px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.isMobile = true;
         } else {
           this.isMobile = false;
+        }
+      });
+    this.breakpointObserver
+      .observe(['(max-width: 720px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isShortTitleRow = true;
+        } else {
+          this.isShortTitleRow = false;
         }
       });
     this.userCard = {
