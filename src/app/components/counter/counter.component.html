@@ -22,7 +22,7 @@
   <span class="quantity-count">
     {{ count }}
   </span>
-  <div class="quantity-increase">
+  <div *ngIf="inStock > count; else fakeMinus" class="quantity-increase">
     <img
       src="../../assets/icons/Plus.svg"
       class="icon"

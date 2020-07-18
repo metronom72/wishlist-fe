@@ -200,6 +200,49 @@ export class WishlistService {
     }
   };
 
+  public removProductItemFromWishlist(id: number) {
+    if (this.wishlistId) {
+      let arrayForSendObj = this.wishlist
+        .getValue()
+        .attributes.wishlistProducts.data.map((product) => {
+          if (product.attributes.productId !== id) {
+            return {
+              product_id: product.attributes.productId,
+              count: product.attributes.count,
+            };
+          } else if (product.attributes.productId === id) {
+            return;
+          }
+        });
+      let sendObj = {
+        wishlist: {
+          wishlist_products_attributes: arrayForSendObj,
+        },
+      };
+      this.http
+        .patch(
+          `http://localhost:3000//api/v1/wishlists/${this.wishlistId}`,
+          sendObj
+        )
+        .subscribe(
+          (values: any) => {
+            this.wishlist.next({ ...values.data });
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          },
+          (errors: { errors: object[] }) => {
+            this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          }
+        );
+    }
+  }
+
   public getLocalStorageWishlist() {
     const localWishlistId = JSON.parse(this._storageService.get('wishlistId'));
 

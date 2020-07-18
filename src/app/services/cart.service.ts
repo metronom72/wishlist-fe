@@ -182,6 +182,46 @@ export class CartService {
     }
   };
 
+  public removProductItemFromCart(id: number) {
+    if (this.cartId) {
+      let arrayForSendObj = this.cart
+        .getValue()
+        .attributes.cardProducts.data.map((product) => {
+          if (product.attributes.productId !== id) {
+            return {
+              product_id: product.attributes.productId,
+              count: product.attributes.count,
+            };
+          } else if (product.attributes.productId === id) {
+            return;
+          }
+        });
+      let sendObj = {
+        card: {
+          card_products_attributes: arrayForSendObj,
+        },
+      };
+      this.http
+        .patch(`http://localhost:3000//api/v1/cards/${this.cartId}`, sendObj)
+        .subscribe(
+          (values: any) => {
+            this.cart.next({ ...values.data });
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          },
+          (errors: { errors: object[] }) => {
+            this.errors.next(errors.errors);
+            this.loader.next({
+              isLoading: false,
+              productId: null,
+            });
+          }
+        );
+    }
+  }
+
   public getLocalStorageCart() {
     const localCartId = JSON.parse(this._storageService.get('cartId'));
 

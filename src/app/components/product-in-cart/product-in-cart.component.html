@@ -47,6 +47,7 @@
         [id]="product.id"
         [count]="productInfo.attributes.count"
         [isWishlist]="isWishlist"
+        [inStock]="product.attributes.inStock"
       >
       </app-counter>
 
@@ -67,7 +68,7 @@
     </div>
     <div
       class="product-in-cart__button"
-      (click)="wishlistService.removProductFromWishlist(+product.id)"
+      (click)="cartService.removProductItemFromCart(+product.id)"
     >
       REMOVE THIS ITEM
     </div>
@@ -81,7 +82,7 @@
     </div>
     <div
       class="product-in-cart__button"
-      (click)="cartService.removProductFromCart(+product.id)"
+      (click)="wishlistService.removProductItemFromWishlist(+product.id)"
     >
       REMOVE THIS ITEM
     </div>
