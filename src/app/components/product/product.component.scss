@@ -133,3 +133,15 @@
 .short-description {
   @include promoText;
 }
+
+.prooduct-loading-skeleton {
+  height: 500px;
+  width: 100%;
+  @include flexCenter;
+
+  .quantity-loader {
+    top: -100px;
+    left: -100px;
+    background-color: red;
+  }
+}

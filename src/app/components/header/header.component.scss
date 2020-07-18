@@ -86,6 +86,16 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
+
+  a {
+    color: #e8e8e8;
+
+    &:active,
+    &:hover {
+      color: #2b2b2b;
+    }
+  }
+
   &.active-menu-item {
     background-color: #e8e8e8;
     color: #2b2b2b;

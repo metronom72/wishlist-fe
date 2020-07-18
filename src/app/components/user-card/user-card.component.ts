@@ -28,6 +28,13 @@ export class UserCardComponent implements OnInit {
     this.isEditing = false;
     this.userName = this.userCard.name;
     this.userDescription = this.userCard.description;
+    if (this.userDescription.length > 10) {
+      this.shortDexcription = true;
+      this.userDescription = this.userCard.description
+        .split(' ')
+        .splice(0, 30)
+        .join(' ');
+    }
   }
 
   changePhoto() {

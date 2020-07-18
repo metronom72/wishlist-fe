@@ -52,13 +52,13 @@
         <a routerLink="/wishlist">
           <i><img src="assets/star.svg" /></i>
         </a>
-        <div *ngIf="cartCount" class="icon-count">{{ cartCount }}</div>
+        <div *ngIf="wishlistCount" class="icon-count">{{ wishlistCount }}</div>
       </div>
       <div class="icon">
         <a routerLink="/cart">
           <i><img src="assets/card.svg" /></i>
         </a>
-        <div *ngIf="wishlistCount" class="icon-count">{{ wishlistCount }}</div>
+        <div *ngIf="cartCount" class="icon-count">{{ cartCount }}</div>
       </div>
     </div>
   </header>

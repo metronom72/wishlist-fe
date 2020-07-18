@@ -1,6 +1,13 @@
 <section class="user-card">
   <div class="user-card__image-wrapper" (click)="changePhoto()">
     <img src="{{ userCard.profilePhoto }}" />
+    <label for="editAvatar" class="user-card__image-wrapper-icon">
+      <input id="editAvatar" type="file" style="display: none;" />
+      <img
+        src="../../../assets/icons/pencil.svg"
+        class="user-card__image-wrapper-icon-image"
+      />
+    </label>
   </div>
   <div *ngIf="!isEditing; else closeIcon" class="user-card__info">
     <div class="user-card__info-header">
@@ -15,8 +22,8 @@
       *ngIf="shortDexcription; else maxText"
       (click)="manageText(false)"
       class="user-card__info-manage"
-      >more...</span
-    >
+      >more...
+    </span>
     <ng-template #maxText>
       <span (click)="manageText(true)" class="user-card__info-manage"
         >less...</span
@@ -28,7 +35,7 @@
         [class.mobile-low-button-with-icon]="isMobile"
       >
         <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
-          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          <img src="../../../assets/icons/pencil-black.svg" class="icon" />
         </div>
         <div class="button-body" (click)="isEditing = true">EDIT</div>
       </div>
@@ -46,7 +53,7 @@
         [class.mobile-low-button-with-icon]="isMobile"
       >
         <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
-          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          <img src="../../../assets/icons/pencil-black.svg" class="icon" />
         </div>
         <div class="button-body" (click)="changeFields()">CHANGE</div>
       </div>

@@ -36,15 +36,6 @@
             [isInitState]="cartIsInitState"
             [isLoading]="cartLoader"
           ></app-button-with-icon>
-          <!-- <div
-            class="button-with-icon-gray"
-            (click)="wishlistService.addProductToWishlist(+product.id, 1)"
-          >
-            <div class="icon-wrapper">
-              <img src="../../assets/icons/Star.svg" class="icon" />
-            </div>
-            <div class="button-body">В ВИШ ЛИСТ</div>
-          </div> -->
           <app-button-with-icon
             class="button-with-icon-gray"
             (onEventEmit)="addToWishlist()"
@@ -72,7 +63,15 @@
       </section>
     </div>
   </div>
-  <ng-template #loadingBlock>
-    loading...
+
+  <ng-template #loadingBlock class="prooduct-loading-skeleton">
+    <div class="prooduct-loading-skeleton">
+      <!-- TO DO develop a skeleton design for loading stage -->
+      <app-loader
+        [loaderSize]="'200px'"
+        [loaderBorder]="'20px'"
+        class="quantity-loader"
+      ></app-loader>
+    </div>
   </ng-template>
 </section>

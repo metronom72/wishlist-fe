@@ -7,11 +7,13 @@
   border-bottom: 1px solid $color-gray;
 
   &__image-wrapper {
+    position: relative;
     height: 70px;
     min-width: 70px;
     border-radius: 35px;
     overflow: hidden;
-    background-color: $color-dark;
+    cursor: pointer;
+
     margin-right: 9px;
 
     img {
@@ -21,10 +23,27 @@
     }
 
     &:hover {
-      background-image: url("../../../assets/icons/iconmonstr-pencil-14.svg");
-      background-repeat: no-repeat;
-      opacity: 0.5;
-      cursor: pointer;
+      .user-card__image-wrapper-icon {
+        @include flexCenter;
+      }
+    }
+
+    &-icon {
+      display: none;
+      pointer-events: none;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &-image {
+        display: block;
+        height: 30px !important;
+        width: 30px !important;
+      }
     }
   }
 
@@ -48,13 +67,21 @@
     flex-direction: column;
 
     &-input {
-      height: 40px;
+      height: 34px;
+      padding: 0 10px;
       font-size: 1rem;
+      border: 1px solid $color-gray;
+      margin-bottom: 5px;
     }
 
     &-textarea {
-      height: 400px;
+      height: 180px;
       font-size: 1rem;
+      padding: 10px;
+      font-size: 1rem;
+      font-family: Roboto;
+      border: 1px solid $color-gray;
+      resize: none;
     }
   }
 

@@ -72,7 +72,7 @@
       REMOVE THIS ITEM
     </div>
   </div>
-  <div *ngIf="isWishlist" class="product-in-cart__low-row">
+  <div *ngIf="isWishlist && isWishlistOwner" class="product-in-cart__low-row">
     <div
       class="product-in-cart__button"
       (click)="cartService.addProductToCart(+product.id, 1)"
