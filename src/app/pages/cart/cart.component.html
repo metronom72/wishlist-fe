@@ -6,7 +6,7 @@
     </div>
     <ng-template #elseBlock>
       <div class="cart__button-wrapper">
-        <a routerLink="/auth">
+        <a routerLink="routerLink">
           <div
             class="button-with-icon"
             [class.mobile-upper-button-with-icon]="isMobile"
@@ -48,7 +48,8 @@
         [class.mobile-cart__button-wrapper]="isMobile"
       >
         <a
-          routerLink="/shipping"
+          routerLink="/auth"
+          [queryParams]="routerLink"
           class="button-with-icon"
           [class.mobile-low-button-with-icon]="isMobile"
         >

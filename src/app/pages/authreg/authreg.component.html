@@ -46,7 +46,11 @@
         </div>
       </div>
       <div class="form-field">
-        <input placeholder="Password" formControlName="password" />
+        <input
+          placeholder="Password"
+          formControlName="password"
+          type="password"
+        />
         <div
           *ngIf="
             formAuth.get('password').invalid && formAuth.get('password').touched
@@ -67,7 +71,7 @@
       </div>
       <a routerLink="/reset" class="form-reset">FORGOT PASSWORD</a>
       <p class="form-result--success" *ngIf="isAuthSuccess">SUCCESS</p>
-      <p class="form-result-error" *ngIf="isAuthError">
+      <p class="form-result--error" *ngIf="isAuthError">
         SOMETHING WRONG. TRY LATER
       </p>
       <button
@@ -109,7 +113,11 @@
         </div>
       </div>
       <div class="form-field">
-        <input placeholder="Password" formControlName="password" />
+        <input
+          placeholder="Password"
+          formControlName="password"
+          type="password"
+        />
         <div
           *ngIf="
             formRegistr.get('password').invalid &&
@@ -129,7 +137,7 @@
           </small>
         </div>
       </div>
-      <p class="form-result-success" *ngIf="isRegistrSuccess">SUCCESS</p>
+      <p class="form-result--success" *ngIf="isRegistrSuccess">SUCCESS</p>
       <p class="form-result--error" *ngIf="isRegistrError">
         SOMETHING WRONG. TRY LATER
       </p>

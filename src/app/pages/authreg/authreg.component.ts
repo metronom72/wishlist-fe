@@ -1,3 +1,5 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
@@ -8,7 +10,12 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
   styleUrls: ['./authreg.component.scss'],
 })
 export class AuthregComponent implements OnInit {
-  constructor(public breakpointObserver: BreakpointObserver) {}
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+    public userService: UserService,
+    public router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   isMobile: boolean = false;
   isAuthForm: boolean = true;
@@ -20,24 +27,26 @@ export class AuthregComponent implements OnInit {
   formAuth: FormGroup;
   formRegistr: FormGroup;
 
-  submitAuth() {
+  public async submitAuth() {
     if (this.formAuth.valid) {
-      console.log('Form: ', this.formAuth);
-      const formData = { ...this.formAuth.value };
+      const formData = { user: { ...this.formAuth.value } };
 
-      console.log('Form Data:', formData);
-      this.isAuthSuccess = true;
-      // this.formAuth = '';
+      try {
+        const result = await this.userService.signIn(formData);
+        this.isAuthSuccess = true;
+      } catch {}
     }
   }
 
-  submitRegistr() {
+  public async submitRegistr() {
     if (this.formRegistr.valid) {
-      console.log('Form: ', this.formRegistr);
-      const formData = { ...this.formRegistr.value };
+      const formData = { user: { ...this.formRegistr.value } };
 
       console.log('Form Data:', formData);
-      this.isRegistrError = true;
+      try {
+        const result = await this.userService.signUp(formData);
+        this.isRegistrSuccess = true;
+      } catch {}
     }
   }
 
@@ -74,6 +83,26 @@ export class AuthregComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
       ]),
+    });
+
+    this.userService.errorsAuth.subscribe({
+      next: () => (this.isAuthError = true),
+    });
+
+    this.userService.errorsRegistr.subscribe({
+      next: () => (this.isRegistrError = true),
+    });
+
+    this.userService.successAuth.subscribe({
+      next: () =>
+        //@ts-ignore
+        this.route.queryParams.value.order
+          ? this.router.navigate(['/shipping'])
+          : (this.isAuthSuccess = true),
+    });
+
+    this.userService.successRegistr.subscribe({
+      next: () => (this.isRegistrSuccess = true),
     });
   }
 }
