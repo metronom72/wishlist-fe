@@ -13,7 +13,7 @@
           (click)="isItemChosen = !isItemChosen"
         >
           <img
-            *ngIf="isItemChosen"
+            *ngIf="isItemChosen && product.attributes.inStock"
             src="../../../assets/icons/Yes.svg"
             class="icon"
           />

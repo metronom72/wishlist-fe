@@ -30,6 +30,7 @@
         </section>
         <section class="button-block" [class.mobile-button-block]="isMobile">
           <app-button-with-icon
+            *ngIf="product.inStock; else notInStock"
             (onEventEmit)="handleChange()"
             [buttonProductCount]="cartCount"
             [buttonText]="'В КОРЗИНУ'"
@@ -47,6 +48,9 @@
             [textColor]="'#2b2b2b'"
             [buttonIcon]="'../../../assets/icons/Star.svg'"
           ></app-button-with-icon>
+          <ng-template #notInStock>
+            <div class="product__not-in-stock">НЕТ В НАЛИЧИЕ</div>
+          </ng-template>
         </section>
       </div>
     </div>
@@ -68,8 +72,8 @@
     <div class="prooduct-loading-skeleton">
       <!-- TO DO develop a skeleton design for loading stage -->
       <app-loader
-        [loaderSize]="'200px'"
-        [loaderBorder]="'20px'"
+        [loaderSize]="'40px'"
+        [loaderBorder]="'4px'"
         class="quantity-loader"
       ></app-loader>
     </div>

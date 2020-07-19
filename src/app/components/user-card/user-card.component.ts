@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { IUserCard } from './../../common/userCard';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -7,9 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./user-card.component.scss'],
 })
 export class UserCardComponent implements OnInit {
-  constructor() {}
+  constructor(public breakpointObserver: BreakpointObserver) {}
 
   @Input() userCard: IUserCard;
+  @Input() buyer: boolean = false;
 
   isEditing: boolean = false;
   isMobile: boolean = false;
@@ -42,6 +44,15 @@ export class UserCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(max-width: 920px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
     this.userName = this.userCard.name;
     this.userDescription = this.userCard.description;
     if (this.userDescription.length > 10) {

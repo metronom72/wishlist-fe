@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
 
   public isMobile: boolean = false;
 
-  public product: IProduct;
+  public product;
 
   public productCode() {
     return (Array(10).join('0') + this.product.id).slice(-10);

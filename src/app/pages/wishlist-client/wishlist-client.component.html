@@ -4,15 +4,7 @@
     class="wishlist-client__user-block"
     [class.wishlist-client__user-block--mobile]="isMobile"
   >
-    <app-user-card [userCard]="userCard"></app-user-card>
-    <!-- <div
-      class="wishlist-client__title-row"
-      [class.wishlist-client__title-row--mobile]="isMobile"
-    >
-      <div class="wishlist-client__title-row-cart">ПОЗИЦИЯ</div>
-      <div class="wishlist-client__title-row-quntity">КОЛИЧЕСТВО</div>
-      <div class="wishlist-client__title-row-price">ЦЕНА ЗА ЕД.</div>
-    </div> -->
+    <app-user-card [userCard]="userCard" [buyer]="buyer"></app-user-card>
     <div
       class="wishlist-client__title-row"
       [class.mobile-cart__title-row]="isShortTitleRow"
@@ -37,7 +29,7 @@
     class="wishlist-client__payment-wrapper"
     [class.wishlist-client__payment-wrapper--mobile]="isMobile"
   >
-    <div *ngIf="buyer" class="payment">
+    <div *ngIf="buyer; else wishlistOwner" class="payment">
       <div class="payment-upper-block">
         <h3 class="payment-header">ОПЛАТА</h3>
         <div class="payment-type">
@@ -70,7 +62,7 @@
       <hr />
       <div class="payment-price-adress">
         <h4 class="payment-tolal-price">
-          TOTAL: ₽ {{ cart.attributes.totalPrice }}
+          TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
         </h4>
         <div>
           <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
@@ -81,7 +73,37 @@
       </div>
       <div class="button-payment" (click)="goPayment()">ОПЛАТИТЬ</div>
     </div>
+    <ng-template #wishlistOwner>
+      <div class="payment">
+        <div class="payment-price-adress--owner">
+          <h4 class="payment-tolal-price">
+            TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
+          </h4>
+          <div>
+            <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
+            <p class="payment-adress-span">{{ adress.country }}</p>
+            <p class="payment-adress-span">{{ adress.city }}</p>
+            <p class="payment-adress-span">{{ adress.apartment }}</p>
+          </div>
+        </div>
+        <div class="button-adress" (click)="changeAdresst()">
+          ИЗМЕНИТЬ АДРЕС
+        </div>
+        <div class="payment-adress-checkbox">
+          <span class="payment-adress-span">ОТОБРАЖАТЬ АДРЕС</span>
+          <div class="select-box" (click)="isItemChosen = !isItemChosen">
+            <img
+              *ngIf="isItemChosen"
+              src="../../../assets/icons/Yes.svg"
+              class="icon"
+            />
+          </div>
+        </div>
+        <div class="button-publish" (click)="goPublish()">ОПУБЛИКОВАТЬ</div>
+      </div>
+    </ng-template>
   </div>
+
   <div
     class="wishlist-client__footer"
     [class.wishlist-client__footer--mobile]="isMobile"
@@ -89,13 +111,45 @@
     <div
       class="wishlist-client__footer__total-price"
       [class.mobile-cart__total-price]="isMobile"
+      [ngStyle]="{
+        height: showAdress ? '250px' : '50px'
+      }"
     >
+      <div *ngIf="!showAdress" class="payment-price-adress--owner">
+        <h4 class="payment-tolal-price">
+          TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
+        </h4>
+        <div>
+          <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
+          <p class="payment-adress-span">{{ adress.country }}</p>
+          <p class="payment-adress-span">{{ adress.city }}</p>
+          <p class="payment-adress-span">{{ adress.apartment }}</p>
+        </div>
+      </div>
       <div
         class="wishlist-client__footer__total-price-inner"
         [class.mobile-cart__total-price-inner]="isMobile"
       >
         TOTAL
         <h3>₽ {{ cart.attributes.totalPrice }}</h3>
+      </div>
+      <div
+        class="wishlist-client__footer__total-price-inner-second"
+        [class.mobile-cart__total-price-inner]="isMobile"
+      >
+        <h3>АДРЕС</h3>
+        <img
+          *ngIf="showAdress"
+          src="../../../assets/icons/shevron.svg"
+          class="icon"
+          (click)="showAdress = !showAdress"
+        />
+        <img
+          *ngIf="!showAdress"
+          src="../../../assets/icons/shevron.svg"
+          class="icon--rotate"
+          (click)="showAdress = !showAdress"
+        />
       </div>
     </div>
     <div

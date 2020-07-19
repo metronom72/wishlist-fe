@@ -19,7 +19,7 @@
   <ng-template #fakeMinus>
     <div class="icon-fake"></div>
   </ng-template>
-  <span class="quantity-count">
+  <span *ngIf="inStock" class="quantity-count">
     {{ count }}
   </span>
   <div *ngIf="inStock > count; else fakeMinus" class="quantity-increase">

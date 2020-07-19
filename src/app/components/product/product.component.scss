@@ -128,6 +128,18 @@
       }
     }
   }
+
+  .product__not-in-stock {
+    @include flexCenter;
+    order: 2;
+    min-height: 22px;
+    margin-left: 29px;
+    margin-top: auto;
+    padding: 0 7px;
+    border: 1.5px solid $color-wrong;
+    color: $color-wrong;
+    @include textSmall;
+  }
 }
 
 .short-description {
@@ -142,6 +154,29 @@
   .quantity-loader {
     top: -100px;
     left: -100px;
-    background-color: red;
+    background-color: $color-wrong;
   }
 }
+
+//for blinking skeleton
+
+// .blink {
+//   animation-name: blinker;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+//   animation-duration: 3s;
+//   -webkit-animation-name: blinker;
+//   -webkit-animation-iteration-count: infinite;
+//   -webkit-animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+//   -webkit-animation-duration: 3s;
+// }
+
+// @keyframes blinker {
+//   from { opacity: 1.0; }
+//   to { opacity: 0.5; }
+// }
+
+// @-webkit-keyframes blinker {
+//   from { opacity: 0.5; }
+//   to { opacity: 1.0; }
+// }

@@ -127,11 +127,12 @@
 
   &__button {
     @include flexCenter;
-    height: 22px;
+    min-height: 22px;
     margin: 0 12px 14px 0;
-    padding: 0 7px;
+    padding: 1px 9px;
     border: 1.5px solid $color-dark;
     @include textSmall;
+    line-height: 1.4rem;
     cursor: pointer;
   }
 
@@ -144,8 +145,7 @@
     border: 1.5px solid $color-wrong;
     color: $color-wrong;
     @include textSmall;
-    cursor: pointer;
     right: 0;
-    bottom: 20px;
+    top: 39px;
   }
 }

@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  public product: Subject<IProduct> = new Subject();
+  public product: Subject<any> = new Subject();
   public errors: Subject<any> = new Subject<any>();
 
   fetchProduct(id) {

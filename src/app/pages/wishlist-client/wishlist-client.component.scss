@@ -97,6 +97,28 @@
         &.cart__total-price-inner {
           width: 400px;
         }
+
+        &-second {
+          display: flex;
+          align-items: center;
+          padding-right: 0;
+          justify-content: space-around;
+
+          h3,
+          .icon {
+            margin: 0 10px;
+          }
+
+          .icon {
+            cursor: pointer;
+
+            &--rotate {
+              margin: 0 10px;
+              transform: rotate(180deg);
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
@@ -127,13 +149,34 @@
   }
 }
 
+.select-box {
+  @include flexCenter;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $color-dark;
+  background-color: $color-light;
+  margin-left: 10px;
+
+  .icon {
+    width: 15px;
+  }
+}
+
 .payment {
   position: relative;
   height: 100%;
   text-align: right;
+  min-height: 500px;
 
   &-header {
     text-align: left;
+  }
+
+  &-adress-checkbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 19px;
   }
 
   &-header,
@@ -192,17 +235,34 @@
 
   &-price-adress {
     margin-top: 35px;
+
+    &--owner {
+      margin-top: 0;
+    }
   }
 
-  .button-payment {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    @include flexCenter;
-    height: 44px;
-    width: 144px;
-    background-color: $color-gray;
-    margin: 30px 0 0 auto;
-    cursor: pointer;
+  .button {
+    &-adress {
+      @include flexCenter;
+      margin-left: auto;
+      height: 44px;
+      width: 164px;
+      background-color: $color-gray;
+      margin: 30px 0 0 auto;
+      cursor: pointer;
+    }
+
+    &-payment,
+    &-publish {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      @include flexCenter;
+      height: 44px;
+      width: 144px;
+      background-color: $color-gray;
+      margin: 30px 0 0 auto;
+      cursor: pointer;
+    }
   }
 }

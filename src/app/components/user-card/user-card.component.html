@@ -31,13 +31,15 @@
     </ng-template>
     <div>
       <div
+        *ngIf="!buyer && !isMobile"
         class="button-with-icon"
         [class.mobile-low-button-with-icon]="isMobile"
+        (click)="isEditing = true"
       >
         <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
           <img src="../../../assets/icons/pencil-black.svg" class="icon" />
         </div>
-        <div class="button-body" (click)="isEditing = true">EDIT</div>
+        <div class="button-body">EDIT</div>
       </div>
     </div>
   </div>

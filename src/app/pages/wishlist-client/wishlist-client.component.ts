@@ -25,14 +25,15 @@ export class WishlistClientComponent implements OnInit {
 
   public wishlist: IWishlist | null = null;
   cart: ICart | null = null;
+  isItemChosen: boolean = false;
 
   mastercardStatus: boolean = false;
   payPalStatus: boolean = false;
   isWishlist: boolean = true;
-
-  buyer: boolean = true;
-
+  buyer: boolean = false;
   adress = null;
+
+  showAdress: boolean = false;
 
   fakeAdress = {
     apartment: 'Lenina, 29',
@@ -42,6 +43,16 @@ export class WishlistClientComponent implements OnInit {
 
   goPayment() {
     console.log('payment');
+    this.buyer = !this.buyer;
+  }
+
+  changeAdresst() {
+    console.log('changeAdresst');
+  }
+
+  goPublish() {
+    console.log('GO PUBLISH');
+    this.buyer = !this.buyer;
   }
 
   ngOnInit(): void {
