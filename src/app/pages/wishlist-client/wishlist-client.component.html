@@ -115,57 +115,112 @@
         height: showAdress ? '250px' : '50px'
       }"
     >
-      <div *ngIf="!showAdress" class="payment-price-adress--owner">
-        <h4 class="payment-tolal-price">
-          TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
-        </h4>
-        <div>
-          <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
-          <p class="payment-adress-span">{{ adress.country }}</p>
-          <p class="payment-adress-span">{{ adress.city }}</p>
-          <p class="payment-adress-span">{{ adress.apartment }}</p>
+      <div *ngIf="showAdress" class="payment-price-adress--owner">
+        <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
+        <p class="payment-adress-span">{{ adress.country }}</p>
+        <p class="payment-adress-span">{{ adress.city }}</p>
+        <p class="payment-adress-span">{{ adress.apartment }}</p>
+      </div>
+      <div class="wishlist-client__footer__total-price-wrapper">
+        <div
+          class="wishlist-client__footer__total-price-inner"
+          [class.mobile-cart__total-price-inner]="isMobile"
+        >
+          TOTAL
+          <h3>₽ {{ cart.attributes.totalPrice }}</h3>
+        </div>
+        <div
+          class="wishlist-client__footer__total-price-inner-second"
+          [class.mobile-cart__total-price-inner]="isMobile"
+        >
+          <h3>АДРЕС</h3>
+          <img
+            *ngIf="showAdress"
+            src="../../../assets/icons/shevron.svg"
+            class="icon"
+            (click)="showAdress = !showAdress"
+          />
+          <img
+            *ngIf="!showAdress"
+            src="../../../assets/icons/shevron.svg"
+            class="icon--rotate"
+            (click)="showAdress = !showAdress"
+          />
         </div>
       </div>
-      <div
-        class="wishlist-client__footer__total-price-inner"
-        [class.mobile-cart__total-price-inner]="isMobile"
-      >
-        TOTAL
-        <h3>₽ {{ cart.attributes.totalPrice }}</h3>
-      </div>
-      <div
-        class="wishlist-client__footer__total-price-inner-second"
-        [class.mobile-cart__total-price-inner]="isMobile"
-      >
-        <h3>АДРЕС</h3>
-        <img
-          *ngIf="showAdress"
-          src="../../../assets/icons/shevron.svg"
-          class="icon"
-          (click)="showAdress = !showAdress"
-        />
-        <img
-          *ngIf="!showAdress"
-          src="../../../assets/icons/shevron.svg"
-          class="icon--rotate"
-          (click)="showAdress = !showAdress"
-        />
-      </div>
     </div>
-    <div
-      class="wishlist-client__footer__button-wrapper"
-      [class.mobile-cart__button-wrapper]="isMobile"
-    >
-      <a
-        routerLink="/shipping"
-        class="button-with-icon"
-        [class.mobile-low-button-with-icon]="isMobile"
+    <div *ngIf="isShowFooterPaymentOptions; else hideFooterPaymentOptions">
+      <div
+        (click)="isShowFooterPaymentOptions = true"
+        class="wishlist-client__footer__button-wrapper"
+        [class.mobile-cart__button-wrapper]="isMobile"
       >
-        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
-          <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+        <div
+          class="button-with-icon--opened"
+          [class.mobile-low-button-with-icon]="isMobile"
+        >
+          <div
+            class="icon-wrapper"
+            [class.mobile-low-icon-wrapper]="isMobile"
+            (click)="isShowFooterPaymentOptions = false"
+          >
+            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          </div>
+          <div class="button-body">
+            <div class="payment-upper-block">
+              <div class="payment-type">
+                <div
+                  class="payment-checkbox"
+                  (click)="mastercardStatus = !mastercardStatus"
+                >
+                  <div
+                    *ngIf="mastercardStatus"
+                    class="payment-checkbox-select"
+                  ></div>
+                </div>
+                <img
+                  class="payment-icon"
+                  src="../../../assets/icons/CreditCard.svg"
+                />
+                <span>Visa Mastercard</span>
+              </div>
+              <div class="payment-type">
+                <div
+                  class="payment-checkbox"
+                  (click)="mastercardStatus = !mastercardStatus"
+                >
+                  <div
+                    *ngIf="!mastercardStatus"
+                    class="payment-checkbox-select"
+                  ></div>
+                </div>
+                <img
+                  class="payment-icon"
+                  src="../../../assets/icons/Paypal.svg"
+                />
+                <span>Pay Pal</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="button-body">ОПЛАТИТЬ</div>
-      </a>
+      </div>
     </div>
+    <ng-template #hideFooterPaymentOptions>
+      <div
+        (click)="isShowFooterPaymentOptions = true"
+        class="wishlist-client__footer__button-wrapper"
+        [class.mobile-cart__button-wrapper]="isMobile"
+      >
+        <div
+          class="button-with-icon"
+          [class.mobile-low-button-with-icon]="isMobile"
+        >
+          <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+            <img src="../../../assets/icons/BuyNow.svg" class="icon" />
+          </div>
+          <div class="button-body">ОПЛАТИТЬ</div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </section>

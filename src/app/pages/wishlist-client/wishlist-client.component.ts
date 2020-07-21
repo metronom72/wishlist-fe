@@ -32,6 +32,7 @@ export class WishlistClientComponent implements OnInit {
   isWishlist: boolean = true;
   buyer: boolean = false;
   adress = null;
+  isShowFooterPaymentOptions: boolean = false;
 
   showAdress: boolean = false;
 
