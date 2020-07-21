@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from './../../services/cart.service';
 import { IWishlist } from './../../common/wishlist';
 import { ICart } from './../../common/cart';
@@ -15,7 +16,8 @@ export class WishlistClientComponent implements OnInit {
   constructor(
     public wishlistService: WishlistService,
     public cartService: CartService,
-    public breakpointObserver: BreakpointObserver
+    public breakpointObserver: BreakpointObserver,
+    private route: ActivatedRoute
   ) {}
 
   userCard: IUserCard;
@@ -75,6 +77,8 @@ export class WishlistClientComponent implements OnInit {
           this.isShortTitleRow = false;
         }
       });
+    this.buyer = !!this.route.snapshot.params['id'];
+    console.log(this.buyer, 'BYYER');
     this.userCard = {
       name: 'Dystopian novel 1984 is a winner with Riae',
       profilePhoto: 'https://d.radikal.ru/d07/2007/e9/95824395a037.png',

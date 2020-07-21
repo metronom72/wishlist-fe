@@ -76,6 +76,11 @@
       p {
         color: $color-dark !important;
       }
+
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
     }
 
     &__total-price {
@@ -151,10 +156,23 @@
 
 .button-with-icon {
   @include buttonWithIcon;
+  @include buttonWithIcon;
+
+  &:hover {
+    cursor: auto;
+  }
 
   &--opened {
     @include buttonWithIcon;
+    &:hover {
+    }
     height: 100%;
+    cursor: auto;
+
+    .payment-upper-block {
+      margin: 15px auto 0px 25px;
+    }
+
     &.mobile-upper-button-with-icon {
       display: none;
     }
@@ -166,6 +184,12 @@
     &.mobile-low-icon-wrapper {
       width: 100%;
       margin-top: auto !important;
+    }
+
+    &.button-icon {
+      &:hover {
+        background-color: $color-dark;
+      }
     }
   }
 

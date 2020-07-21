@@ -32,6 +32,10 @@ const routes: Routes = [
     component: WishlistClientComponent,
   },
   {
+    path: 'wishlist/:id',
+    component: WishlistClientComponent,
+  },
+  {
     path: 'shipping',
     component: ShippingComponent,
   },

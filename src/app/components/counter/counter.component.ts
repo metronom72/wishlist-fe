@@ -13,6 +13,7 @@ export class CounterComponent implements OnInit {
   @Input() count: number;
   @Input() isWishlist: boolean = false;
   @Input() inStock: number = 1;
+  @Input() isWishlistOwner: boolean = true;
 
   constructor(
     public cartService: CartService,

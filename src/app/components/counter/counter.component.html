@@ -6,7 +6,7 @@
 ></app-loader>
 <ng-template #elseBlock>
   <div
-    *ngIf="count > 1; else fakeMinus"
+    *ngIf="count > 1 && isWishlistOwner; else fakeMinus"
     class="quantity-decrease"
     (click)="
       isWishlist
@@ -22,7 +22,10 @@
   <span *ngIf="inStock" class="quantity-count">
     {{ count }}
   </span>
-  <div *ngIf="inStock > count; else fakeMinus" class="quantity-increase">
+  <div
+    *ngIf="inStock > count && isWishlistOwner; else fakeMinus"
+    class="quantity-increase"
+  >
     <img
       src="../../assets/icons/Plus.svg"
       class="icon"
