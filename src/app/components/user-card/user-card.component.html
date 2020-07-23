@@ -1,10 +1,10 @@
-<section class="user-card">
+<section *ngIf="!isMobile; else mobileCard" class="user-card">
   <div class="user-card__image-wrapper" (click)="changePhoto()">
     <img src="{{ userCard.profilePhoto }}" />
     <label for="editAvatar" class="user-card__image-wrapper-icon">
       <input id="editAvatar" type="file" style="display: none;" />
       <img
-        src="../../../assets/icons/pencil.svg"
+        src="../../../assets/icons/Plus.svg"
         class="user-card__image-wrapper-icon-image"
       />
     </label>
@@ -30,13 +30,8 @@
       >
     </ng-template>
     <div>
-      <div
-        *ngIf="!buyer && !isMobile"
-        class="button-with-icon"
-        [class.mobile-low-button-with-icon]="isMobile"
-        (click)="isEditing = true"
-      >
-        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+      <div *ngIf="!buyer" class="button-with-icon" (click)="isEditing = true">
+        <div class="icon-wrapper">
           <img src="../../../assets/icons/pencil-black.svg" class="icon" />
         </div>
         <div class="button-body">EDIT</div>
@@ -50,11 +45,8 @@
         [(ngModel)]="this.userCard.description"
         class="user-card__edit-textarea"
       ></textarea>
-      <div
-        class="button-with-icon"
-        [class.mobile-low-button-with-icon]="isMobile"
-      >
-        <div class="icon-wrapper" [class.mobile-low-icon-wrapper]="isMobile">
+      <div class="button-with-icon">
+        <div class="icon-wrapper">
           <img src="../../../assets/icons/pencil-black.svg" class="icon" />
         </div>
         <div class="button-body" (click)="changeFields()">CHANGE</div>
@@ -62,3 +54,36 @@
     </div>
   </ng-template>
 </section>
+<ng-template #mobileCard>
+  <div class="user-card__mobile-user-wrapper">
+    <div class="user-card__mobile-user">
+      <h3>ПОДАРОЧНАЯ КАРТА</h3>
+      <div class="user-card__mobile-user-block">
+        <div class="user-card__mobile-user-image-wrapper">
+          <img src="{{ userCard.profilePhoto }}" />
+        </div>
+        <img
+          *ngIf="showAdress"
+          src="../../../assets/icons/shevron.svg"
+          class="icon--rotate"
+          (click)="showAdress = !showAdress"
+        />
+        <img
+          *ngIf="!showAdress"
+          src="../../../assets/icons/shevron.svg"
+          class="icon"
+          (click)="showAdress = !showAdress"
+        />
+      </div>
+    </div>
+    <div *ngIf="showAdress" class="user-card__info">
+      <h3 class="user-card__info-header">
+        {{ userName }}
+      </h3>
+      <p>
+        {{ userCard.description }}
+      </p>
+    </div>
+  </div>
+  <hr class="user-card__mobile-line" />
+</ng-template>

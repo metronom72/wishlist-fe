@@ -18,6 +18,7 @@ export class UserCardComponent implements OnInit {
   userName: string = '';
   userDescription: string = '';
   shortDexcription: boolean = false;
+  showAdress: boolean = false;
 
   manageText(status) {
     this.userDescription = status

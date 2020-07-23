@@ -42,8 +42,8 @@
 
       &-image {
         display: block;
-        height: 30px !important;
-        width: 30px !important;
+        height: 15px !important;
+        width: 15px !important;
       }
     }
   }
@@ -99,5 +99,50 @@
     &.mobile-low-button-with-icon {
       width: 100%;
     }
+  }
+  &__mobile-user-wrapper {
+    // border-bottom: 1px solid $color-gray;
+    margin: 0 10px 10px 10px;
+  }
+  &__mobile-user {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+
+    &-block {
+      display: flex;
+    }
+
+    &-image-wrapper {
+      height: 25px;
+      min-width: 25px;
+      border-radius: 12.5px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &-info-header {
+      font-weight: 400;
+      margin: 10px 0;
+    }
+
+    .icon {
+      cursor: pointer;
+      margin: 0 10px;
+
+      &--rotate {
+        margin: 0 10px;
+        transform: rotate(180deg);
+        cursor: pointer;
+      }
+    }
+  }
+  &__mobile-line {
+    background-color: $color-gray;
   }
 }
