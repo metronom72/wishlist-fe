@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PathLocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-slider',
@@ -11,10 +12,11 @@ export class SliderComponent implements OnInit {
     'https://a.radikal.ru/a19/1909/ac/67bddd0eb156.jpg',
   ];
 
-  @Input() photos: string[];
+  @Input() photos: string[] = [];
 
-  @Input()
-  initialCurrent = 0;
+  photosWithUrl = [];
+
+  @Input() initialCurrent = 0;
 
   current = this.initialCurrent;
 
@@ -34,5 +36,8 @@ export class SliderComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.photosWithUrl = this.photos;
+    console.log('photos', this.photos, this.photosWithUrl);
+  }
 }

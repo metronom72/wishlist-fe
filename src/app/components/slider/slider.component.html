@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="slider">
     <div class="current">
-      <img *ngIf="!!photos" [src]="photos[current]" />
+      <img *ngIf="!!photos" [src]="photosWithUrl[current]" />
     </div>
     <div *ngIf="!!photos" class="previews">
       <img
@@ -11,9 +11,9 @@
       />
       <section class="preview-wrapper">
         <li
-          *ngFor="let image of photos"
+          *ngFor="let image of photosWithUrl"
           class="preview"
-          (click)="selectCurrent(photos.indexOf(image))"
+          (click)="selectCurrent(photosWithUrl.indexOf(image))"
         >
           <img *ngIf="!!photos" [src]="image" />
         </li>

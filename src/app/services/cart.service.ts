@@ -77,7 +77,6 @@ export class CartService {
           (values: any) => {
             this.cart.next({ ...values.data });
             this.setLocalStorageCart(values.data.id);
-
             this.loader.next({
               isLoading: false,
               productId: null,

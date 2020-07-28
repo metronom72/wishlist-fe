@@ -8,10 +8,7 @@
       [class.mobile-product-in-cart__first-line]="isMobile"
     >
       <div class="product-in-cart__cart">
-        <div
-          class="product-in-cart__select-box"
-          (click)="isItemChosen = !isItemChosen"
-        >
+        <div class="product-in-cart__select-box" (click)="changeIsItemChosen()">
           <img
             *ngIf="isItemChosen && product.attributes.inStock"
             src="../../../assets/icons/Yes.svg"
@@ -19,10 +16,7 @@
           />
         </div>
         <div class="product-in-cart__image-wrapper">
-          <img
-            *ngIf="!!product.attributes.photos"
-            [src]="product.attributes.photos[0]"
-          />
+          <img *ngIf="!!product.attributes.images" [src]="itemPhoto" />
         </div>
       </div>
       <div class="product-in-cart__description-wrapper">

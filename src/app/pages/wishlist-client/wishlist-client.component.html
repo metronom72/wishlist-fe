@@ -18,6 +18,7 @@
       <div *ngFor="let product of wishlist.attributes.products.data">
         <app-product-in-cart
           [isWishlist]="isWishlist"
+          (onEventEmit)="changeIsItemSelected($event)"
           [product]="product"
           [productsArray]="wishlist.attributes.wishlistProducts.data"
           [isWishlistOwner]="!buyer"
@@ -62,7 +63,7 @@
       <hr />
       <div class="payment-price-adress">
         <h4 class="payment-tolal-price">
-          TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
+          TOTAL {{ "  " }} ₽ {{ buyerTotalPrice }}
         </h4>
         <div>
           <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
@@ -77,7 +78,7 @@
       <div class="payment">
         <div class="payment-price-adress--owner">
           <h4 class="payment-tolal-price">
-            TOTAL {{ "  " }} ₽ {{ cart.attributes.totalPrice }}
+            TOTAL {{ "  " }} ₽ {{ buyerTotalPrice }}
           </h4>
           <div>
             <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
@@ -127,7 +128,7 @@
           [class.mobile-cart__total-price-inner]="isMobile"
         >
           TOTAL
-          <h3>₽ {{ cart.attributes.totalPrice }}</h3>
+          <h3>₽ {{ buyerTotalPrice }}</h3>
         </div>
         <div
           class="wishlist-client__footer__total-price-inner-second"

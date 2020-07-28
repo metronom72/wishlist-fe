@@ -1,4 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
+import { OrderService } from './../../services/order.service';
+import { BuyerWishlistCalcService } from './../../services/buyer-wishlist-calc.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from './../../services/cart.service';
 import { IWishlist } from './../../common/wishlist';
 import { ICart } from './../../common/cart';
@@ -15,9 +17,12 @@ import { Component, OnInit } from '@angular/core';
 export class WishlistClientComponent implements OnInit {
   constructor(
     public wishlistService: WishlistService,
+    public orderService: OrderService,
     public cartService: CartService,
     public breakpointObserver: BreakpointObserver,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public buyerWishlistCalcService: BuyerWishlistCalcService,
+    public router: Router
   ) {}
 
   userCard: IUserCard;
@@ -37,6 +42,8 @@ export class WishlistClientComponent implements OnInit {
   isShowFooterPaymentOptions: boolean = false;
 
   showAdress: boolean = false;
+  buyerCountedData;
+  buyerTotalPrice: number = 0;
 
   fakeAdress = {
     apartment: 'Lenina, 29',
@@ -46,7 +53,11 @@ export class WishlistClientComponent implements OnInit {
 
   goPayment() {
     console.log('payment');
-    this.buyer = !this.buyer;
+    const currentOrder = this.buyerCountedData.filter(
+      (product) => product.selected
+    );
+    this.orderService.putCurrentOrder(currentOrder);
+    this.router.navigate(['/orders']);
   }
 
   changeAdresst() {
@@ -58,7 +69,31 @@ export class WishlistClientComponent implements OnInit {
     this.buyer = !this.buyer;
   }
 
+  changeIsItemSelected(event) {
+    event.status
+      ? (this.buyerCountedData = this.buyerCountedData.map((product) =>
+          +product.id === +event.id ? { ...product, selected: true } : product
+        ))
+      : (this.buyerCountedData = this.buyerCountedData.map((product) =>
+          +product.id === +event.id ? { ...product, selected: false } : product
+        ));
+
+    this.buyerTotalPrice =
+      this.buyerCountedData !== []
+        ? this.buyerCountedData.reduce(
+            (accum, product) =>
+              product.selected
+                ? accum +
+                  product.attributes.prices[0] * product.attributes.count
+                : accum,
+            0
+          )
+        : 0;
+  }
+
   ngOnInit(): void {
+    this.buyerWishlistCalcService.showBuyerState();
+
     this.breakpointObserver
       .observe(['(max-width: 920px)'])
       .subscribe((state: BreakpointState) => {
@@ -95,7 +130,36 @@ export class WishlistClientComponent implements OnInit {
     this.cartService.fetchCart();
     this.wishlistService.wishlist.subscribe({
       next: (wishlist) => {
+        console.log('WISHLIST', wishlist);
         this.wishlist = wishlist;
+        this.buyerCountedData = wishlist.attributes.products.data
+          .filter((product) => product.attributes.inStock)
+          .map((product) => {
+            product.attributes.count = wishlist.attributes.wishlistProducts.data.find(
+              (e) => e.attributes.productId === +product.id
+            ).attributes.count;
+            product.selected = true;
+            return product;
+          });
+        console.log(
+          'buyerCountedData',
+          this.buyerCountedData,
+          this.buyerCountedData.length
+        );
+
+        this.buyerTotalPrice =
+          this.buyerCountedData !== []
+            ? this.buyerCountedData.reduce(
+                (accum, product) =>
+                  product.selected
+                    ? accum +
+                      product.attributes.prices[0] * product.attributes.count
+                    : accum,
+                0
+              )
+            : 0;
+        console.log(this.buyerTotalPrice);
+
         if (
           wishlist.attributes.apartment &&
           wishlist.attributes.city &&

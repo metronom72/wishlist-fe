@@ -17,12 +17,17 @@ export class ProductService {
   fetchProduct(id) {
     this.http.get(`http://localhost:3000//api/v1/products/${id}`).subscribe(
       (values: any) => {
+        values.data.attributes.images = values.data.attributes.images.map(
+          (e) => `http://localhost:3000/${e}`
+        );
         const { attributes, ...data } = values.data;
+        console.log(attributes, data);
         this.product.next({
           ...data,
           ...attributes,
         });
       },
+
       (errors: { errors: object[] }) => {
         this.errors.next(errors.errors);
       }
