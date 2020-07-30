@@ -6,9 +6,115 @@
   font-weight: 500;
 }
 
-.order__wrapper {
+.order-wrapper {
   min-height: 100px;
   width: 100%;
   background-color: #e8e8e8;
   margin-bottom: 60px;
+}
+
+.order__products {
+  &-header {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: 1px solid $color-gray;
+    font-weight: 300;
+    padding: 0 20px;
+
+    &-position {
+      width: 20%;
+      text-align: left;
+    }
+
+    &-description {
+      width: 40%;
+      text-align: left;
+    }
+
+    &-quontity {
+      width: 22%;
+      text-align: center;
+    }
+
+    &-price {
+      width: 18%;
+      text-align: right;
+      padding-right: 20px;
+    }
+  }
+}
+
+.payment {
+  position: relative;
+  height: 100%;
+  text-align: right;
+
+  &-header {
+    text-align: left;
+  }
+
+  &-adress-checkbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 19px;
+  }
+
+  &-header,
+  &-adress-header {
+    margin-bottom: 20px;
+    color: $color-dark;
+    font-weight: 300;
+  }
+
+  &-adress {
+    &-wrapper {
+      padding: 20px;
+    }
+
+    &-header {
+    }
+
+    &-span {
+      color: $color-dark;
+    }
+  }
+
+  &-upper-block {
+    padding: 20px;
+  }
+
+  &-type {
+    display: flex;
+    align-items: center;
+    color: $color-dark;
+    margin-bottom: 20px;
+  }
+
+  &-tolal-price {
+    color: $color-dark;
+    text-align: right;
+  }
+
+  &-icon {
+    width: 20px;
+    margin: 0 10px;
+  }
+
+  &-checkbox {
+    @include flexCenter;
+    background-color: $color-light;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &-select {
+      background-color: $color-dark;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+    }
+  }
 }

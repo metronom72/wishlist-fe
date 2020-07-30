@@ -2,11 +2,49 @@
   <app-page-title>ЗАКАЗ</app-page-title>
   <app-stage-indicator></app-stage-indicator>
   <h3 class="page-title">1. ЗАКАЗ</h3>
-  <div class="order__wrapper"></div>
+  <div class="order-wrapper">
+    <div class="order__products-header">
+      <div class="order__products-header-position">ПОЗИЦИЯ</div>
+      <div class="order__products-header-description">ОПИСАНИЕ</div>
+      <div class="order__products-header-quontity">КОЛИЧЕСТВО</div>
+      <div class="order__products-header-price">ЦЕНА ЗА ЕД.</div>
+    </div>
+  </div>
   <h3 class="page-title">2. ДОСТАВКА</h3>
-  <div class="order__wrapper"></div>
+  <div class="order-wrapper">
+    <div class="payment-adress-wrapper">
+      <h3 class="payment-adress-header">АДРЕС ДОСТАВКИ</h3>
+      <p class="payment-adress-span">{{ adress.country }}</p>
+      <p class="payment-adress-span">{{ adress.city }}</p>
+      <p class="payment-adress-span">{{ adress.apartment }}</p>
+    </div>
+  </div>
   <h3 class="page-title">3. ОПЛАТА</h3>
-  <div class="order__wrapper"></div>
+  <div class="order-wrapper">
+    <div class="payment-upper-block">
+      <h3 class="payment-header">СПОСОБЫ ОПЛАТЫ</h3>
+      <div class="payment-type">
+        <div
+          class="payment-checkbox"
+          (click)="mastercardStatus = !mastercardStatus"
+        >
+          <div *ngIf="mastercardStatus" class="payment-checkbox-select"></div>
+        </div>
+        <img class="payment-icon" src="../../../assets/icons/CreditCard.svg" />
+        <span>Visa Mastercard</span>
+      </div>
+      <div class="payment-type">
+        <div
+          class="payment-checkbox"
+          (click)="mastercardStatus = !mastercardStatus"
+        >
+          <div *ngIf="!mastercardStatus" class="payment-checkbox-select"></div>
+        </div>
+        <img class="payment-icon" src="../../../assets/icons/Paypal.svg" />
+        <span>Pay Pal</span>
+      </div>
+    </div>
+  </div>
 </section>
 <ng-template #loadingBlock>
   <app-loader
