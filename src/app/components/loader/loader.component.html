@@ -1,14 +1,17 @@
-<div
-  class="lds-ring"
-  [ngStyle]="{
-    width: loaderSize,
-    height: loaderSize
-  }"
->
+<div class="loader-wrapper">
   <div
-    *ngFor="let i of [0, 1, 2, 3]"
+    class="lds-ring"
     [ngStyle]="{
-      'border-width': loaderBorder
+      width: loaderSize,
+      height: loaderSize,
+      top: loaderHalf
     }"
-  ></div>
+  >
+    <div
+      *ngFor="let i of [0, 1, 2, 3]"
+      [ngStyle]="{
+        'border-width': loaderBorder
+      }"
+    ></div>
+  </div>
 </div>

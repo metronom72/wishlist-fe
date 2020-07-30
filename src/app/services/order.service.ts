@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class OrderService {
   constructor() {}
 
-  currentOrder = {};
+  currentOrder = [];
 
   putCurrentOrder(order) {
     this.currentOrder = order;

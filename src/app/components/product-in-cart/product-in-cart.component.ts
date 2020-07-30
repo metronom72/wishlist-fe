@@ -16,6 +16,7 @@ export class ProductInCartComponent implements OnInit {
   @Input() userCart: boolean = false;
   @Input() isWishlist: boolean = false;
   @Input() isWishlistOwner: boolean = true;
+  @Input() orderView: boolean = false;
   @Output() onEventEmit = new EventEmitter();
 
   public isMobile: boolean = false;

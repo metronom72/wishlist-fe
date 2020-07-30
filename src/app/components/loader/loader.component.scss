@@ -1,5 +1,9 @@
 @import "../../../assets/scss/main.scss";
 
+.loader-wrapper {
+  position: relative;
+}
+
 .lds-ring {
   @include flexCenter;
   position: absolute;

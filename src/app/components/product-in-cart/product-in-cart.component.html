@@ -8,7 +8,11 @@
       [class.mobile-product-in-cart__first-line]="isMobile"
     >
       <div class="product-in-cart__cart">
-        <div class="product-in-cart__select-box" (click)="changeIsItemChosen()">
+        <div
+          *ngIf="!orderView"
+          class="product-in-cart__select-box"
+          (click)="changeIsItemChosen()"
+        >
           <img
             *ngIf="isItemChosen && product.attributes.inStock"
             src="../../../assets/icons/Yes.svg"

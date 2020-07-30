@@ -11,5 +11,9 @@ export class LoaderComponent implements OnInit {
   @Input() loaderSize: string = '20px';
   @Input() loaderBorder: string = '4px';
 
-  ngOnInit(): void {}
+  loaderHalf = `10px`;
+
+  ngOnInit(): void {
+    this.loaderHalf = `-${parseInt(this.loaderSize, 10) / 2}px`;
+  }
 }
