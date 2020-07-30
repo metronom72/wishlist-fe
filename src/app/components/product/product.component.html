@@ -71,12 +71,19 @@
   <ng-template #loadingBlock class="prooduct-loading-skeleton">
     <div class="prooduct-loading-skeleton">
       <!-- TO DO develop a skeleton design for loading stage -->
-      <app-loader
+      <!-- <app-loader
         [loaderSize]="'40px'"
         [loaderBorder]="'4px'"
         class="quantity-loader"
-      ></app-loader>
-      <div class="blink"></div>
+      ></app-loader> -->
+      <div class="blink">
+        <div class="blink-photo"></div>
+        <div class="blink-strings-container">
+          <div *ngFor="let number of [0, 1, 2, 3, 4]">
+            <div class="blink-string"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-template>
 </section>

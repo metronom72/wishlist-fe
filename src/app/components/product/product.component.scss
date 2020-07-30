@@ -149,12 +149,13 @@
 .prooduct-loading-skeleton {
   height: 500px;
   width: 100%;
+  margin: 20px;
+
   @include flexCenter;
 
   .blink {
-    width: 500px;
-    height: 500px;
-    background-color: $color-dark;
+    display: flex;
+
     animation-name: blinker;
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(1, 2, 0, 1);
@@ -163,6 +164,28 @@
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: cubic-bezier(1, 2, 0, 1);
     -webkit-animation-duration: 3s;
+
+    &.mobile-blink {
+      flex-direction: column;
+    }
+
+    &-photo {
+      background-color: $color-dark;
+      width: 500px;
+      height: 500px;
+    }
+
+    &-strings-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-string {
+      width: 200px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgb(110, 85, 85);
+    }
   }
 
   @keyframes blinker {

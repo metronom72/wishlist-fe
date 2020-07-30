@@ -1,4 +1,13 @@
-<section *ngIf="currentOrder !== {}; else loadingBlock"></section>
+<section *ngIf="currentOrder !== {}; else loadingBlock">
+  <app-page-title>ЗАКАЗ</app-page-title>
+  <app-stage-indicator></app-stage-indicator>
+  <h3 class="page-title">1. ЗАКАЗ</h3>
+  <div class="order__wrapper"></div>
+  <h3 class="page-title">2. ДОСТАВКА</h3>
+  <div class="order__wrapper"></div>
+  <h3 class="page-title">3. ОПЛАТА</h3>
+  <div class="order__wrapper"></div>
+</section>
 <ng-template #loadingBlock>
   <app-loader
     [loaderSize]="'40px'"
