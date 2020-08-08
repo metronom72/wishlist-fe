@@ -13,7 +13,7 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
-    path: 'products',
+    path: 'catalog/:page',
     component: ProductListComponent,
   },
   // {

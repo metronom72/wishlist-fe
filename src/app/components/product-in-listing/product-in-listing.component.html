@@ -1,0 +1,41 @@
+<div class="product-in-listing">
+  <div
+    class="product-in-listing__upper-row"
+    [class.mobile-product-in-listing__upper-row]="isMobile"
+  >
+    <div
+      class="product-in-listing__first-line"
+      [class.mobile-product-in-listing__first-line]="isMobile"
+    >
+      <div class="product-in-listing__image-wrapper">
+        <img *ngIf="!!product.attributes.images" [src]="itemPhoto" />
+      </div>
+
+      <div class="product-in-listing__description-wrapper">
+        <a
+          [routerLink]="['/products', product.id]"
+          class="product-in-listing__description-wrapper-title"
+        >
+          <h3>{{ product.attributes.name }}</h3>
+        </a>
+      </div>
+    </div>
+    <div
+      class="product-in-listing__second-line"
+      [class.mobile-product-in-listing__second-line]="isMobile"
+    >
+      <div
+        class="product-in-listing__price"
+        [class.mobile-product-in-listing__price]="isMobile"
+      >
+        {{ product.attributes.prices[0] }} ₽
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="!product.attributes.inStock"
+    class="product-in-listing__not-in-stock"
+  >
+    НЕТ В НАЛИЧИИ
+  </div>
+</div>

@@ -29,6 +29,8 @@ import { NgxLocalStorageModule } from 'ngx-localstorage';
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderComponent } from './components/order/order.component';
 import { ButtonWithIconComponent } from './components/button-with-icon/button-with-icon.component';
+import { ProductInListingComponent } from './components/product-in-listing/product-in-listing.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { ButtonWithIconComponent } from './components/button-with-icon/button-wi
     LoaderComponent,
     OrderComponent,
     ButtonWithIconComponent,
+    ProductInListingComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,

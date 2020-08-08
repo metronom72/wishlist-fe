@@ -1,0 +1,17 @@
+@import "../../../assets/scss/main.scss";
+
+.pagination {
+  &-wrapper {
+    display: flex;
+    margin: auto 40px;
+    padding: 2px;
+    background-color: $color-gray;
+    box-shadow: 1px -1px 1px -6px rgba($color-dark, 0.5);
+  }
+
+  &-section {
+    height: 37px;
+    background-color: #f3f3f3;
+    margin: 0 1px;
+  }
+}
