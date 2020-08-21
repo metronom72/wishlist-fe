@@ -2,6 +2,21 @@
   <div class="pagination-section">
     <img src="../../../assets/icons/shevron.svg" />
   </div>
+  <div *ngIf="activePage !== first">
+    {{ first }}
+  </div>
+  <div *ngIf="leftDots()">
+    ...
+  </div>
+  <div>
+    {{ activePage }}
+  </div>
+  <div *ngIf="rightDots()">
+    ...
+  </div>
+  <div *ngIf="activePage !== total">
+    {{ total }}
+  </div>
   <div class="pagination-section">
     <img src="../../../assets/icons/shevron.svg" />
   </div>
