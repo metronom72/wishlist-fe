@@ -13,29 +13,12 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ProductInListingComponent implements OnInit {
   @Input() product;
-  @Input() productsArray;
-  @Input() userCart: boolean = false;
-  @Input() isWishlist: boolean = false;
-  @Input() isWishlistOwner: boolean = true;
   @Input() orderView: boolean = false;
-  @Output() onEventEmit = new EventEmitter();
 
   public isMobile: boolean = false;
   public isItemChosen: boolean = true;
-  isTest = true;
 
-  changeIsItemChosen() {
-    this.isItemChosen = !this.isItemChosen;
-    this.onEventEmit.emit({ status: this.isItemChosen, id: this.product.id });
-  }
-
-  productInfo;
-  itemPhoto: string;
-
-  constructor(
-    public productListService: ProductListService,
-    public breakpointObserver: BreakpointObserver
-  ) {}
+  constructor(public breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -47,7 +30,5 @@ export class ProductInListingComponent implements OnInit {
           this.isMobile = false;
         }
       });
-
-    this.itemPhoto = `http://localhost:3000${this.product.attributes.images[0]}`;
   }
 }

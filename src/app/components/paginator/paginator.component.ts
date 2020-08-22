@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paginator',
@@ -7,13 +7,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./paginator.component.scss'],
 })
 export class PaginatorComponent implements OnInit {
-  constructor(public router: Router, private route: ActivatedRoute) {}
+  constructor(public router: Router) {}
 
-  public activePage = null;
+  @Input()
+  public activePage: number;
 
-  public perPage = 21;
+  @Input()
+  public perPage: number;
 
-  public total = 100;
+  @Input()
+  public total: number;
+
+  @Input()
+  public type: string;
 
   public first = 1;
 
@@ -28,8 +34,6 @@ export class PaginatorComponent implements OnInit {
   public canLeft = () => this.activePage !== 1;
 
   public canRight = () => this.activePage !== this.total;
-
-  public type = 'catalog';
 
   onNext = () => {
     this.activePage = this.activePage + 1;
@@ -52,8 +56,5 @@ export class PaginatorComponent implements OnInit {
     this.router.navigate([this.type, this.activePage]);
   };
 
-  ngOnInit(): void {
-    this.activePage = parseInt(this.route.snapshot.params['page'], 10);
-    this.type = this.route.snapshot.url[0].path;
-  }
+  ngOnInit(): void {}
 }

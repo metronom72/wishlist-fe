@@ -1,16 +1,21 @@
 <div class="product-list-component">
   <div class="product-list-component__categories-wrapper"></div>
-  <div *ngIf="!!productList" class="product-list-component__products-section">
+  <div class="product-list-component__products-section">
     <div class="product-list-component__products-wrapper">
       <div
-        *ngFor="let product of productList"
+        *ngFor="let product of productsListService.products.getValue()"
         class="product-list-component__products"
       >
         <app-product-in-listing [product]="product"></app-product-in-listing>
       </div>
     </div>
     <div>
-      <app-paginator> </app-paginator>
+      <app-paginator
+        [total]="total()"
+        [perPage]="perPage()"
+        [activePage]="activePage"
+        type="catalog"
+      ></app-paginator>
     </div>
   </div>
 </div>

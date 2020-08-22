@@ -8,7 +8,7 @@
       [class.mobile-product-in-listing__first-line]="isMobile"
     >
       <div class="product-in-listing__image-wrapper">
-        <!-- <img *ngIf="!!product.attributes.images" [src]="itemPhoto" /> -->
+        <img *ngIf="!!product.images" [src]="product.images[0]" />
       </div>
 
       <div class="product-in-listing__description-wrapper">
@@ -16,7 +16,7 @@
           [routerLink]="['/products', product.id]"
           class="product-in-listing__description-wrapper-title"
         >
-          <h3>{{ product.attributes.name }}</h3>
+          <h3>{{ product.name }}</h3>
         </a>
       </div>
     </div>
@@ -28,14 +28,11 @@
         class="product-in-listing__price"
         [class.mobile-product-in-listing__price]="isMobile"
       >
-        {{ product.attributes.prices[0] }} ₽
+        {{ product.prices[0] }} ₽
       </div>
     </div>
   </div>
-  <div
-    *ngIf="!product.attributes.inStock"
-    class="product-in-listing__not-in-stock"
-  >
+  <div *ngIf="!product.inStock" class="product-in-listing__not-in-stock">
     НЕТ В НАЛИЧИИ
   </div>
 </div>
