@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PaginatorComponent implements OnInit {
   constructor(public router: Router, private route: ActivatedRoute) {}
 
-  public activePage = 97;
+  public activePage = null;
 
   public perPage = 21;
 
@@ -53,6 +53,7 @@ export class PaginatorComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.activePage = this.route.snapshot.params['page'];
+    this.activePage = parseInt(this.route.snapshot.params['page'], 10);
+    this.type = this.route.snapshot.url[0].path;
   }
 }
