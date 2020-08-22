@@ -2,11 +2,16 @@
   <div
     class="pagination-section pagination-section--chevron-left"
     *ngIf="canLeft()"
+    (click)="onPrevious()"
   >
     <img src="assets/icons/shevron.svg" />
   </div>
 
-  <div class="pagination-section" *ngIf="activePage !== first">
+  <div
+    class="pagination-section"
+    *ngIf="activePage !== first"
+    (click)="setPage(first)"
+  >
     {{ first }}
   </div>
 
@@ -14,7 +19,11 @@
     ...
   </div>
 
-  <div class="pagination-section" *ngIf="showPrevious()">
+  <div
+    class="pagination-section"
+    *ngIf="showPrevious()"
+    (click)="setPage(activePage - 1)"
+  >
     {{ activePage - 1 }}
   </div>
 
@@ -22,7 +31,11 @@
     {{ activePage }}
   </div>
 
-  <div class="pagination-section" *ngIf="showNext()">
+  <div
+    class="pagination-section"
+    *ngIf="showNext()"
+    (click)="setPage(activePage + 1)"
+  >
     {{ activePage + 1 }}
   </div>
 
@@ -30,13 +43,18 @@
     ...
   </div>
 
-  <div class="pagination-section" *ngIf="activePage !== total">
+  <div
+    class="pagination-section"
+    *ngIf="activePage !== total"
+    (click)="setPage(total)"
+  >
     {{ total }}
   </div>
 
   <div
     class="pagination-section pagination-section--chevron-right"
     *ngIf="canRight()"
+    (click)="onNext()"
   >
     <img src="assets/icons/shevron.svg" />
   </div>

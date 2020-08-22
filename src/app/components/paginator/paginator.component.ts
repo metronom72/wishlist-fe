@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-paginator',
@@ -6,27 +7,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paginator.component.scss'],
 })
 export class PaginatorComponent implements OnInit {
-  constructor() {}
+  constructor(public router: Router, private route: ActivatedRoute) {}
 
-  activePage = 97;
+  public activePage = 97;
 
-  perPage = 21;
+  public perPage = 21;
 
-  total = 100;
+  public total = 100;
 
-  first = 1;
+  public first = 1;
 
-  leftDots = () => this.activePage > 3;
+  public leftDots = () => this.activePage > 3;
 
-  rightDots = () => this.activePage <= this.total - 3;
+  public rightDots = () => this.activePage <= this.total - 3;
 
-  showPrevious = () => this.activePage > 2;
+  public showPrevious = () => this.activePage > 2;
 
-  showNext = () => this.activePage <= this.total - 2;
+  public showNext = () => this.activePage <= this.total - 2;
 
-  canLeft = () => this.activePage !== 1;
+  public canLeft = () => this.activePage !== 1;
 
-  canRight = () => this.activePage !== this.total;
+  public canRight = () => this.activePage !== this.total;
 
-  ngOnInit(): void {}
+  public type = 'catalog';
+
+  onNext = () => {
+    this.activePage = this.activePage + 1;
+    this.redirect();
+  };
+
+  onPrevious = () => {
+    this.activePage = this.activePage - 1;
+    this.redirect();
+  };
+
+  setPage = (page: number) => {
+    if (this.activePage !== page) {
+      this.activePage = page;
+      this.redirect();
+    }
+  };
+
+  private redirect = () => {
+    this.router.navigate([this.type, this.activePage]);
+  };
+
+  ngOnInit(): void {
+    this.activePage = this.route.snapshot.params['page'];
+  }
 }
