@@ -9,7 +9,5 @@ export class BuyerWishlistCalcService {
 
   public currentState = this.wishlistService.wishlist;
 
-  public showBuyerState() {
-    console.log('CURRENT_WHISHLIST_STATE', this.currentState);
-  }
+  public showBuyerState() {}
 }

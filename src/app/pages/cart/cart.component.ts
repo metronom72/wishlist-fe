@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
   routerLink: object = this.userService.user ? { order: 'true' } : {};
 
   ngOnInit(): void {
-    console.log('routerLink', this.routerLink);
     this.breakpointObserver
       .observe(['(max-width: 760px)'])
       .subscribe((state: BreakpointState) => {

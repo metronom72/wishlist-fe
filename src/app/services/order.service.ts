@@ -10,6 +10,5 @@ export class OrderService {
 
   putCurrentOrder(order) {
     this.currentOrder = order;
-    console.log('his.currentOrder', this.currentOrder);
   }
 }

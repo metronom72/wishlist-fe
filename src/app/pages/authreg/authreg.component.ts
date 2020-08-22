@@ -42,7 +42,6 @@ export class AuthregComponent implements OnInit {
     if (this.formRegistr.valid) {
       const formData = { user: { ...this.formRegistr.value } };
 
-      console.log('Form Data:', formData);
       try {
         const result = await this.userService.signUp(formData);
         this.isRegistrSuccess = true;

@@ -52,7 +52,6 @@ export class WishlistClientComponent implements OnInit {
   };
 
   goPayment() {
-    console.log('payment');
     const currentOrder = this.buyerCountedData.filter(
       (product) => product.selected
     );
@@ -60,12 +59,9 @@ export class WishlistClientComponent implements OnInit {
     this.router.navigate(['/orders']);
   }
 
-  changeAdresst() {
-    console.log('changeAdresst');
-  }
+  changeAdresst() {}
 
   goPublish() {
-    console.log('GO PUBLISH');
     this.buyer = !this.buyer;
   }
 
@@ -113,7 +109,6 @@ export class WishlistClientComponent implements OnInit {
         }
       });
     this.buyer = !!this.route.snapshot.params['id'];
-    console.log(this.buyer, 'BYYER');
     this.userCard = {
       name: 'Dystopian novel 1984 is a winner with Riae',
       profilePhoto: 'https://d.radikal.ru/d07/2007/e9/95824395a037.png',
@@ -130,7 +125,6 @@ export class WishlistClientComponent implements OnInit {
     this.cartService.fetchCart();
     this.wishlistService.wishlist.subscribe({
       next: (wishlist) => {
-        console.log('WISHLIST', wishlist);
         this.wishlist = wishlist;
         this.buyerCountedData = wishlist.attributes.products.data
           .filter((product) => product.attributes.inStock)
@@ -141,11 +135,6 @@ export class WishlistClientComponent implements OnInit {
             product.selected = true;
             return product;
           });
-        console.log(
-          'buyerCountedData',
-          this.buyerCountedData,
-          this.buyerCountedData.length
-        );
 
         this.buyerTotalPrice =
           this.buyerCountedData !== []
@@ -158,7 +147,6 @@ export class WishlistClientComponent implements OnInit {
                 0
               )
             : 0;
-        console.log(this.buyerTotalPrice);
 
         if (
           wishlist.attributes.apartment &&

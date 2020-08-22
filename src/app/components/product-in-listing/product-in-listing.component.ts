@@ -38,7 +38,6 @@ export class ProductInListingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('PRODUCT', this.product);
     this.breakpointObserver
       .observe(['(max-width: 720px)'])
       .subscribe((state: BreakpointState) => {

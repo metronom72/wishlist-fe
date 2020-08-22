@@ -38,6 +38,5 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.photosWithUrl = this.photos;
-    console.log('photos', this.photos, this.photosWithUrl);
   }
 }

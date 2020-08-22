@@ -1,23 +1,43 @@
 <div class="pagination-wrapper">
-  <div class="pagination-section pagination-section--chevron-left">
+  <div
+    class="pagination-section pagination-section--chevron-left"
+    *ngIf="canLeft()"
+  >
     <img src="assets/icons/shevron.svg" />
   </div>
+
   <div class="pagination-section" *ngIf="activePage !== first">
     {{ first }}
   </div>
-  <div class="pagination-section" *ngIf="leftDots()">
+
+  <div class="pagination-section pagination-section--dots" *ngIf="leftDots()">
     ...
   </div>
+
+  <div class="pagination-section" *ngIf="showPrevious()">
+    {{ activePage - 1 }}
+  </div>
+
   <div class="pagination-section pagination-section--active-page">
     {{ activePage }}
   </div>
-  <div class="pagination-section" *ngIf="rightDots()">
+
+  <div class="pagination-section" *ngIf="showNext()">
+    {{ activePage + 1 }}
+  </div>
+
+  <div class="pagination-section pagination-section--dots" *ngIf="rightDots()">
     ...
   </div>
+
   <div class="pagination-section" *ngIf="activePage !== total">
     {{ total }}
   </div>
-  <div class="pagination-section pagination-section--chevron-right">
+
+  <div
+    class="pagination-section pagination-section--chevron-right"
+    *ngIf="canRight()"
+  >
     <img src="assets/icons/shevron.svg" />
   </div>
 </div>

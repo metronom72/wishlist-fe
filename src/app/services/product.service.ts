@@ -21,7 +21,6 @@ export class ProductService {
           (e) => `http://localhost:3000/${e}`
         );
         const { attributes, ...data } = values.data;
-        console.log(attributes, data);
         this.product.next({
           ...data,
           ...attributes,

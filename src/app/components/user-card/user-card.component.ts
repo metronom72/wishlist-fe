@@ -40,9 +40,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
-  changePhoto() {
-    console.log('CHANGE_PHOTO');
-  }
+  changePhoto() {}
 
   ngOnInit(): void {
     this.breakpointObserver

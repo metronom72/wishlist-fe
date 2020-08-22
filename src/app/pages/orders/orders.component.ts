@@ -24,9 +24,7 @@ export class OrdersComponent implements OnInit {
   isWishlist: boolean = true;
   wishlist;
 
-  nextStep() {
-    console.log('PAYMENT_ORDER');
-  }
+  nextStep() {}
 
   fakeAdress = {
     apartment: 'Lenina, 29',
@@ -47,13 +45,11 @@ export class OrdersComponent implements OnInit {
       });
     this.adress = this.fakeAdress;
     this.currentOrder = this.orderService.currentOrder;
-    console.log('ORDER_COMPONENT', this.currentOrder);
 
     this.wishlistService.fetchWishlist();
 
     this.wishlistService.wishlist.subscribe({
       next: (wishlist) => {
-        console.log('WISHLIST', wishlist);
         this.wishlist = wishlist;
         this.isLoading = false;
         if (
