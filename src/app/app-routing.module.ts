@@ -16,9 +16,10 @@ const routes: Routes = [
     path: 'catalog/:page',
     component: ProductListComponent,
   },
-  // {
-  //   path: 'products/pages/:id',
-  // },
+  {
+    path: 'category/:category',
+    component: ProductListComponent,
+  },
   {
     path: 'products/:id',
     component: ProductComponent,
@@ -47,13 +48,6 @@ const routes: Routes = [
     path: 'orders',
     component: OrdersComponent,
   },
-
-  // {
-  //   path: 'orders/:id',
-  // },
-  // {
-  //   path: 'me',
-  // },
   {
     path: 'auth',
     component: AuthregComponent,

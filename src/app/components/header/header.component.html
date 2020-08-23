@@ -72,7 +72,7 @@
         *ngFor="let category of categoriesService.rootCategories"
         (mouseenter)="onHoverCategory(category.id)"
       >
-        <a>
+        <a [routerLink]="['category', category.id]">
           {{ category.title }}
         </a>
       </li>
@@ -89,7 +89,7 @@
           class="submenu-item"
           *ngFor="let category of subcategories"
         >
-          <a>
+          <a [routerLink]="['category', category.id]">
             {{ category.title }}
           </a>
         </li>
@@ -109,7 +109,7 @@
           (click)="onClickSubcategoriesMobile(category.id)"
           class="menu-item mobile"
         >
-          <a>
+          <a [routerLink]="['category', category.id]">
             {{ category.title }}
           </a>
           <ul
@@ -124,7 +124,7 @@
               "
               class="submenu-item mobile"
             >
-              <a>
+              <a [routerLink]="['category', category.id]">
                 {{ subcategory.title }}
               </a>
             </li>
