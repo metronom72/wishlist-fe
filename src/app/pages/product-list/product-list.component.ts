@@ -19,15 +19,18 @@ export class ProductListComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd && /^\/catalog/.test(event.url)) {
-        const page = parseInt(this.route.snapshot.params['page'], 10);
-        this.activePage = page;
-        this.productsListService.page.next(page);
-        this.productsListService.fetchProduct();
+      if (
+        event instanceof NavigationEnd &&
+        (/^\/catalog/.test(event.url) || /^\/category/.test(event.url))
+      ) {
+        this.fetchProducts();
       }
     });
   }
+
   public activePage = 1;
+
+  public type = 'catalog';
 
   total = () => {
     return this.productsListService.total.getValue();
@@ -36,9 +39,18 @@ export class ProductListComponent implements OnInit {
     return this.productsListService.perPage.getValue();
   };
 
-  ngOnInit(): void {
+  fetchProducts = () => {
     this.activePage = parseInt(this.route.snapshot.params['page'], 10);
     this.productsListService.page.next(this.activePage);
-    this.productsListService.fetchProduct();
+    const category = parseInt(this.route.snapshot.params['category'], 10);
+
+    if (category) this.type = 'category';
+    else this.type = 'catalog';
+
+    this.productsListService.fetchProduct(category);
+  };
+
+  ngOnInit(): void {
+    this.fetchProducts();
   }
 }

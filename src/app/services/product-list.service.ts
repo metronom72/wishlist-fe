@@ -22,31 +22,33 @@ export class ProductListService {
   );
   public total: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  fetchProduct() {
-    this.http
-      .get(
-        `http://localhost:3000//api/v1/products?page=${this.page.getValue()}&per_page=${this.perPage.getValue()}`
-      )
-      .subscribe(
-        (values: any) => {
-          const { page, perPage, total, products } = values.data.attributes;
-          this.page.next(parseInt(page, 10));
-          this.perPage.next(parseInt(perPage, 10));
-          this.total.next(parseInt(total, 10));
-          this.products.next(
-            products.data.map(
-              ({ id, attributes: { images, ...attributes } }) => ({
-                id: id,
-                images: images.map((img) => `http://localhost:3000${img}`),
-                ...attributes,
-              })
-            )
-          );
-        },
+  fetchProduct(category = null) {
+    let url = '';
+    if (category) {
+      url = `http://localhost:3000/api/v1/products/${category}?page=${this.page.getValue()}&per_page=${this.perPage.getValue()}`;
+    } else {
+      url = `http://localhost:3000/api/v1/products?page=${this.page.getValue()}&per_page=${this.perPage.getValue()}`;
+    }
+    this.http.get(url).subscribe(
+      (values: any) => {
+        const { page, perPage, total, products } = values.data.attributes;
+        this.page.next(parseInt(page, 10));
+        this.perPage.next(parseInt(perPage, 10));
+        this.total.next(parseInt(total, 10));
+        this.products.next(
+          products.data.map(
+            ({ id, attributes: { images, ...attributes } }) => ({
+              id: id,
+              images: images.map((img) => `http://localhost:3000${img}`),
+              ...attributes,
+            })
+          )
+        );
+      },
 
-        (errors: { errors: object[] }) => {
-          this.errors.next(errors.errors);
-        }
-      );
+      (errors: { errors: object[] }) => {
+        this.errors.next(errors.errors);
+      }
+    );
   }
 }
